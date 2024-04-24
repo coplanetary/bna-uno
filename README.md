@@ -98,7 +98,7 @@ It will show tasks that you can run with Nx.
 ## Connect with us!
 
 - [Join the community](https://github.com/coplanetary)
-- [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@risavkarna)
+- [Subscribe to the anArchitekt Youtube Channel](https://www.youtube.com/@risavkarna)
 - [Follow us on Twitter](https://twitter.com/risavkarna)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
