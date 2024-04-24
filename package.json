@@ -25,6 +25,7 @@
     "@swc-node/register": "~1.8.0",
     "@swc/core": "~1.3.85",
     "@swc/helpers": "~0.5.2",
+    "@tauri-apps/cli": "^1.5.11",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "@vitest/ui": "^1.3.1",
@@ -44,5 +45,7 @@
     "vite": "~5.0.0",
     "vitest": "^1.3.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "hono": "^4.2.7"
+  }
 }
