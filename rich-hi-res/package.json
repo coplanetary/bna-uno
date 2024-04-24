@@ -1,0 +1,9 @@
+{
+  "name": "rich-hi-res",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "svelte": "../node_modules/svelte"
+  }
+}

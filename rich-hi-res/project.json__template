@@ -1,0 +1,71 @@
+{
+  "name": "rich-hi-res",
+  "$schema": "..//node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "rich-hi-res/rich-hi-res/src",
+  "projectType": "application",
+  "tags": ["scope:app"],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/rich-hi-res/rich-hi-res"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test"
+    },
+    "serve": {
+      "executor": "@nx/vite:serve"
+    },
+    "dev": {
+      "executor": "@nx/vite:dev-server"
+    },
+    "preview": {
+      "executor": "@nx/vite:preview"
+    },
+    "component": {
+      "executor": "@nxext/sveltekit:component",
+      "options": {
+        "project": "rich-hi-res",
+        "unitTestRunner": "vitest"
+      }
+    },
+    "route": {
+      "executor": "@nxext/sveltekit:route",
+      "options": {
+        "project": "rich-hi-res",
+        "unitTestRunner": "vitest"
+      }
+    },
+    "add": {
+      "executor": "@nxext/sveltekit:add"
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["rich-hi-res/frontend/**/*.{ts,svelte,spec.ts}"],
+        "ignorePath": "rich-hi-res/rich-hi-res/.gitignore"
+      }
+    },
+    "check": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "command": "svelte-check",
+        "cwd": "apps/rich-hi-res",
+        "tsconfig": "./tsconfig.app.json"
+      }
+    },
+    "e2e": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "command": "playwright test",
+        "cwd": "rich-hi-res/rich-hi-res"
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+  }
