@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 // https://astro.build/config
 export default defineConfig({
   outDir: '../dist/blazin-fastro',
+  site: "https://anarchitecture.wiki",
   integrations: [
     lit(),
     preact(),
