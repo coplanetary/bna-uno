@@ -11,6 +11,28 @@ Before we dive into code, let's visualize the structure:
 - **Tauri**: Enabling desktop features, enhancing the apps' reach.
 - **Hono | Uno**: Reusable business logic and utilities shared across the apps.
 
+## Your Stellar Development Suite!
+
+This project houses a constellation of tools to craft amazing web experiences! Let's explore each one and see how they'll help you reach for the stars:
+
+**astrovelte** (a Tauri + SvelteKit app):
+This powerful duo combines the speed and flexibility of Astro with the rich interactivity of SvelteKit. Think of it as a rocket ship, ready to propel your desktop applications into the future!
+
+> To build apps sleek, many or 1 grand,
+> Astrovelte takes you by the hand!
+
+**blazin-fastro** (an Astro app):
+This app lives up to its name! Astro's lightning-fast performance makes it ideal for static content or content that updates infrequently. Think of it as a nimble spacecraft, zipping through the web with blazing speed.
+
+> Need blazing-fast content to show?
+> Blazin-fastro, the anarchro-way to go!
+
+**fastronomy** (a SvelteKit + Svelte 5 component library):
+This library is your personal constellation of reusable components, built with the power of Svelte 5. It'll help you build UIs that are not only beautiful but also incredibly reactive. Imagine it as a toolbox filled with cosmic building blocks for your web applications.
+
+> For reactive features, don't be a dummy,
+> Fastronomy's components make React roll into a mummy!
+
 ## Integrate with editors
 
 Enhance your Nx experience by installing [Nx Console](https://nx.dev/nx-console) for your favorite editor. Nx Console
