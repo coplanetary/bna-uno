@@ -1,0 +1,12 @@
+{
+  "name": "fastronomy",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "fastronomy",
+  "projectType": "library",
+  "targets": {
+    "check": {
+      "executor": "@nxtensions/astro:check"
+    }
+  },
+  "tags": []
+}
