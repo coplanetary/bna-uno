@@ -1,13 +1,72 @@
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./db.sql"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model Todo {
+model BlogPost {
   id String @id @default(cuid())
-  @@map("todos")
+
+  title   String
+  content String
+  context Json
+
+  authorId String
+  author   BlogPostAuthor @relation(fields: [authorId], references: [id])
+
+  spaceTimeCoordinatesId String               @unique
+  spaceTimeCoordinates   SpaceTimeCoordinates @relation(fields: [spaceTimeCoordinatesId], references: [id])
+
+  tagArrows BlogPostTagArrow[]
+
+  @@map("blog_posts")
+}
+
+model BlogPostTag {
+  id   String @id @default(cuid())
+  name String
+  descriptor String?
+
+  postArrows BlogPostTagArrow[]
+
+  @@map("blog_post_tags")
+}
+
+model BlogPostTagArrow {
+  id     String @id @default(cuid())
+
+  postId String
+  post BlogPost @relation(fields: [postId], references: [id])
+
+  tagId  String
+  tag BlogPostTag @relation(fields: [tagId], references: [id])
+
+  @@unique([postId, tagId])
+  @@map("blog_post_tag_relations")
+}
+
+model BlogPostAuthor {
+  id           String     @id @default(cuid())
+  name         String
+  blogPostList BlogPost[]
+
+  @@map("blog_post_authors")
+}
+
+model SpaceTimeCoordinates {
+  id        String @id @default(cuid())
+  latitude  Float
+  longitude Float
+  startTime Float
+  pauseTime Float?
+  stopTime  Float
+  timezone  String
+
+  blogPostId String @db.Uuid
+  BlogPost   BlogPost?
+
+  @@map("space_time_coordinates")
 }
