@@ -1,0 +1,16 @@
+{
+  "name": "qbiq",
+  "version": "0.0.1",
+  "description": "A qbiq-hono project",
+  "scripts": {
+    "build": "bun build src/index.ts",
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "hono": "^4.3.2",
+    "bun": "^1.1.7"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
