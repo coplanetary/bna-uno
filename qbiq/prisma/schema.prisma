@@ -51,7 +51,7 @@ model AppointmentType {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  appointment     Appointment[]
+  appointmentList     Appointment[]
 
   @@map("appointment_type")
 }
@@ -73,8 +73,8 @@ model Location {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Appointment     Appointment[]
-  Encounter       Encounter[]
+  appointmentList     Appointment[]
+  encounterList       Encounter[]
 
   @@map("location")
 }
@@ -94,8 +94,8 @@ model Patient {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Appointment     Appointment[]
-  Encounter       Encounter[]
+  appointmentList     Appointment[]
+  encounterList       Encounter[]
 
   @@map("patient")
 }
@@ -114,8 +114,8 @@ model Provider {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Appointment     Appointment[]
-  Encounter       Encounter[]
+  appointmentList     Appointment[]
+  encounterList      Encounter[]
 
   @@map("provider")
 }
@@ -134,12 +134,12 @@ model Form {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  FormEncounter   FormEncounter[]
-  FormResource    FormResource[]
-  FormSubmission  FormSubmission[]
-  Field           Field?           @relation(fields: [fieldId], references: [id])
+  formEncounterList   FormEncounter[]
+  formResourceList    FormResource[]
+  formSubmissionList  FormSubmission[]
+  dield           Field?           @relation(fields: [fieldId], references: [id])
   fieldId         String?
-  Encounter       Encounter[]
+  encounterList      Encounter[]
 }
 
 model FormEncounter {
@@ -180,7 +180,7 @@ model FormSubmission {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  FieldAnswer     FieldAnswer[]
+  fieldAnswerList     FieldAnswer[]
 }
 
 model Field {
@@ -195,9 +195,9 @@ model Field {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Form            Form[]
-  FieldAnswer     FieldAnswer[]
-  FieldOption     FieldOption[]
+  formList            Form[]
+  fieldAnswerList     FieldAnswer[]
+  fieldOptionList     FieldOption[]
 }
 
 model FieldAnswer {
@@ -250,10 +250,10 @@ model Encounter {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  FormEncounter   FormEncounter[]
-  FormSubmission  FormSubmission[]
-  Obs             Obs[]
-  Order           Order[]
+  formEncounterList   FormEncounter[]
+  formSubmissionList  FormSubmission[]
+  obsList             Obs[]
+  orderList           Order[]
 }
 
 model EncounterType {
@@ -265,7 +265,7 @@ model EncounterType {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Encounter       Encounter[]
+  encounterList       Encounter[]
 }
 
 model Obs {
@@ -324,7 +324,7 @@ model OrderFrequency {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Order           Order[]
+  orderList           Order[]
 }
 
 model OrderRoute {
@@ -336,7 +336,7 @@ model OrderRoute {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Order           Order[]
+  orderList           Order[]
 }
 
 model OrderType {
@@ -348,7 +348,7 @@ model OrderType {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Order           Order[]
+  orderList           Order[]
 }
 
 model OrderUnit {
@@ -360,7 +360,7 @@ model OrderUnit {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Order           Order[]
+  orderList           Order[]
 }
 
 model Concept {
@@ -433,7 +433,7 @@ model ConceptDatatype {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Concept         Concept[]
+  conceptList         Concept[]
 }
 
 model ConceptMap {
@@ -445,7 +445,7 @@ model ConceptMap {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Concept         Concept[]
+  conceptList         Concept[]
 }
 
 model ConceptName {
@@ -501,7 +501,7 @@ model ConceptSet {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Concept         Concept[]
+  conceptList         Concept[]
 }
 
 model ConceptSource {
@@ -513,7 +513,7 @@ model ConceptSource {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  Concept         Concept[]
+  conceptList         Concept[]
 }
 
 model ConceptWord {
@@ -538,7 +538,7 @@ model Resource {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
-  FormResource    FormResource[]
+  formResourceList    FormResource[]
 }
 
 model BlogPost {
@@ -554,7 +554,7 @@ model BlogPost {
   spaceTimeCoordinatesId String               @unique
   spaceTimeCoordinates   SpaceTimeCoordinates @relation(fields: [spaceTimeCoordinatesId], references: [id])
 
-  tagArrows BlogPostTagArrow[]
+  tagArrowList BlogPostTagArrow[]
 
   @@map("blog_posts")
 }
@@ -564,7 +564,7 @@ model BlogPostTag {
   name       String
   descriptor String?
 
-  postArrows BlogPostTagArrow[]
+  postArrowList BlogPostTagArrow[]
 
   @@map("blog_post_tags")
 }
