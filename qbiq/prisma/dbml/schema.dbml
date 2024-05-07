@@ -60,7 +60,7 @@ Table location {
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
   appointmentList appointment [not null]
-  encounterList Encounter [not null]
+  encounterList encounter [not null]
 }
 
 Table patient {
@@ -79,7 +79,7 @@ Table patient {
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
   appointmentList appointment [not null]
-  encounterList Encounter [not null]
+  encounterList encounter [not null]
 }
 
 Table provider {
@@ -97,10 +97,10 @@ Table provider {
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
   appointmentList appointment [not null]
-  encounterList Encounter [not null]
+  encounterList encounter [not null]
 }
 
-Table Form {
+Table form {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -114,79 +114,79 @@ Table Form {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  formEncounterList FormEncounter [not null]
-  formResourceList FormResource [not null]
-  formSubmissionList FormSubmission [not null]
-  dield Field
+  formEncounterList form_encounter [not null]
+  formResourceList form_resource [not null]
+  formSubmissionList form_submission [not null]
+  dield field
   fieldId String
-  encounterList Encounter [not null]
+  encounterList encounter [not null]
 }
 
-Table FormEncounter {
+Table form_encounter {
   id String [pk]
   uuid String [unique, not null]
   formId String [not null]
-  form Form [not null]
+  form form [not null]
   encounterId String [not null]
-  encounter Encounter [not null]
+  encounter encounter [not null]
   creator String [not null]
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
 }
 
-Table FormResource {
+Table form_resource {
   id String [pk]
   uuid String [unique, not null]
   formId String [not null]
-  form Form [not null]
+  form form [not null]
   resourceId String [not null]
-  resource Resource [not null]
+  resource resource [not null]
   creator String [not null]
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
 }
 
-Table FormSubmission {
+Table form_submission {
   id String [pk]
   uuid String [unique, not null]
   formId String [not null]
-  form Form [not null]
+  form form [not null]
   encounterId String [not null]
-  encounter Encounter [not null]
+  encounter encounter [not null]
   submissionDate DateTime [not null]
   creator String [not null]
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  fieldAnswerList FieldAnswer [not null]
+  fieldAnswerList field_answer [not null]
 }
 
-Table Field {
+Table field {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
   description String [not null]
   fieldType String [not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   creator String [not null]
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  formList Form [not null]
-  fieldAnswerList FieldAnswer [not null]
-  fieldOptionList FieldOption [not null]
+  formList form [not null]
+  fieldAnswerList field_answer [not null]
+  fieldOptionList field_option [not null]
 }
 
-Table FieldAnswer {
+Table field_answer {
   id String [pk]
   uuid String [unique, not null]
   formSubmissionId String [not null]
-  formSubmission FormSubmission [not null]
+  formSubmission form_submission [not null]
   fieldId String [not null]
-  field Field [not null]
+  field field [not null]
   value String [not null]
   creator String [not null]
   dateCreated DateTime [not null]
@@ -194,11 +194,11 @@ Table FieldAnswer {
   lastChangedDate DateTime [not null]
 }
 
-Table FieldOption {
+Table field_option {
   id String [pk]
   uuid String [unique, not null]
   fieldId String [not null]
-  field Field [not null]
+  field field [not null]
   name String [not null]
   description String [not null]
   creator String [not null]
@@ -207,17 +207,17 @@ Table FieldOption {
   lastChangedDate DateTime [not null]
 }
 
-Table Encounter {
+Table encounter {
   id String [pk]
   uuid String [unique, not null]
-  encounterType EncounterType [not null]
+  encounterType encounter_type [not null]
   encounterTypeId String [not null]
   patientId String [not null]
   patient patient [not null]
   locationId String [not null]
   location location [not null]
   formId String [not null]
-  form Form [not null]
+  form form [not null]
   providerId String [not null]
   provider provider [not null]
   startDatetime DateTime [not null]
@@ -230,13 +230,13 @@ Table Encounter {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  formEncounterList FormEncounter [not null]
-  formSubmissionList FormSubmission [not null]
-  obsList Obs [not null]
-  orderList Order [not null]
+  formEncounterList form_encounter [not null]
+  formSubmissionList form_submission [not null]
+  obsList obs [not null]
+  orderList order [not null]
 }
 
-Table EncounterType {
+Table encounter_type {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -245,16 +245,16 @@ Table EncounterType {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  encounterList Encounter [not null]
+  encounterList encounter [not null]
 }
 
-Table Obs {
+Table obs {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   encounterId String [not null]
-  encounter Encounter [not null]
+  encounter encounter [not null]
   obsDatetime DateTime [not null]
   valueDatetime DateTime [not null]
   valueNumeric Float [not null]
@@ -265,13 +265,13 @@ Table Obs {
   lastChangedDate DateTime [not null]
 }
 
-Table Order {
+Table order {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   encounterId String [not null]
-  encounter Encounter [not null]
+  encounter encounter [not null]
   orderDatetime DateTime [not null]
   instructions String [not null]
   dosage String [not null]
@@ -285,17 +285,17 @@ Table Order {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  OrderFrequency OrderFrequency
+  OrderFrequency order_frequency
   orderFrequencyId String
-  OrderRoute OrderRoute
+  OrderRoute order_route
   orderRouteId String
-  OrderType OrderType
+  OrderType order_type
   orderTypeId String
-  OrderUnit OrderUnit
+  OrderUnit order_unit
   orderUnitId String
 }
 
-Table OrderFrequency {
+Table order_frequency {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -304,10 +304,10 @@ Table OrderFrequency {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  orderList Order [not null]
+  orderList order [not null]
 }
 
-Table OrderRoute {
+Table order_route {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -316,10 +316,10 @@ Table OrderRoute {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  orderList Order [not null]
+  orderList order [not null]
 }
 
-Table OrderType {
+Table order_type {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -328,10 +328,10 @@ Table OrderType {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  orderList Order [not null]
+  orderList order [not null]
 }
 
-Table OrderUnit {
+Table order_unit {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -340,10 +340,10 @@ Table OrderUnit {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  orderList Order [not null]
+  orderList order [not null]
 }
 
-Table Concept {
+Table concept {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -358,41 +358,41 @@ Table Concept {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  metaList ConceptAnswer [not null]
-  answerList ConceptAnswer [not null]
-  fieldList Field [not null]
-  obsList Obs [not null]
-  orderList Order [not null]
-  ConceptClass ConceptClass
+  metaList concept_answer [not null]
+  answerList concept_answer [not null]
+  fieldList field [not null]
+  obsList obs [not null]
+  orderList order [not null]
+  ConceptClass concept_class
   conceptClassId String
-  ConceptDatatype ConceptDatatype
+  ConceptDatatype concept_data_type
   conceptDatatypeId String
-  conceptMap ConceptMap
+  conceptMap concept_map
   conceptMapId String
-  conceptNameList ConceptName [not null]
-  conceptNumericList ConceptNumeric [not null]
-  conceptProposalList ConceptProposal [not null]
-  conceptSet ConceptSet
+  conceptNameList concept_name [not null]
+  conceptNumericList concept_numeric [not null]
+  conceptProposalList concept_proposal [not null]
+  conceptSet concept_set
   conceptSetId String
-  conceptSource ConceptSource
+  conceptSource concept_source
   conceptSourceId String
-  conceptWordList ConceptWord [not null]
+  conceptWordList concept_word [not null]
 }
 
-Table ConceptAnswer {
+Table concept_answer {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   answerConceptId String [not null]
-  answerConcept Concept [not null]
+  answerConcept concept [not null]
   creator String [not null]
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
 }
 
-Table ConceptClass {
+Table concept_class {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -401,10 +401,10 @@ Table ConceptClass {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  conceptList Concept [not null]
+  conceptList concept [not null]
 }
 
-Table ConceptDatatype {
+Table concept_data_type {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -413,10 +413,10 @@ Table ConceptDatatype {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  conceptList Concept [not null]
+  conceptList concept [not null]
 }
 
-Table ConceptMap {
+Table concept_map {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -425,14 +425,14 @@ Table ConceptMap {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  conceptList Concept [not null]
+  conceptList concept [not null]
 }
 
-Table ConceptName {
+Table concept_name {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   name String [not null]
   locale String [not null]
   creator String [not null]
@@ -441,11 +441,11 @@ Table ConceptName {
   lastChangedDate DateTime [not null]
 }
 
-Table ConceptNumeric {
+Table concept_numeric {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   hiAbsolute Float [not null]
   hiCritical Float [not null]
   hiNormal Float [not null]
@@ -459,11 +459,11 @@ Table ConceptNumeric {
   lastChangedDate DateTime [not null]
 }
 
-Table ConceptProposal {
+Table concept_proposal {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   name String [not null]
   description String [not null]
   creator String [not null]
@@ -472,7 +472,7 @@ Table ConceptProposal {
   lastChangedDate DateTime [not null]
 }
 
-Table ConceptSet {
+Table concept_set {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -481,10 +481,10 @@ Table ConceptSet {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  conceptList Concept [not null]
+  conceptList concept [not null]
 }
 
-Table ConceptSource {
+Table concept_source {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -493,14 +493,14 @@ Table ConceptSource {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  conceptList Concept [not null]
+  conceptList concept [not null]
 }
 
-Table ConceptWord {
+Table concept_word {
   id String [pk]
   uuid String [unique, not null]
   conceptId String [not null]
-  concept Concept [not null]
+  concept concept [not null]
   word String [not null]
   locale String [not null]
   creator String [not null]
@@ -509,7 +509,7 @@ Table ConceptWord {
   lastChangedDate DateTime [not null]
 }
 
-Table Resource {
+Table resource {
   id String [pk]
   uuid String [unique, not null]
   name String [not null]
@@ -518,44 +518,44 @@ Table Resource {
   dateCreated DateTime [not null]
   lastChangedBy String [not null]
   lastChangedDate DateTime [not null]
-  formResourceList FormResource [not null]
+  formResourceList form_resource [not null]
 }
 
-Table blog_posts {
+Table blog_post {
   id String [pk]
   title String [not null]
   content String [not null]
   context Json [not null]
   authorId String [not null]
-  author blog_post_authors [not null]
+  author blog_post_author [not null]
   spaceTimeCoordinatesId String [unique, not null]
   spaceTimeCoordinates space_time_coordinates [not null]
-  tagArrowList blog_post_tag_relations [not null]
+  tagArrowList blog_post_tag_arrow [not null]
 }
 
-Table blog_post_tags {
+Table blog_post_tag {
   id String [pk]
   name String [not null]
   descriptor String
-  postArrowList blog_post_tag_relations [not null]
+  postArrowList blog_post_tag_arrow [not null]
 }
 
-Table blog_post_tag_relations {
+Table blog_post_tag_arrow {
   id String [pk]
   postId String [not null]
-  post blog_posts [not null]
+  post blog_post [not null]
   tagId String [not null]
-  tag blog_post_tags [not null]
+  tag blog_post_tag [not null]
 
   indexes {
     (postId, tagId) [unique]
   }
 }
 
-Table blog_post_authors {
+Table blog_post_author {
   id String [pk]
   name String [not null]
-  blogPostList blog_posts [not null]
+  blogPostList blog_post [not null]
 }
 
 Table space_time_coordinates {
@@ -567,7 +567,7 @@ Table space_time_coordinates {
   stopTime Float [not null]
   timezone String [not null]
   blogPostId String [not null]
-  BlogPost blog_posts
+  BlogPost blog_post
 }
 
 Ref: appointment.appointmentTypeId > appointment_type.id
@@ -578,80 +578,80 @@ Ref: appointment.locationId > location.id
 
 Ref: appointment.providerId > provider.id
 
-Ref: Form.fieldId > Field.id
+Ref: form.fieldId > field.id
 
-Ref: FormEncounter.formId > Form.id
+Ref: form_encounter.formId > form.id
 
-Ref: FormEncounter.encounterId > Encounter.id
+Ref: form_encounter.encounterId > encounter.id
 
-Ref: FormResource.formId > Form.id
+Ref: form_resource.formId > form.id
 
-Ref: FormResource.resourceId > Resource.id
+Ref: form_resource.resourceId > resource.id
 
-Ref: FormSubmission.formId > Form.id
+Ref: form_submission.formId > form.id
 
-Ref: FormSubmission.encounterId > Encounter.id
+Ref: form_submission.encounterId > encounter.id
 
-Ref: Field.conceptId > Concept.id
+Ref: field.conceptId > concept.id
 
-Ref: FieldAnswer.formSubmissionId > FormSubmission.id
+Ref: field_answer.formSubmissionId > form_submission.id
 
-Ref: FieldAnswer.fieldId > Field.id
+Ref: field_answer.fieldId > field.id
 
-Ref: FieldOption.fieldId > Field.id
+Ref: field_option.fieldId > field.id
 
-Ref: Encounter.encounterTypeId > EncounterType.id
+Ref: encounter.encounterTypeId > encounter_type.id
 
-Ref: Encounter.patientId > patient.id
+Ref: encounter.patientId > patient.id
 
-Ref: Encounter.locationId > location.id
+Ref: encounter.locationId > location.id
 
-Ref: Encounter.formId > Form.id
+Ref: encounter.formId > form.id
 
-Ref: Encounter.providerId > provider.id
+Ref: encounter.providerId > provider.id
 
-Ref: Obs.conceptId > Concept.id
+Ref: obs.conceptId > concept.id
 
-Ref: Obs.encounterId > Encounter.id
+Ref: obs.encounterId > encounter.id
 
-Ref: Order.conceptId > Concept.id
+Ref: order.conceptId > concept.id
 
-Ref: Order.encounterId > Encounter.id
+Ref: order.encounterId > encounter.id
 
-Ref: Order.orderFrequencyId > OrderFrequency.id
+Ref: order.orderFrequencyId > order_frequency.id
 
-Ref: Order.orderRouteId > OrderRoute.id
+Ref: order.orderRouteId > order_route.id
 
-Ref: Order.orderTypeId > OrderType.id
+Ref: order.orderTypeId > order_type.id
 
-Ref: Order.orderUnitId > OrderUnit.id
+Ref: order.orderUnitId > order_unit.id
 
-Ref: Concept.conceptClassId > ConceptClass.id
+Ref: concept.conceptClassId > concept_class.id
 
-Ref: Concept.conceptDatatypeId > ConceptDatatype.id
+Ref: concept.conceptDatatypeId > concept_data_type.id
 
-Ref: Concept.conceptMapId > ConceptMap.id
+Ref: concept.conceptMapId > concept_map.id
 
-Ref: Concept.conceptSetId > ConceptSet.id
+Ref: concept.conceptSetId > concept_set.id
 
-Ref: Concept.conceptSourceId > ConceptSource.id
+Ref: concept.conceptSourceId > concept_source.id
 
-Ref: ConceptAnswer.conceptId > Concept.id
+Ref: concept_answer.conceptId > concept.id
 
-Ref: ConceptAnswer.answerConceptId > Concept.id
+Ref: concept_answer.answerConceptId > concept.id
 
-Ref: ConceptName.conceptId > Concept.id
+Ref: concept_name.conceptId > concept.id
 
-Ref: ConceptNumeric.conceptId > Concept.id
+Ref: concept_numeric.conceptId > concept.id
 
-Ref: ConceptProposal.conceptId > Concept.id
+Ref: concept_proposal.conceptId > concept.id
 
-Ref: ConceptWord.conceptId > Concept.id
+Ref: concept_word.conceptId > concept.id
 
-Ref: blog_posts.authorId > blog_post_authors.id
+Ref: blog_post.authorId > blog_post_author.id
 
-Ref: blog_posts.spaceTimeCoordinatesId - space_time_coordinates.id
+Ref: blog_post.spaceTimeCoordinatesId - space_time_coordinates.id
 
-Ref: blog_post_tag_relations.postId > blog_posts.id
+Ref: blog_post_tag_arrow.postId > blog_post.id
 
-Ref: blog_post_tag_relations.tagId > blog_post_tags.id
+Ref: blog_post_tag_arrow.tagId > blog_post_tag.id

@@ -1,9 +1,15 @@
-import { Hono } from 'hono'
+import { Prisma } from '@prisma/client';
+import { Hono } from 'hono';
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.get('/hello', (c) => {
+  return c.text('Hello from QbiQ!')
+});
 
-export default app
+app.get('/meta', (c) => {
+  return c.json(Prisma.dmmf.datamodel.models)
+});
+
+
+export default app;

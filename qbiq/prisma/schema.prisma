@@ -1,12 +1,13 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator client {
+  provider      = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output        = "../src/client"
 }
 
-generator client {
-  provider = "prisma-client-js"
-  binaryTargets = ["native"]
-  output = "../src/client"
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 generator dbml {
@@ -151,6 +152,8 @@ model Form {
   dield              Field?           @relation(fields: [fieldId], references: [id])
   fieldId            String?
   encounterList      Encounter[]
+
+  @@map("form")
 }
 
 model FormEncounter {
@@ -164,6 +167,8 @@ model FormEncounter {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("form_encounter")
 }
 
 model FormResource {
@@ -177,6 +182,8 @@ model FormResource {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("form_resource")
 }
 
 model FormSubmission {
@@ -192,6 +199,8 @@ model FormSubmission {
   lastChangedBy   String
   lastChangedDate DateTime
   fieldAnswerList FieldAnswer[]
+
+  @@map("form_submission")
 }
 
 model Field {
@@ -209,6 +218,8 @@ model Field {
   formList        Form[]
   fieldAnswerList FieldAnswer[]
   fieldOptionList FieldOption[]
+
+  @@map("field")
 }
 
 model FieldAnswer {
@@ -223,6 +234,8 @@ model FieldAnswer {
   dateCreated      DateTime
   lastChangedBy    String
   lastChangedDate  DateTime
+
+  @@map("field_answer")
 }
 
 model FieldOption {
@@ -236,6 +249,8 @@ model FieldOption {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("field_option")
 }
 
 model Encounter {
@@ -265,6 +280,8 @@ model Encounter {
   formSubmissionList FormSubmission[]
   obsList            Obs[]
   orderList          Order[]
+
+  @@map("encounter")
 }
 
 model EncounterType {
@@ -277,6 +294,8 @@ model EncounterType {
   lastChangedBy   String
   lastChangedDate DateTime
   encounterList   Encounter[]
+
+  @@map("encounter_type")
 }
 
 model Obs {
@@ -294,6 +313,8 @@ model Obs {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("obs")
 }
 
 model Order {
@@ -324,6 +345,8 @@ model Order {
   orderTypeId      String?
   OrderUnit        OrderUnit?      @relation(fields: [orderUnitId], references: [id])
   orderUnitId      String?
+
+  @@map("order")
 }
 
 model OrderFrequency {
@@ -336,6 +359,8 @@ model OrderFrequency {
   lastChangedBy   String
   lastChangedDate DateTime
   orderList       Order[]
+
+  @@map("order_frequency")
 }
 
 model OrderRoute {
@@ -348,6 +373,8 @@ model OrderRoute {
   lastChangedBy   String
   lastChangedDate DateTime
   orderList       Order[]
+
+  @@map("order_route")
 }
 
 model OrderType {
@@ -360,6 +387,8 @@ model OrderType {
   lastChangedBy   String
   lastChangedDate DateTime
   orderList       Order[]
+
+  @@map("order_type")
 }
 
 model OrderUnit {
@@ -372,6 +401,8 @@ model OrderUnit {
   lastChangedBy   String
   lastChangedDate DateTime
   orderList       Order[]
+
+  @@map("order_unit")
 }
 
 model Concept {
@@ -408,6 +439,8 @@ model Concept {
   conceptSource       ConceptSource?    @relation(fields: [conceptSourceId], references: [id])
   conceptSourceId     String?
   conceptWordList     ConceptWord[]
+
+  @@map("concept")
 }
 
 model ConceptAnswer {
@@ -421,6 +454,8 @@ model ConceptAnswer {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("concept_answer")
 }
 
 model ConceptClass {
@@ -433,6 +468,8 @@ model ConceptClass {
   lastChangedBy   String
   lastChangedDate DateTime
   conceptList     Concept[]
+
+  @@map("concept_class")
 }
 
 model ConceptDatatype {
@@ -445,6 +482,8 @@ model ConceptDatatype {
   lastChangedBy   String
   lastChangedDate DateTime
   conceptList     Concept[]
+
+  @@map("concept_data_type")
 }
 
 model ConceptMap {
@@ -457,6 +496,8 @@ model ConceptMap {
   lastChangedBy   String
   lastChangedDate DateTime
   conceptList     Concept[]
+
+  @@map("concept_map")
 }
 
 model ConceptName {
@@ -470,6 +511,8 @@ model ConceptName {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("concept_name")
 }
 
 model ConceptNumeric {
@@ -488,6 +531,8 @@ model ConceptNumeric {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("concept_numeric")
 }
 
 model ConceptProposal {
@@ -501,6 +546,8 @@ model ConceptProposal {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("concept_proposal")
 }
 
 model ConceptSet {
@@ -513,6 +560,8 @@ model ConceptSet {
   lastChangedBy   String
   lastChangedDate DateTime
   conceptList     Concept[]
+
+  @@map("concept_set")
 }
 
 model ConceptSource {
@@ -525,6 +574,8 @@ model ConceptSource {
   lastChangedBy   String
   lastChangedDate DateTime
   conceptList     Concept[]
+
+  @@map("concept_source")
 }
 
 model ConceptWord {
@@ -538,6 +589,8 @@ model ConceptWord {
   dateCreated     DateTime
   lastChangedBy   String
   lastChangedDate DateTime
+
+  @@map("concept_word")
 }
 
 model Resource {
@@ -550,6 +603,8 @@ model Resource {
   lastChangedBy    String
   lastChangedDate  DateTime
   formResourceList FormResource[]
+
+  @@map("resource")
 }
 
 model BlogPost {
@@ -567,7 +622,7 @@ model BlogPost {
 
   tagArrowList BlogPostTagArrow[]
 
-  @@map("blog_posts")
+  @@map("blog_post")
 }
 
 model BlogPostTag {
@@ -577,7 +632,7 @@ model BlogPostTag {
 
   postArrowList BlogPostTagArrow[]
 
-  @@map("blog_post_tags")
+  @@map("blog_post_tag")
 }
 
 model BlogPostTagArrow {
@@ -590,7 +645,7 @@ model BlogPostTagArrow {
   tag   BlogPostTag @relation(fields: [tagId], references: [id])
 
   @@unique([postId, tagId])
-  @@map("blog_post_tag_relations")
+  @@map("blog_post_tag_arrow")
 }
 
 model BlogPostAuthor {
@@ -598,7 +653,7 @@ model BlogPostAuthor {
   name         String
   blogPostList BlogPost[]
 
-  @@map("blog_post_authors")
+  @@map("blog_post_author")
 }
 
 model SpaceTimeCoordinates {
