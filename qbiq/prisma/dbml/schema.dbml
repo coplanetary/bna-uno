@@ -1,0 +1,657 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table appointment {
+  id String [pk]
+  uuid String [unique, not null]
+  appointmentTypeId String [not null]
+  appointmentType appointment_type [not null]
+  patientId String [not null]
+  patient patient [not null]
+  locationId String [not null]
+  location location [not null]
+  providerId String [not null]
+  provider provider [not null]
+  startDatetime DateTime [not null]
+  endDatetime DateTime [not null]
+  voided Boolean [not null, default: false]
+  voidedBy String [not null]
+  dateVoided DateTime [not null]
+  voidReason String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+
+  indexes {
+    (patientId, locationId, providerId) [unique]
+  }
+}
+
+Table appointment_type {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  duration Int [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  appointmentList appointment [not null]
+}
+
+Table location {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  address1 String [not null]
+  address2 String [not null]
+  city String [not null]
+  stateProvince String [not null]
+  country String [not null]
+  postalCode String [not null]
+  latitude Float [not null]
+  longitude Float [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  appointmentList appointment [not null]
+  encounterList Encounter [not null]
+}
+
+Table patient {
+  id String [pk]
+  uuid String [unique, not null]
+  givenName String [not null]
+  middleName String [not null]
+  familyName String [not null]
+  gender String [not null]
+  birthdate DateTime [not null]
+  dead Boolean [not null, default: false]
+  deathDate DateTime [not null]
+  causeOfDeath String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  appointmentList appointment [not null]
+  encounterList Encounter [not null]
+}
+
+Table provider {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  identifier String [not null]
+  description String [not null]
+  voided Boolean [not null, default: false]
+  voidedBy String [not null]
+  dateVoided DateTime [not null]
+  voidReason String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  appointmentList appointment [not null]
+  encounterList Encounter [not null]
+}
+
+Table Form {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  version String [not null]
+  retired Boolean [not null, default: false]
+  retiredBy String [not null]
+  dateRetired DateTime [not null]
+  retiredReason String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  formEncounterList FormEncounter [not null]
+  formResourceList FormResource [not null]
+  formSubmissionList FormSubmission [not null]
+  dield Field
+  fieldId String
+  encounterList Encounter [not null]
+}
+
+Table FormEncounter {
+  id String [pk]
+  uuid String [unique, not null]
+  formId String [not null]
+  form Form [not null]
+  encounterId String [not null]
+  encounter Encounter [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table FormResource {
+  id String [pk]
+  uuid String [unique, not null]
+  formId String [not null]
+  form Form [not null]
+  resourceId String [not null]
+  resource Resource [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table FormSubmission {
+  id String [pk]
+  uuid String [unique, not null]
+  formId String [not null]
+  form Form [not null]
+  encounterId String [not null]
+  encounter Encounter [not null]
+  submissionDate DateTime [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  fieldAnswerList FieldAnswer [not null]
+}
+
+Table Field {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  fieldType String [not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  formList Form [not null]
+  fieldAnswerList FieldAnswer [not null]
+  fieldOptionList FieldOption [not null]
+}
+
+Table FieldAnswer {
+  id String [pk]
+  uuid String [unique, not null]
+  formSubmissionId String [not null]
+  formSubmission FormSubmission [not null]
+  fieldId String [not null]
+  field Field [not null]
+  value String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table FieldOption {
+  id String [pk]
+  uuid String [unique, not null]
+  fieldId String [not null]
+  field Field [not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table Encounter {
+  id String [pk]
+  uuid String [unique, not null]
+  encounterType EncounterType [not null]
+  encounterTypeId String [not null]
+  patientId String [not null]
+  patient patient [not null]
+  locationId String [not null]
+  location location [not null]
+  formId String [not null]
+  form Form [not null]
+  providerId String [not null]
+  provider provider [not null]
+  startDatetime DateTime [not null]
+  endDatetime DateTime [not null]
+  voided Boolean [not null, default: false]
+  voidedBy String [not null]
+  dateVoided DateTime [not null]
+  voidReason String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  formEncounterList FormEncounter [not null]
+  formSubmissionList FormSubmission [not null]
+  obsList Obs [not null]
+  orderList Order [not null]
+}
+
+Table EncounterType {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  encounterList Encounter [not null]
+}
+
+Table Obs {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  encounterId String [not null]
+  encounter Encounter [not null]
+  obsDatetime DateTime [not null]
+  valueDatetime DateTime [not null]
+  valueNumeric Float [not null]
+  valueText String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table Order {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  encounterId String [not null]
+  encounter Encounter [not null]
+  orderDatetime DateTime [not null]
+  instructions String [not null]
+  dosage String [not null]
+  route String [not null]
+  frequency String [not null]
+  asNeeded Boolean [not null, default: false]
+  prn Boolean [not null, default: false]
+  quantity Int [not null]
+  units String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  OrderFrequency OrderFrequency
+  orderFrequencyId String
+  OrderRoute OrderRoute
+  orderRouteId String
+  OrderType OrderType
+  orderTypeId String
+  OrderUnit OrderUnit
+  orderUnitId String
+}
+
+Table OrderFrequency {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  orderList Order [not null]
+}
+
+Table OrderRoute {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  orderList Order [not null]
+}
+
+Table OrderType {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  orderList Order [not null]
+}
+
+Table OrderUnit {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  orderList Order [not null]
+}
+
+Table Concept {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  dataType String [not null]
+  class String [not null]
+  isRetired Boolean [not null, default: false]
+  retiredBy String [not null]
+  dateRetired DateTime [not null]
+  retiredReason String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  metaList ConceptAnswer [not null]
+  answerList ConceptAnswer [not null]
+  fieldList Field [not null]
+  obsList Obs [not null]
+  orderList Order [not null]
+  ConceptClass ConceptClass
+  conceptClassId String
+  ConceptDatatype ConceptDatatype
+  conceptDatatypeId String
+  conceptMap ConceptMap
+  conceptMapId String
+  conceptNameList ConceptName [not null]
+  conceptNumericList ConceptNumeric [not null]
+  conceptProposalList ConceptProposal [not null]
+  conceptSet ConceptSet
+  conceptSetId String
+  conceptSource ConceptSource
+  conceptSourceId String
+  conceptWordList ConceptWord [not null]
+}
+
+Table ConceptAnswer {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  answerConceptId String [not null]
+  answerConcept Concept [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table ConceptClass {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  conceptList Concept [not null]
+}
+
+Table ConceptDatatype {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  conceptList Concept [not null]
+}
+
+Table ConceptMap {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  conceptList Concept [not null]
+}
+
+Table ConceptName {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  name String [not null]
+  locale String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table ConceptNumeric {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  hiAbsolute Float [not null]
+  hiCritical Float [not null]
+  hiNormal Float [not null]
+  lowAbsolute Float [not null]
+  lowCritical Float [not null]
+  lowNormal Float [not null]
+  units String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table ConceptProposal {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table ConceptSet {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  conceptList Concept [not null]
+}
+
+Table ConceptSource {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  conceptList Concept [not null]
+}
+
+Table ConceptWord {
+  id String [pk]
+  uuid String [unique, not null]
+  conceptId String [not null]
+  concept Concept [not null]
+  word String [not null]
+  locale String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+}
+
+Table Resource {
+  id String [pk]
+  uuid String [unique, not null]
+  name String [not null]
+  description String [not null]
+  creator String [not null]
+  dateCreated DateTime [not null]
+  lastChangedBy String [not null]
+  lastChangedDate DateTime [not null]
+  formResourceList FormResource [not null]
+}
+
+Table blog_posts {
+  id String [pk]
+  title String [not null]
+  content String [not null]
+  context Json [not null]
+  authorId String [not null]
+  author blog_post_authors [not null]
+  spaceTimeCoordinatesId String [unique, not null]
+  spaceTimeCoordinates space_time_coordinates [not null]
+  tagArrowList blog_post_tag_relations [not null]
+}
+
+Table blog_post_tags {
+  id String [pk]
+  name String [not null]
+  descriptor String
+  postArrowList blog_post_tag_relations [not null]
+}
+
+Table blog_post_tag_relations {
+  id String [pk]
+  postId String [not null]
+  post blog_posts [not null]
+  tagId String [not null]
+  tag blog_post_tags [not null]
+
+  indexes {
+    (postId, tagId) [unique]
+  }
+}
+
+Table blog_post_authors {
+  id String [pk]
+  name String [not null]
+  blogPostList blog_posts [not null]
+}
+
+Table space_time_coordinates {
+  id String [pk]
+  latitude Float [not null]
+  longitude Float [not null]
+  startTime Float [not null]
+  pauseTime Float
+  stopTime Float [not null]
+  timezone String [not null]
+  blogPostId String [not null]
+  BlogPost blog_posts
+}
+
+Ref: appointment.appointmentTypeId > appointment_type.id
+
+Ref: appointment.patientId > patient.id
+
+Ref: appointment.locationId > location.id
+
+Ref: appointment.providerId > provider.id
+
+Ref: Form.fieldId > Field.id
+
+Ref: FormEncounter.formId > Form.id
+
+Ref: FormEncounter.encounterId > Encounter.id
+
+Ref: FormResource.formId > Form.id
+
+Ref: FormResource.resourceId > Resource.id
+
+Ref: FormSubmission.formId > Form.id
+
+Ref: FormSubmission.encounterId > Encounter.id
+
+Ref: Field.conceptId > Concept.id
+
+Ref: FieldAnswer.formSubmissionId > FormSubmission.id
+
+Ref: FieldAnswer.fieldId > Field.id
+
+Ref: FieldOption.fieldId > Field.id
+
+Ref: Encounter.encounterTypeId > EncounterType.id
+
+Ref: Encounter.patientId > patient.id
+
+Ref: Encounter.locationId > location.id
+
+Ref: Encounter.formId > Form.id
+
+Ref: Encounter.providerId > provider.id
+
+Ref: Obs.conceptId > Concept.id
+
+Ref: Obs.encounterId > Encounter.id
+
+Ref: Order.conceptId > Concept.id
+
+Ref: Order.encounterId > Encounter.id
+
+Ref: Order.orderFrequencyId > OrderFrequency.id
+
+Ref: Order.orderRouteId > OrderRoute.id
+
+Ref: Order.orderTypeId > OrderType.id
+
+Ref: Order.orderUnitId > OrderUnit.id
+
+Ref: Concept.conceptClassId > ConceptClass.id
+
+Ref: Concept.conceptDatatypeId > ConceptDatatype.id
+
+Ref: Concept.conceptMapId > ConceptMap.id
+
+Ref: Concept.conceptSetId > ConceptSet.id
+
+Ref: Concept.conceptSourceId > ConceptSource.id
+
+Ref: ConceptAnswer.conceptId > Concept.id
+
+Ref: ConceptAnswer.answerConceptId > Concept.id
+
+Ref: ConceptName.conceptId > Concept.id
+
+Ref: ConceptNumeric.conceptId > Concept.id
+
+Ref: ConceptProposal.conceptId > Concept.id
+
+Ref: ConceptWord.conceptId > Concept.id
+
+Ref: blog_posts.authorId > blog_post_authors.id
+
+Ref: blog_posts.spaceTimeCoordinatesId - space_time_coordinates.id
+
+Ref: blog_post_tag_relations.postId > blog_posts.id
+
+Ref: blog_post_tag_relations.tagId > blog_post_tags.id

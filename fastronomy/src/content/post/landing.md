@@ -1,15 +1,4 @@
----
-publishDate: 2023-07-15T00:00:00Z
-title: 'Mastering Landing Pages: Practical Guide for 2023'
-excerpt: Ever clicked on an ad and found yourself on a page that seemed to really want you to do something? Congratulations, you've landed on a Landing Page!
-image: https://images.unsplash.com/photo-1561069934-eee225952461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
-tags:
-  - landing-pages
-  - front-end
-  - resources
-metadata:
-  canonical: https://astrowind.vercel.app/landing
----
+
 
 In the vast digital landscape, standing out is more than a desire—it's a necessity. Enter the world of Landing Pages, the unsung heroes of digital marketing. With the power of the AstroWind template, developed using Astro and Tailwind CSS, crafting these pages becomes even more intuitive. Let's dive deep into understanding, creating, and optimizing them.
 
