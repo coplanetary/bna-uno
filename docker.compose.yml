@@ -1,0 +1,26 @@
+networks:
+  my-network:
+    driver: bridge
+
+services:
+  paradedb:
+    image: paradedb/paradedb:latest
+    ports:
+      - "5432:5432"
+    env_file:
+      - ".env"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - my-network
+
+  hono:
+    build: ./qbiq
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - paradedb
+    networks:
+      - my-network
