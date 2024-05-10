@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -12,19 +15,38 @@
     "sharedGlobals": []
   },
   "nxCloudAccessToken": "ZjMzZWRhYTctYWI2ZS00NzM5LWI0MGYtNTM1MWNlMTE4YzYyfHJlYWQtd3JpdGU=",
-  "plugins": ["@nxtensions/astro"],
+  "plugins": [
+    "@nxtensions/astro",
+    {
+      "plugin": "@nx/nuxt/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve"
+      }
+    }
+  ],
   "targetDefaults": {
     "@nxtensions/astro:build": {
-      "inputs": ["production", "^production"],
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "inputs": [
+        "production",
+        "^production"
+      ],
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
       "cache": true
     },
     "@nxtensions/astro:check": {
-      "inputs": ["production", "^production"],
+      "inputs": [
+        "production",
+        "^production"
+      ],
       "cache": true
     },
     "@nxtensions/astro:preview": {
-      "dependsOn": ["build"]
+      "dependsOn": [
+        "build"
+      ]
     },
     "@nx/eslint:lint": {
       "cache": true,
@@ -37,12 +59,20 @@
     },
     "@nx/vite:test": {
       "cache": true,
-      "inputs": ["default", "^production"]
+      "inputs": [
+        "default",
+        "^production"
+      ]
     },
     "@nx/vite:build": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     }
   },
   "defaultProject": "blazin-fastro"

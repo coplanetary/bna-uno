@@ -11,7 +11,8 @@ tmp
 
 # dependencies
 node_modules
-
+package-lock.json
+# only use bun.lockb
 # IDEs and editors
 /.idea
 .project
