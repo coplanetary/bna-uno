@@ -1,6 +1,5 @@
-import { Prisma } from '@prisma/client';
 import { Hono } from 'hono';
-import { PrismaClient } from './client';
+import { PrismaClient, Prisma } from './client';
 
 const app = new Hono();
 const prisma = new PrismaClient({
@@ -17,13 +16,13 @@ app.get('/meta', (c) => {
 
 app.get('meta/:model', (c) => {
   const model = c.req.param("model");
-  const refs = (prisma as any)[model]['fields'];
-  if (refs) {
-    return c.json(refs);
+  const prismModel = (prisma as any)[model];
+  if (prismModel) {
+    return c.json(prismModel['fields']);
   } else {
     return c.json({});
   }
-})
+});
 
 
 export default app;
