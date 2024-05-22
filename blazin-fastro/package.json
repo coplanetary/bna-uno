@@ -1,0 +1,14 @@
+{
+  "name": "blazin-fastro",
+  "module": "src/pages/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "@copla/fastronomy": "*"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,10 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import { Fastronomy } from '@copla/fastronomy';
+import { Card } from '../components/index.astro'
+import { LandingLayout } from '@copla/fastronomy';
+
+const layoutProp = {
+  title: 'My Title',
+}
 ---
 
-<Layout title="Welcome to Astro.">
+<LandingLayout metadata={layoutProp}>
 	<>
 		<svg
 			class="astro-a"
@@ -71,9 +74,8 @@ import { Fastronomy } from '@copla/fastronomy';
 				body="Come chat in the Nx Discord community. ❤️"
 			/>
 		</ul>
-    <Fastronomy></Fastronomy>
 	</main>
-</Layout>
+</LandingLayout>
 
 <style>
 	main {

@@ -30,7 +30,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/fastro/*": ["fastronomy/src/*"]
     }
   },
   "include": ["index.ts", "src"]

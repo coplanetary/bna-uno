@@ -1,7 +1,7 @@
-const {
+import { join } from 'path';
+import {
   createGlobPatternsForDependencies,
-} = require('@nxtensions/astro/tailwind');
-const { join } = require('path');
+} from '@nxtensions/astro/tailwind';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

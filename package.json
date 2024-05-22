@@ -92,6 +92,7 @@
     "hono": "^4.2.7",
     "limax": "^4.1.0",
     "lodash.merge": "^4.6.2",
+    "postcss-preset-env": "^9.5.11",
     "unpic": "^3.18.0"
   }
 }

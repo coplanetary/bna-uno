@@ -17,7 +17,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@copla/fastronomy": ["fastronomy/index.ts"]
+      "@copla/fastro-utils": ["fastro-utils/index.ts"],
+      "@copla/fastronomy": ["fastronomy/index.ts"],
+      "~/fastro/*": ["fastronomy/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
