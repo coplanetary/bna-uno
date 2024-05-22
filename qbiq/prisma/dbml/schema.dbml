@@ -570,6 +570,90 @@ Table space_time_coordinates {
   BlogPost blog_post
 }
 
+Table BudgetEntry {
+  id String [pk]
+  serviceId String [not null]
+  service Service [not null]
+  cost Float [not null]
+  discount Float [not null]
+  promotion Float [not null]
+  subtotal Float [not null]
+  percentChange Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  budgetId String [not null]
+  budget Budget [not null]
+}
+
+Table Service {
+  id String [pk]
+  description String [not null]
+  category String [not null]
+  metadata Json [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  entryList BudgetEntry [not null]
+}
+
+Table Budget {
+  id String [pk]
+  entryList BudgetEntry [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  fiscalYear Int [not null]
+  reportId String
+  report Report
+  userList BudgetBudgetUser [not null]
+}
+
+Table Report {
+  id String [pk]
+  budgetId String [unique, not null]
+  budget Budget [not null]
+  totalCost Float [not null]
+  totalDiscount Float [not null]
+  totalPromotion Float [not null]
+  totalSubtotal Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table BudgetUser {
+  id String [pk]
+  name String [not null]
+  email String [unique, not null]
+  password String [not null]
+  budgetList BudgetBudgetUser [not null]
+  eventList BudEvent [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table BudgetBudgetUser {
+  userId String [not null]
+  user BudgetUser [not null]
+  budgetId String [not null]
+  budget Budget [not null]
+  role String [not null]
+  ability String [not null]
+  category String [not null]
+
+  indexes {
+    (userId, budgetId) [pk]
+  }
+}
+
+Table BudEvent {
+  id String [pk]
+  type String [not null]
+  description String [not null]
+  categoryList String[] [not null]
+  metadata Json [not null]
+  budUserId String [not null]
+  budUser BudgetUser [not null]
+  createdAt DateTime [default: `now()`, not null]
+}
+
 Ref: appointment.appointmentTypeId > appointment_type.id
 
 Ref: appointment.patientId > patient.id
@@ -655,3 +739,15 @@ Ref: blog_post.spaceTimeCoordinatesId - space_time_coordinates.id
 Ref: blog_post_tag_arrow.postId > blog_post.id
 
 Ref: blog_post_tag_arrow.tagId > blog_post_tag.id
+
+Ref: BudgetEntry.serviceId > Service.id
+
+Ref: BudgetEntry.budgetId > Budget.id
+
+Ref: Report.budgetId - Budget.id
+
+Ref: BudgetBudgetUser.userId > BudgetUser.id
+
+Ref: BudgetBudgetUser.budgetId > Budget.id
+
+Ref: BudEvent.budUserId > BudgetUser.id

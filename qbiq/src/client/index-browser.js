@@ -593,6 +593,74 @@ exports.Prisma.SpaceTimeCoordinatesScalarFieldEnum = {
   blogPostId: 'blogPostId'
 };
 
+exports.Prisma.BudgetEntryScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  cost: 'cost',
+  discount: 'discount',
+  promotion: 'promotion',
+  subtotal: 'subtotal',
+  percentChange: 'percentChange',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  budgetId: 'budgetId'
+};
+
+exports.Prisma.ServiceScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  category: 'category',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BudgetScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  fiscalYear: 'fiscalYear',
+  reportId: 'reportId'
+};
+
+exports.Prisma.ReportScalarFieldEnum = {
+  id: 'id',
+  budgetId: 'budgetId',
+  totalCost: 'totalCost',
+  totalDiscount: 'totalDiscount',
+  totalPromotion: 'totalPromotion',
+  totalSubtotal: 'totalSubtotal',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BudUserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BudgetBudUserScalarFieldEnum = {
+  userId: 'userId',
+  budgetId: 'budgetId',
+  role: 'role',
+  ability: 'ability',
+  category: 'category'
+};
+
+exports.Prisma.BudEventScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  description: 'description',
+  categoryList: 'categoryList',
+  metadata: 'metadata',
+  budUserId: 'budUserId',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -656,7 +724,14 @@ exports.Prisma.ModelName = {
   BlogPostTag: 'BlogPostTag',
   BlogPostTagArrow: 'BlogPostTagArrow',
   BlogPostAuthor: 'BlogPostAuthor',
-  SpaceTimeCoordinates: 'SpaceTimeCoordinates'
+  SpaceTimeCoordinates: 'SpaceTimeCoordinates',
+  BudgetEntry: 'BudgetEntry',
+  Service: 'Service',
+  Budget: 'Budget',
+  Report: 'Report',
+  BudUser: 'BudUser',
+  BudgetBudUser: 'BudgetBudUser',
+  BudEvent: 'BudEvent'
 };
 
 /**

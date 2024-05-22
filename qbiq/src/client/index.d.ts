@@ -198,6 +198,41 @@ export type BlogPostAuthor = $Result.DefaultSelection<Prisma.$BlogPostAuthorPayl
  * 
  */
 export type SpaceTimeCoordinates = $Result.DefaultSelection<Prisma.$SpaceTimeCoordinatesPayload>
+/**
+ * Model BudgetEntry
+ * 
+ */
+export type BudgetEntry = $Result.DefaultSelection<Prisma.$BudgetEntryPayload>
+/**
+ * Model Service
+ * 
+ */
+export type Service = $Result.DefaultSelection<Prisma.$ServicePayload>
+/**
+ * Model Budget
+ * 
+ */
+export type Budget = $Result.DefaultSelection<Prisma.$BudgetPayload>
+/**
+ * Model Report
+ * 
+ */
+export type Report = $Result.DefaultSelection<Prisma.$ReportPayload>
+/**
+ * Model BudUser
+ * 
+ */
+export type BudUser = $Result.DefaultSelection<Prisma.$BudUserPayload>
+/**
+ * Model BudgetBudUser
+ * 
+ */
+export type BudgetBudUser = $Result.DefaultSelection<Prisma.$BudgetBudUserPayload>
+/**
+ * Model BudEvent
+ * 
+ */
+export type BudEvent = $Result.DefaultSelection<Prisma.$BudEventPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -690,6 +725,76 @@ export class PrismaClient<
     * ```
     */
   get spaceTimeCoordinates(): Prisma.SpaceTimeCoordinatesDelegate<ExtArgs>;
+
+  /**
+   * `prisma.budgetEntry`: Exposes CRUD operations for the **BudgetEntry** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BudgetEntries
+    * const budgetEntries = await prisma.budgetEntry.findMany()
+    * ```
+    */
+  get budgetEntry(): Prisma.BudgetEntryDelegate<ExtArgs>;
+
+  /**
+   * `prisma.service`: Exposes CRUD operations for the **Service** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Services
+    * const services = await prisma.service.findMany()
+    * ```
+    */
+  get service(): Prisma.ServiceDelegate<ExtArgs>;
+
+  /**
+   * `prisma.budget`: Exposes CRUD operations for the **Budget** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Budgets
+    * const budgets = await prisma.budget.findMany()
+    * ```
+    */
+  get budget(): Prisma.BudgetDelegate<ExtArgs>;
+
+  /**
+   * `prisma.report`: Exposes CRUD operations for the **Report** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Reports
+    * const reports = await prisma.report.findMany()
+    * ```
+    */
+  get report(): Prisma.ReportDelegate<ExtArgs>;
+
+  /**
+   * `prisma.budUser`: Exposes CRUD operations for the **BudUser** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BudUsers
+    * const budUsers = await prisma.budUser.findMany()
+    * ```
+    */
+  get budUser(): Prisma.BudUserDelegate<ExtArgs>;
+
+  /**
+   * `prisma.budgetBudUser`: Exposes CRUD operations for the **BudgetBudUser** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BudgetBudUsers
+    * const budgetBudUsers = await prisma.budgetBudUser.findMany()
+    * ```
+    */
+  get budgetBudUser(): Prisma.BudgetBudUserDelegate<ExtArgs>;
+
+  /**
+   * `prisma.budEvent`: Exposes CRUD operations for the **BudEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BudEvents
+    * const budEvents = await prisma.budEvent.findMany()
+    * ```
+    */
+  get budEvent(): Prisma.BudEventDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1203,7 +1308,14 @@ export namespace Prisma {
     BlogPostTag: 'BlogPostTag',
     BlogPostTagArrow: 'BlogPostTagArrow',
     BlogPostAuthor: 'BlogPostAuthor',
-    SpaceTimeCoordinates: 'SpaceTimeCoordinates'
+    SpaceTimeCoordinates: 'SpaceTimeCoordinates',
+    BudgetEntry: 'BudgetEntry',
+    Service: 'Service',
+    Budget: 'Budget',
+    Report: 'Report',
+    BudUser: 'BudUser',
+    BudgetBudUser: 'BudgetBudUser',
+    BudEvent: 'BudEvent'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1220,7 +1332,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'appointment' | 'appointmentType' | 'location' | 'patient' | 'provider' | 'form' | 'formEncounter' | 'formResource' | 'formSubmission' | 'field' | 'fieldAnswer' | 'fieldOption' | 'encounter' | 'encounterType' | 'obs' | 'order' | 'orderFrequency' | 'orderRoute' | 'orderType' | 'orderUnit' | 'concept' | 'conceptAnswer' | 'conceptClass' | 'conceptDatatype' | 'conceptMap' | 'conceptName' | 'conceptNumeric' | 'conceptProposal' | 'conceptSet' | 'conceptSource' | 'conceptWord' | 'resource' | 'blogPost' | 'blogPostTag' | 'blogPostTagArrow' | 'blogPostAuthor' | 'spaceTimeCoordinates'
+      modelProps: 'appointment' | 'appointmentType' | 'location' | 'patient' | 'provider' | 'form' | 'formEncounter' | 'formResource' | 'formSubmission' | 'field' | 'fieldAnswer' | 'fieldOption' | 'encounter' | 'encounterType' | 'obs' | 'order' | 'orderFrequency' | 'orderRoute' | 'orderType' | 'orderUnit' | 'concept' | 'conceptAnswer' | 'conceptClass' | 'conceptDatatype' | 'conceptMap' | 'conceptName' | 'conceptNumeric' | 'conceptProposal' | 'conceptSet' | 'conceptSource' | 'conceptWord' | 'resource' | 'blogPost' | 'blogPostTag' | 'blogPostTagArrow' | 'blogPostAuthor' | 'spaceTimeCoordinates' | 'budgetEntry' | 'service' | 'budget' | 'report' | 'budUser' | 'budgetBudUser' | 'budEvent'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -3666,6 +3778,468 @@ export namespace Prisma {
           }
         }
       }
+      BudgetEntry: {
+        payload: Prisma.$BudgetEntryPayload<ExtArgs>
+        fields: Prisma.BudgetEntryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BudgetEntryFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BudgetEntryFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>
+          }
+          findFirst: {
+            args: Prisma.BudgetEntryFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BudgetEntryFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>
+          }
+          findMany: {
+            args: Prisma.BudgetEntryFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>[]
+          }
+          create: {
+            args: Prisma.BudgetEntryCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>
+          }
+          createMany: {
+            args: Prisma.BudgetEntryCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BudgetEntryDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>
+          }
+          update: {
+            args: Prisma.BudgetEntryUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>
+          }
+          deleteMany: {
+            args: Prisma.BudgetEntryDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BudgetEntryUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BudgetEntryUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetEntryPayload>
+          }
+          aggregate: {
+            args: Prisma.BudgetEntryAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBudgetEntry>
+          }
+          groupBy: {
+            args: Prisma.BudgetEntryGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BudgetEntryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BudgetEntryCountArgs<ExtArgs>,
+            result: $Utils.Optional<BudgetEntryCountAggregateOutputType> | number
+          }
+        }
+      }
+      Service: {
+        payload: Prisma.$ServicePayload<ExtArgs>
+        fields: Prisma.ServiceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ServiceFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ServiceFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          findFirst: {
+            args: Prisma.ServiceFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ServiceFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          findMany: {
+            args: Prisma.ServiceFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>[]
+          }
+          create: {
+            args: Prisma.ServiceCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          createMany: {
+            args: Prisma.ServiceCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.ServiceDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          update: {
+            args: Prisma.ServiceUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          deleteMany: {
+            args: Prisma.ServiceDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ServiceUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.ServiceUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          aggregate: {
+            args: Prisma.ServiceAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateService>
+          }
+          groupBy: {
+            args: Prisma.ServiceGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ServiceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ServiceCountArgs<ExtArgs>,
+            result: $Utils.Optional<ServiceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Budget: {
+        payload: Prisma.$BudgetPayload<ExtArgs>
+        fields: Prisma.BudgetFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BudgetFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BudgetFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>
+          }
+          findFirst: {
+            args: Prisma.BudgetFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BudgetFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>
+          }
+          findMany: {
+            args: Prisma.BudgetFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>[]
+          }
+          create: {
+            args: Prisma.BudgetCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>
+          }
+          createMany: {
+            args: Prisma.BudgetCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BudgetDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>
+          }
+          update: {
+            args: Prisma.BudgetUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>
+          }
+          deleteMany: {
+            args: Prisma.BudgetDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BudgetUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BudgetUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>
+          }
+          aggregate: {
+            args: Prisma.BudgetAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBudget>
+          }
+          groupBy: {
+            args: Prisma.BudgetGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BudgetGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BudgetCountArgs<ExtArgs>,
+            result: $Utils.Optional<BudgetCountAggregateOutputType> | number
+          }
+        }
+      }
+      Report: {
+        payload: Prisma.$ReportPayload<ExtArgs>
+        fields: Prisma.ReportFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReportFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReportFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
+          }
+          findFirst: {
+            args: Prisma.ReportFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReportFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
+          }
+          findMany: {
+            args: Prisma.ReportFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>[]
+          }
+          create: {
+            args: Prisma.ReportCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
+          }
+          createMany: {
+            args: Prisma.ReportCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.ReportDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
+          }
+          update: {
+            args: Prisma.ReportUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReportDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReportUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.ReportUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
+          }
+          aggregate: {
+            args: Prisma.ReportAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateReport>
+          }
+          groupBy: {
+            args: Prisma.ReportGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ReportGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReportCountArgs<ExtArgs>,
+            result: $Utils.Optional<ReportCountAggregateOutputType> | number
+          }
+        }
+      }
+      BudUser: {
+        payload: Prisma.$BudUserPayload<ExtArgs>
+        fields: Prisma.BudUserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BudUserFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BudUserFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>
+          }
+          findFirst: {
+            args: Prisma.BudUserFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BudUserFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>
+          }
+          findMany: {
+            args: Prisma.BudUserFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>[]
+          }
+          create: {
+            args: Prisma.BudUserCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>
+          }
+          createMany: {
+            args: Prisma.BudUserCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BudUserDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>
+          }
+          update: {
+            args: Prisma.BudUserUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>
+          }
+          deleteMany: {
+            args: Prisma.BudUserDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BudUserUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BudUserUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudUserPayload>
+          }
+          aggregate: {
+            args: Prisma.BudUserAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBudUser>
+          }
+          groupBy: {
+            args: Prisma.BudUserGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BudUserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BudUserCountArgs<ExtArgs>,
+            result: $Utils.Optional<BudUserCountAggregateOutputType> | number
+          }
+        }
+      }
+      BudgetBudUser: {
+        payload: Prisma.$BudgetBudUserPayload<ExtArgs>
+        fields: Prisma.BudgetBudUserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BudgetBudUserFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BudgetBudUserFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>
+          }
+          findFirst: {
+            args: Prisma.BudgetBudUserFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BudgetBudUserFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>
+          }
+          findMany: {
+            args: Prisma.BudgetBudUserFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>[]
+          }
+          create: {
+            args: Prisma.BudgetBudUserCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>
+          }
+          createMany: {
+            args: Prisma.BudgetBudUserCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BudgetBudUserDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>
+          }
+          update: {
+            args: Prisma.BudgetBudUserUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>
+          }
+          deleteMany: {
+            args: Prisma.BudgetBudUserDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BudgetBudUserUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BudgetBudUserUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudgetBudUserPayload>
+          }
+          aggregate: {
+            args: Prisma.BudgetBudUserAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBudgetBudUser>
+          }
+          groupBy: {
+            args: Prisma.BudgetBudUserGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BudgetBudUserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BudgetBudUserCountArgs<ExtArgs>,
+            result: $Utils.Optional<BudgetBudUserCountAggregateOutputType> | number
+          }
+        }
+      }
+      BudEvent: {
+        payload: Prisma.$BudEventPayload<ExtArgs>
+        fields: Prisma.BudEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BudEventFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BudEventFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>
+          }
+          findFirst: {
+            args: Prisma.BudEventFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BudEventFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>
+          }
+          findMany: {
+            args: Prisma.BudEventFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>[]
+          }
+          create: {
+            args: Prisma.BudEventCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>
+          }
+          createMany: {
+            args: Prisma.BudEventCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BudEventDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>
+          }
+          update: {
+            args: Prisma.BudEventUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.BudEventDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BudEventUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BudEventUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BudEventPayload>
+          }
+          aggregate: {
+            args: Prisma.BudEventAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBudEvent>
+          }
+          groupBy: {
+            args: Prisma.BudEventGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BudEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BudEventCountArgs<ExtArgs>,
+            result: $Utils.Optional<BudEventCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -4701,6 +5275,117 @@ export namespace Prisma {
    */
   export type BlogPostAuthorCountOutputTypeCountBlogPostListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BlogPostWhereInput
+  }
+
+
+  /**
+   * Count Type ServiceCountOutputType
+   */
+
+  export type ServiceCountOutputType = {
+    entryList: number
+  }
+
+  export type ServiceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    entryList?: boolean | ServiceCountOutputTypeCountEntryListArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ServiceCountOutputType without action
+   */
+  export type ServiceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceCountOutputType
+     */
+    select?: ServiceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ServiceCountOutputType without action
+   */
+  export type ServiceCountOutputTypeCountEntryListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetEntryWhereInput
+  }
+
+
+  /**
+   * Count Type BudgetCountOutputType
+   */
+
+  export type BudgetCountOutputType = {
+    entryList: number
+    userList: number
+  }
+
+  export type BudgetCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    entryList?: boolean | BudgetCountOutputTypeCountEntryListArgs
+    userList?: boolean | BudgetCountOutputTypeCountUserListArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BudgetCountOutputType without action
+   */
+  export type BudgetCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetCountOutputType
+     */
+    select?: BudgetCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BudgetCountOutputType without action
+   */
+  export type BudgetCountOutputTypeCountEntryListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetEntryWhereInput
+  }
+
+  /**
+   * BudgetCountOutputType without action
+   */
+  export type BudgetCountOutputTypeCountUserListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetBudUserWhereInput
+  }
+
+
+  /**
+   * Count Type BudUserCountOutputType
+   */
+
+  export type BudUserCountOutputType = {
+    budgetList: number
+    eventList: number
+  }
+
+  export type BudUserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    budgetList?: boolean | BudUserCountOutputTypeCountBudgetListArgs
+    eventList?: boolean | BudUserCountOutputTypeCountEventListArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BudUserCountOutputType without action
+   */
+  export type BudUserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUserCountOutputType
+     */
+    select?: BudUserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BudUserCountOutputType without action
+   */
+  export type BudUserCountOutputTypeCountBudgetListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetBudUserWhereInput
+  }
+
+  /**
+   * BudUserCountOutputType without action
+   */
+  export type BudUserCountOutputTypeCountEventListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudEventWhereInput
   }
 
 
@@ -41688,6 +42373,6737 @@ export namespace Prisma {
 
 
   /**
+   * Model BudgetEntry
+   */
+
+  export type AggregateBudgetEntry = {
+    _count: BudgetEntryCountAggregateOutputType | null
+    _avg: BudgetEntryAvgAggregateOutputType | null
+    _sum: BudgetEntrySumAggregateOutputType | null
+    _min: BudgetEntryMinAggregateOutputType | null
+    _max: BudgetEntryMaxAggregateOutputType | null
+  }
+
+  export type BudgetEntryAvgAggregateOutputType = {
+    cost: number | null
+    discount: number | null
+    promotion: number | null
+    subtotal: number | null
+    percentChange: number | null
+  }
+
+  export type BudgetEntrySumAggregateOutputType = {
+    cost: number | null
+    discount: number | null
+    promotion: number | null
+    subtotal: number | null
+    percentChange: number | null
+  }
+
+  export type BudgetEntryMinAggregateOutputType = {
+    id: string | null
+    serviceId: string | null
+    cost: number | null
+    discount: number | null
+    promotion: number | null
+    subtotal: number | null
+    percentChange: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    budgetId: string | null
+  }
+
+  export type BudgetEntryMaxAggregateOutputType = {
+    id: string | null
+    serviceId: string | null
+    cost: number | null
+    discount: number | null
+    promotion: number | null
+    subtotal: number | null
+    percentChange: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    budgetId: string | null
+  }
+
+  export type BudgetEntryCountAggregateOutputType = {
+    id: number
+    serviceId: number
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt: number
+    updatedAt: number
+    budgetId: number
+    _all: number
+  }
+
+
+  export type BudgetEntryAvgAggregateInputType = {
+    cost?: true
+    discount?: true
+    promotion?: true
+    subtotal?: true
+    percentChange?: true
+  }
+
+  export type BudgetEntrySumAggregateInputType = {
+    cost?: true
+    discount?: true
+    promotion?: true
+    subtotal?: true
+    percentChange?: true
+  }
+
+  export type BudgetEntryMinAggregateInputType = {
+    id?: true
+    serviceId?: true
+    cost?: true
+    discount?: true
+    promotion?: true
+    subtotal?: true
+    percentChange?: true
+    createdAt?: true
+    updatedAt?: true
+    budgetId?: true
+  }
+
+  export type BudgetEntryMaxAggregateInputType = {
+    id?: true
+    serviceId?: true
+    cost?: true
+    discount?: true
+    promotion?: true
+    subtotal?: true
+    percentChange?: true
+    createdAt?: true
+    updatedAt?: true
+    budgetId?: true
+  }
+
+  export type BudgetEntryCountAggregateInputType = {
+    id?: true
+    serviceId?: true
+    cost?: true
+    discount?: true
+    promotion?: true
+    subtotal?: true
+    percentChange?: true
+    createdAt?: true
+    updatedAt?: true
+    budgetId?: true
+    _all?: true
+  }
+
+  export type BudgetEntryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudgetEntry to aggregate.
+     */
+    where?: BudgetEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetEntries to fetch.
+     */
+    orderBy?: BudgetEntryOrderByWithRelationInput | BudgetEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BudgetEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetEntries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BudgetEntries
+    **/
+    _count?: true | BudgetEntryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BudgetEntryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BudgetEntrySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BudgetEntryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BudgetEntryMaxAggregateInputType
+  }
+
+  export type GetBudgetEntryAggregateType<T extends BudgetEntryAggregateArgs> = {
+        [P in keyof T & keyof AggregateBudgetEntry]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBudgetEntry[P]>
+      : GetScalarType<T[P], AggregateBudgetEntry[P]>
+  }
+
+
+
+
+  export type BudgetEntryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetEntryWhereInput
+    orderBy?: BudgetEntryOrderByWithAggregationInput | BudgetEntryOrderByWithAggregationInput[]
+    by: BudgetEntryScalarFieldEnum[] | BudgetEntryScalarFieldEnum
+    having?: BudgetEntryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BudgetEntryCountAggregateInputType | true
+    _avg?: BudgetEntryAvgAggregateInputType
+    _sum?: BudgetEntrySumAggregateInputType
+    _min?: BudgetEntryMinAggregateInputType
+    _max?: BudgetEntryMaxAggregateInputType
+  }
+
+  export type BudgetEntryGroupByOutputType = {
+    id: string
+    serviceId: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt: Date
+    updatedAt: Date
+    budgetId: string
+    _count: BudgetEntryCountAggregateOutputType | null
+    _avg: BudgetEntryAvgAggregateOutputType | null
+    _sum: BudgetEntrySumAggregateOutputType | null
+    _min: BudgetEntryMinAggregateOutputType | null
+    _max: BudgetEntryMaxAggregateOutputType | null
+  }
+
+  type GetBudgetEntryGroupByPayload<T extends BudgetEntryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BudgetEntryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BudgetEntryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BudgetEntryGroupByOutputType[P]>
+            : GetScalarType<T[P], BudgetEntryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BudgetEntrySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    serviceId?: boolean
+    cost?: boolean
+    discount?: boolean
+    promotion?: boolean
+    subtotal?: boolean
+    percentChange?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    budgetId?: boolean
+    service?: boolean | ServiceDefaultArgs<ExtArgs>
+    budget?: boolean | BudgetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["budgetEntry"]>
+
+  export type BudgetEntrySelectScalar = {
+    id?: boolean
+    serviceId?: boolean
+    cost?: boolean
+    discount?: boolean
+    promotion?: boolean
+    subtotal?: boolean
+    percentChange?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    budgetId?: boolean
+  }
+
+
+  export type BudgetEntryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    service?: boolean | ServiceDefaultArgs<ExtArgs>
+    budget?: boolean | BudgetDefaultArgs<ExtArgs>
+  }
+
+
+  export type $BudgetEntryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BudgetEntry"
+    objects: {
+      service: Prisma.$ServicePayload<ExtArgs>
+      budget: Prisma.$BudgetPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      serviceId: string
+      cost: number
+      discount: number
+      promotion: number
+      subtotal: number
+      percentChange: number
+      createdAt: Date
+      updatedAt: Date
+      budgetId: string
+    }, ExtArgs["result"]["budgetEntry"]>
+    composites: {}
+  }
+
+
+  type BudgetEntryGetPayload<S extends boolean | null | undefined | BudgetEntryDefaultArgs> = $Result.GetResult<Prisma.$BudgetEntryPayload, S>
+
+  type BudgetEntryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BudgetEntryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: BudgetEntryCountAggregateInputType | true
+    }
+
+  export interface BudgetEntryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BudgetEntry'], meta: { name: 'BudgetEntry' } }
+    /**
+     * Find zero or one BudgetEntry that matches the filter.
+     * @param {BudgetEntryFindUniqueArgs} args - Arguments to find a BudgetEntry
+     * @example
+     * // Get one BudgetEntry
+     * const budgetEntry = await prisma.budgetEntry.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BudgetEntryFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetEntryFindUniqueArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BudgetEntry that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {BudgetEntryFindUniqueOrThrowArgs} args - Arguments to find a BudgetEntry
+     * @example
+     * // Get one BudgetEntry
+     * const budgetEntry = await prisma.budgetEntry.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BudgetEntryFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetEntryFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BudgetEntry that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryFindFirstArgs} args - Arguments to find a BudgetEntry
+     * @example
+     * // Get one BudgetEntry
+     * const budgetEntry = await prisma.budgetEntry.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BudgetEntryFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetEntryFindFirstArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BudgetEntry that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryFindFirstOrThrowArgs} args - Arguments to find a BudgetEntry
+     * @example
+     * // Get one BudgetEntry
+     * const budgetEntry = await prisma.budgetEntry.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BudgetEntryFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetEntryFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BudgetEntries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BudgetEntries
+     * const budgetEntries = await prisma.budgetEntry.findMany()
+     * 
+     * // Get first 10 BudgetEntries
+     * const budgetEntries = await prisma.budgetEntry.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const budgetEntryWithIdOnly = await prisma.budgetEntry.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends BudgetEntryFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetEntryFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BudgetEntry.
+     * @param {BudgetEntryCreateArgs} args - Arguments to create a BudgetEntry.
+     * @example
+     * // Create one BudgetEntry
+     * const BudgetEntry = await prisma.budgetEntry.create({
+     *   data: {
+     *     // ... data to create a BudgetEntry
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BudgetEntryCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetEntryCreateArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BudgetEntries.
+     *     @param {BudgetEntryCreateManyArgs} args - Arguments to create many BudgetEntries.
+     *     @example
+     *     // Create many BudgetEntries
+     *     const budgetEntry = await prisma.budgetEntry.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends BudgetEntryCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetEntryCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BudgetEntry.
+     * @param {BudgetEntryDeleteArgs} args - Arguments to delete one BudgetEntry.
+     * @example
+     * // Delete one BudgetEntry
+     * const BudgetEntry = await prisma.budgetEntry.delete({
+     *   where: {
+     *     // ... filter to delete one BudgetEntry
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BudgetEntryDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetEntryDeleteArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BudgetEntry.
+     * @param {BudgetEntryUpdateArgs} args - Arguments to update one BudgetEntry.
+     * @example
+     * // Update one BudgetEntry
+     * const budgetEntry = await prisma.budgetEntry.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BudgetEntryUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetEntryUpdateArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BudgetEntries.
+     * @param {BudgetEntryDeleteManyArgs} args - Arguments to filter BudgetEntries to delete.
+     * @example
+     * // Delete a few BudgetEntries
+     * const { count } = await prisma.budgetEntry.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BudgetEntryDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetEntryDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BudgetEntries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BudgetEntries
+     * const budgetEntry = await prisma.budgetEntry.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BudgetEntryUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetEntryUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BudgetEntry.
+     * @param {BudgetEntryUpsertArgs} args - Arguments to update or create a BudgetEntry.
+     * @example
+     * // Update or create a BudgetEntry
+     * const budgetEntry = await prisma.budgetEntry.upsert({
+     *   create: {
+     *     // ... data to create a BudgetEntry
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BudgetEntry we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BudgetEntryUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetEntryUpsertArgs<ExtArgs>>
+    ): Prisma__BudgetEntryClient<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BudgetEntries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryCountArgs} args - Arguments to filter BudgetEntries to count.
+     * @example
+     * // Count the number of BudgetEntries
+     * const count = await prisma.budgetEntry.count({
+     *   where: {
+     *     // ... the filter for the BudgetEntries we want to count
+     *   }
+     * })
+    **/
+    count<T extends BudgetEntryCountArgs>(
+      args?: Subset<T, BudgetEntryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BudgetEntryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BudgetEntry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BudgetEntryAggregateArgs>(args: Subset<T, BudgetEntryAggregateArgs>): Prisma.PrismaPromise<GetBudgetEntryAggregateType<T>>
+
+    /**
+     * Group by BudgetEntry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetEntryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BudgetEntryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BudgetEntryGroupByArgs['orderBy'] }
+        : { orderBy?: BudgetEntryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BudgetEntryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBudgetEntryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BudgetEntry model
+   */
+  readonly fields: BudgetEntryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BudgetEntry.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BudgetEntryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    service<T extends ServiceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceDefaultArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    budget<T extends BudgetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BudgetDefaultArgs<ExtArgs>>): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BudgetEntry model
+   */ 
+  interface BudgetEntryFieldRefs {
+    readonly id: FieldRef<"BudgetEntry", 'String'>
+    readonly serviceId: FieldRef<"BudgetEntry", 'String'>
+    readonly cost: FieldRef<"BudgetEntry", 'Float'>
+    readonly discount: FieldRef<"BudgetEntry", 'Float'>
+    readonly promotion: FieldRef<"BudgetEntry", 'Float'>
+    readonly subtotal: FieldRef<"BudgetEntry", 'Float'>
+    readonly percentChange: FieldRef<"BudgetEntry", 'Float'>
+    readonly createdAt: FieldRef<"BudgetEntry", 'DateTime'>
+    readonly updatedAt: FieldRef<"BudgetEntry", 'DateTime'>
+    readonly budgetId: FieldRef<"BudgetEntry", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BudgetEntry findUnique
+   */
+  export type BudgetEntryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetEntry to fetch.
+     */
+    where: BudgetEntryWhereUniqueInput
+  }
+
+  /**
+   * BudgetEntry findUniqueOrThrow
+   */
+  export type BudgetEntryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetEntry to fetch.
+     */
+    where: BudgetEntryWhereUniqueInput
+  }
+
+  /**
+   * BudgetEntry findFirst
+   */
+  export type BudgetEntryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetEntry to fetch.
+     */
+    where?: BudgetEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetEntries to fetch.
+     */
+    orderBy?: BudgetEntryOrderByWithRelationInput | BudgetEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudgetEntries.
+     */
+    cursor?: BudgetEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetEntries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudgetEntries.
+     */
+    distinct?: BudgetEntryScalarFieldEnum | BudgetEntryScalarFieldEnum[]
+  }
+
+  /**
+   * BudgetEntry findFirstOrThrow
+   */
+  export type BudgetEntryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetEntry to fetch.
+     */
+    where?: BudgetEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetEntries to fetch.
+     */
+    orderBy?: BudgetEntryOrderByWithRelationInput | BudgetEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudgetEntries.
+     */
+    cursor?: BudgetEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetEntries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudgetEntries.
+     */
+    distinct?: BudgetEntryScalarFieldEnum | BudgetEntryScalarFieldEnum[]
+  }
+
+  /**
+   * BudgetEntry findMany
+   */
+  export type BudgetEntryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetEntries to fetch.
+     */
+    where?: BudgetEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetEntries to fetch.
+     */
+    orderBy?: BudgetEntryOrderByWithRelationInput | BudgetEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BudgetEntries.
+     */
+    cursor?: BudgetEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetEntries.
+     */
+    skip?: number
+    distinct?: BudgetEntryScalarFieldEnum | BudgetEntryScalarFieldEnum[]
+  }
+
+  /**
+   * BudgetEntry create
+   */
+  export type BudgetEntryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BudgetEntry.
+     */
+    data: XOR<BudgetEntryCreateInput, BudgetEntryUncheckedCreateInput>
+  }
+
+  /**
+   * BudgetEntry createMany
+   */
+  export type BudgetEntryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BudgetEntries.
+     */
+    data: BudgetEntryCreateManyInput | BudgetEntryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BudgetEntry update
+   */
+  export type BudgetEntryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BudgetEntry.
+     */
+    data: XOR<BudgetEntryUpdateInput, BudgetEntryUncheckedUpdateInput>
+    /**
+     * Choose, which BudgetEntry to update.
+     */
+    where: BudgetEntryWhereUniqueInput
+  }
+
+  /**
+   * BudgetEntry updateMany
+   */
+  export type BudgetEntryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BudgetEntries.
+     */
+    data: XOR<BudgetEntryUpdateManyMutationInput, BudgetEntryUncheckedUpdateManyInput>
+    /**
+     * Filter which BudgetEntries to update
+     */
+    where?: BudgetEntryWhereInput
+  }
+
+  /**
+   * BudgetEntry upsert
+   */
+  export type BudgetEntryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BudgetEntry to update in case it exists.
+     */
+    where: BudgetEntryWhereUniqueInput
+    /**
+     * In case the BudgetEntry found by the `where` argument doesn't exist, create a new BudgetEntry with this data.
+     */
+    create: XOR<BudgetEntryCreateInput, BudgetEntryUncheckedCreateInput>
+    /**
+     * In case the BudgetEntry was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BudgetEntryUpdateInput, BudgetEntryUncheckedUpdateInput>
+  }
+
+  /**
+   * BudgetEntry delete
+   */
+  export type BudgetEntryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    /**
+     * Filter which BudgetEntry to delete.
+     */
+    where: BudgetEntryWhereUniqueInput
+  }
+
+  /**
+   * BudgetEntry deleteMany
+   */
+  export type BudgetEntryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudgetEntries to delete
+     */
+    where?: BudgetEntryWhereInput
+  }
+
+  /**
+   * BudgetEntry without action
+   */
+  export type BudgetEntryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Service
+   */
+
+  export type AggregateService = {
+    _count: ServiceCountAggregateOutputType | null
+    _min: ServiceMinAggregateOutputType | null
+    _max: ServiceMaxAggregateOutputType | null
+  }
+
+  export type ServiceMinAggregateOutputType = {
+    id: string | null
+    description: string | null
+    category: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ServiceMaxAggregateOutputType = {
+    id: string | null
+    description: string | null
+    category: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ServiceCountAggregateOutputType = {
+    id: number
+    description: number
+    category: number
+    metadata: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ServiceMinAggregateInputType = {
+    id?: true
+    description?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ServiceMaxAggregateInputType = {
+    id?: true
+    description?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ServiceCountAggregateInputType = {
+    id?: true
+    description?: true
+    category?: true
+    metadata?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ServiceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Service to aggregate.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Services
+    **/
+    _count?: true | ServiceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ServiceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ServiceMaxAggregateInputType
+  }
+
+  export type GetServiceAggregateType<T extends ServiceAggregateArgs> = {
+        [P in keyof T & keyof AggregateService]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateService[P]>
+      : GetScalarType<T[P], AggregateService[P]>
+  }
+
+
+
+
+  export type ServiceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ServiceWhereInput
+    orderBy?: ServiceOrderByWithAggregationInput | ServiceOrderByWithAggregationInput[]
+    by: ServiceScalarFieldEnum[] | ServiceScalarFieldEnum
+    having?: ServiceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ServiceCountAggregateInputType | true
+    _min?: ServiceMinAggregateInputType
+    _max?: ServiceMaxAggregateInputType
+  }
+
+  export type ServiceGroupByOutputType = {
+    id: string
+    description: string
+    category: string
+    metadata: JsonValue
+    createdAt: Date
+    updatedAt: Date
+    _count: ServiceCountAggregateOutputType | null
+    _min: ServiceMinAggregateOutputType | null
+    _max: ServiceMaxAggregateOutputType | null
+  }
+
+  type GetServiceGroupByPayload<T extends ServiceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ServiceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ServiceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ServiceGroupByOutputType[P]>
+            : GetScalarType<T[P], ServiceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ServiceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    category?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    entryList?: boolean | Service$entryListArgs<ExtArgs>
+    _count?: boolean | ServiceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["service"]>
+
+  export type ServiceSelectScalar = {
+    id?: boolean
+    description?: boolean
+    category?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type ServiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    entryList?: boolean | Service$entryListArgs<ExtArgs>
+    _count?: boolean | ServiceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $ServicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Service"
+    objects: {
+      entryList: Prisma.$BudgetEntryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      description: string
+      category: string
+      metadata: Prisma.JsonValue
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["service"]>
+    composites: {}
+  }
+
+
+  type ServiceGetPayload<S extends boolean | null | undefined | ServiceDefaultArgs> = $Result.GetResult<Prisma.$ServicePayload, S>
+
+  type ServiceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ServiceFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ServiceCountAggregateInputType | true
+    }
+
+  export interface ServiceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Service'], meta: { name: 'Service' } }
+    /**
+     * Find zero or one Service that matches the filter.
+     * @param {ServiceFindUniqueArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends ServiceFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ServiceFindUniqueArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Service that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {ServiceFindUniqueOrThrowArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends ServiceFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ServiceFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Service that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceFindFirstArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends ServiceFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ServiceFindFirstArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Service that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceFindFirstOrThrowArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends ServiceFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ServiceFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Services that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Services
+     * const services = await prisma.service.findMany()
+     * 
+     * // Get first 10 Services
+     * const services = await prisma.service.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const serviceWithIdOnly = await prisma.service.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends ServiceFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ServiceFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Service.
+     * @param {ServiceCreateArgs} args - Arguments to create a Service.
+     * @example
+     * // Create one Service
+     * const Service = await prisma.service.create({
+     *   data: {
+     *     // ... data to create a Service
+     *   }
+     * })
+     * 
+    **/
+    create<T extends ServiceCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ServiceCreateArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Services.
+     *     @param {ServiceCreateManyArgs} args - Arguments to create many Services.
+     *     @example
+     *     // Create many Services
+     *     const service = await prisma.service.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ServiceCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ServiceCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Service.
+     * @param {ServiceDeleteArgs} args - Arguments to delete one Service.
+     * @example
+     * // Delete one Service
+     * const Service = await prisma.service.delete({
+     *   where: {
+     *     // ... filter to delete one Service
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends ServiceDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ServiceDeleteArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Service.
+     * @param {ServiceUpdateArgs} args - Arguments to update one Service.
+     * @example
+     * // Update one Service
+     * const service = await prisma.service.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends ServiceUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ServiceUpdateArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Services.
+     * @param {ServiceDeleteManyArgs} args - Arguments to filter Services to delete.
+     * @example
+     * // Delete a few Services
+     * const { count } = await prisma.service.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends ServiceDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ServiceDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Services.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Services
+     * const service = await prisma.service.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends ServiceUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ServiceUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Service.
+     * @param {ServiceUpsertArgs} args - Arguments to update or create a Service.
+     * @example
+     * // Update or create a Service
+     * const service = await prisma.service.upsert({
+     *   create: {
+     *     // ... data to create a Service
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Service we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends ServiceUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ServiceUpsertArgs<ExtArgs>>
+    ): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Services.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceCountArgs} args - Arguments to filter Services to count.
+     * @example
+     * // Count the number of Services
+     * const count = await prisma.service.count({
+     *   where: {
+     *     // ... the filter for the Services we want to count
+     *   }
+     * })
+    **/
+    count<T extends ServiceCountArgs>(
+      args?: Subset<T, ServiceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ServiceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Service.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ServiceAggregateArgs>(args: Subset<T, ServiceAggregateArgs>): Prisma.PrismaPromise<GetServiceAggregateType<T>>
+
+    /**
+     * Group by Service.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ServiceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ServiceGroupByArgs['orderBy'] }
+        : { orderBy?: ServiceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ServiceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetServiceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Service model
+   */
+  readonly fields: ServiceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Service.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ServiceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    entryList<T extends Service$entryListArgs<ExtArgs> = {}>(args?: Subset<T, Service$entryListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Service model
+   */ 
+  interface ServiceFieldRefs {
+    readonly id: FieldRef<"Service", 'String'>
+    readonly description: FieldRef<"Service", 'String'>
+    readonly category: FieldRef<"Service", 'String'>
+    readonly metadata: FieldRef<"Service", 'Json'>
+    readonly createdAt: FieldRef<"Service", 'DateTime'>
+    readonly updatedAt: FieldRef<"Service", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Service findUnique
+   */
+  export type ServiceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service findUniqueOrThrow
+   */
+  export type ServiceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service findFirst
+   */
+  export type ServiceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Services.
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Services.
+     */
+    distinct?: ServiceScalarFieldEnum | ServiceScalarFieldEnum[]
+  }
+
+  /**
+   * Service findFirstOrThrow
+   */
+  export type ServiceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Services.
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Services.
+     */
+    distinct?: ServiceScalarFieldEnum | ServiceScalarFieldEnum[]
+  }
+
+  /**
+   * Service findMany
+   */
+  export type ServiceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Services to fetch.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Services.
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    distinct?: ServiceScalarFieldEnum | ServiceScalarFieldEnum[]
+  }
+
+  /**
+   * Service create
+   */
+  export type ServiceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Service.
+     */
+    data: XOR<ServiceCreateInput, ServiceUncheckedCreateInput>
+  }
+
+  /**
+   * Service createMany
+   */
+  export type ServiceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Services.
+     */
+    data: ServiceCreateManyInput | ServiceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Service update
+   */
+  export type ServiceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Service.
+     */
+    data: XOR<ServiceUpdateInput, ServiceUncheckedUpdateInput>
+    /**
+     * Choose, which Service to update.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service updateMany
+   */
+  export type ServiceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Services.
+     */
+    data: XOR<ServiceUpdateManyMutationInput, ServiceUncheckedUpdateManyInput>
+    /**
+     * Filter which Services to update
+     */
+    where?: ServiceWhereInput
+  }
+
+  /**
+   * Service upsert
+   */
+  export type ServiceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Service to update in case it exists.
+     */
+    where: ServiceWhereUniqueInput
+    /**
+     * In case the Service found by the `where` argument doesn't exist, create a new Service with this data.
+     */
+    create: XOR<ServiceCreateInput, ServiceUncheckedCreateInput>
+    /**
+     * In case the Service was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ServiceUpdateInput, ServiceUncheckedUpdateInput>
+  }
+
+  /**
+   * Service delete
+   */
+  export type ServiceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter which Service to delete.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service deleteMany
+   */
+  export type ServiceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Services to delete
+     */
+    where?: ServiceWhereInput
+  }
+
+  /**
+   * Service.entryList
+   */
+  export type Service$entryListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    where?: BudgetEntryWhereInput
+    orderBy?: BudgetEntryOrderByWithRelationInput | BudgetEntryOrderByWithRelationInput[]
+    cursor?: BudgetEntryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BudgetEntryScalarFieldEnum | BudgetEntryScalarFieldEnum[]
+  }
+
+  /**
+   * Service without action
+   */
+  export type ServiceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Budget
+   */
+
+  export type AggregateBudget = {
+    _count: BudgetCountAggregateOutputType | null
+    _avg: BudgetAvgAggregateOutputType | null
+    _sum: BudgetSumAggregateOutputType | null
+    _min: BudgetMinAggregateOutputType | null
+    _max: BudgetMaxAggregateOutputType | null
+  }
+
+  export type BudgetAvgAggregateOutputType = {
+    fiscalYear: number | null
+  }
+
+  export type BudgetSumAggregateOutputType = {
+    fiscalYear: number | null
+  }
+
+  export type BudgetMinAggregateOutputType = {
+    id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    fiscalYear: number | null
+    reportId: string | null
+  }
+
+  export type BudgetMaxAggregateOutputType = {
+    id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    fiscalYear: number | null
+    reportId: string | null
+  }
+
+  export type BudgetCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    updatedAt: number
+    fiscalYear: number
+    reportId: number
+    _all: number
+  }
+
+
+  export type BudgetAvgAggregateInputType = {
+    fiscalYear?: true
+  }
+
+  export type BudgetSumAggregateInputType = {
+    fiscalYear?: true
+  }
+
+  export type BudgetMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    fiscalYear?: true
+    reportId?: true
+  }
+
+  export type BudgetMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    fiscalYear?: true
+    reportId?: true
+  }
+
+  export type BudgetCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    fiscalYear?: true
+    reportId?: true
+    _all?: true
+  }
+
+  export type BudgetAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Budget to aggregate.
+     */
+    where?: BudgetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Budgets to fetch.
+     */
+    orderBy?: BudgetOrderByWithRelationInput | BudgetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BudgetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Budgets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Budgets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Budgets
+    **/
+    _count?: true | BudgetCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BudgetAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BudgetSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BudgetMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BudgetMaxAggregateInputType
+  }
+
+  export type GetBudgetAggregateType<T extends BudgetAggregateArgs> = {
+        [P in keyof T & keyof AggregateBudget]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBudget[P]>
+      : GetScalarType<T[P], AggregateBudget[P]>
+  }
+
+
+
+
+  export type BudgetGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetWhereInput
+    orderBy?: BudgetOrderByWithAggregationInput | BudgetOrderByWithAggregationInput[]
+    by: BudgetScalarFieldEnum[] | BudgetScalarFieldEnum
+    having?: BudgetScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BudgetCountAggregateInputType | true
+    _avg?: BudgetAvgAggregateInputType
+    _sum?: BudgetSumAggregateInputType
+    _min?: BudgetMinAggregateInputType
+    _max?: BudgetMaxAggregateInputType
+  }
+
+  export type BudgetGroupByOutputType = {
+    id: string
+    createdAt: Date
+    updatedAt: Date
+    fiscalYear: number
+    reportId: string | null
+    _count: BudgetCountAggregateOutputType | null
+    _avg: BudgetAvgAggregateOutputType | null
+    _sum: BudgetSumAggregateOutputType | null
+    _min: BudgetMinAggregateOutputType | null
+    _max: BudgetMaxAggregateOutputType | null
+  }
+
+  type GetBudgetGroupByPayload<T extends BudgetGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BudgetGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BudgetGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BudgetGroupByOutputType[P]>
+            : GetScalarType<T[P], BudgetGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BudgetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    fiscalYear?: boolean
+    reportId?: boolean
+    entryList?: boolean | Budget$entryListArgs<ExtArgs>
+    report?: boolean | Budget$reportArgs<ExtArgs>
+    userList?: boolean | Budget$userListArgs<ExtArgs>
+    _count?: boolean | BudgetCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["budget"]>
+
+  export type BudgetSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    fiscalYear?: boolean
+    reportId?: boolean
+  }
+
+
+  export type BudgetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    entryList?: boolean | Budget$entryListArgs<ExtArgs>
+    report?: boolean | Budget$reportArgs<ExtArgs>
+    userList?: boolean | Budget$userListArgs<ExtArgs>
+    _count?: boolean | BudgetCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $BudgetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Budget"
+    objects: {
+      entryList: Prisma.$BudgetEntryPayload<ExtArgs>[]
+      report: Prisma.$ReportPayload<ExtArgs> | null
+      userList: Prisma.$BudgetBudUserPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      createdAt: Date
+      updatedAt: Date
+      fiscalYear: number
+      reportId: string | null
+    }, ExtArgs["result"]["budget"]>
+    composites: {}
+  }
+
+
+  type BudgetGetPayload<S extends boolean | null | undefined | BudgetDefaultArgs> = $Result.GetResult<Prisma.$BudgetPayload, S>
+
+  type BudgetCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BudgetFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: BudgetCountAggregateInputType | true
+    }
+
+  export interface BudgetDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Budget'], meta: { name: 'Budget' } }
+    /**
+     * Find zero or one Budget that matches the filter.
+     * @param {BudgetFindUniqueArgs} args - Arguments to find a Budget
+     * @example
+     * // Get one Budget
+     * const budget = await prisma.budget.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BudgetFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetFindUniqueArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Budget that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {BudgetFindUniqueOrThrowArgs} args - Arguments to find a Budget
+     * @example
+     * // Get one Budget
+     * const budget = await prisma.budget.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BudgetFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Budget that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetFindFirstArgs} args - Arguments to find a Budget
+     * @example
+     * // Get one Budget
+     * const budget = await prisma.budget.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BudgetFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetFindFirstArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Budget that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetFindFirstOrThrowArgs} args - Arguments to find a Budget
+     * @example
+     * // Get one Budget
+     * const budget = await prisma.budget.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BudgetFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Budgets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Budgets
+     * const budgets = await prisma.budget.findMany()
+     * 
+     * // Get first 10 Budgets
+     * const budgets = await prisma.budget.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const budgetWithIdOnly = await prisma.budget.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends BudgetFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Budget.
+     * @param {BudgetCreateArgs} args - Arguments to create a Budget.
+     * @example
+     * // Create one Budget
+     * const Budget = await prisma.budget.create({
+     *   data: {
+     *     // ... data to create a Budget
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BudgetCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetCreateArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Budgets.
+     *     @param {BudgetCreateManyArgs} args - Arguments to create many Budgets.
+     *     @example
+     *     // Create many Budgets
+     *     const budget = await prisma.budget.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends BudgetCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Budget.
+     * @param {BudgetDeleteArgs} args - Arguments to delete one Budget.
+     * @example
+     * // Delete one Budget
+     * const Budget = await prisma.budget.delete({
+     *   where: {
+     *     // ... filter to delete one Budget
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BudgetDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetDeleteArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Budget.
+     * @param {BudgetUpdateArgs} args - Arguments to update one Budget.
+     * @example
+     * // Update one Budget
+     * const budget = await prisma.budget.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BudgetUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetUpdateArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Budgets.
+     * @param {BudgetDeleteManyArgs} args - Arguments to filter Budgets to delete.
+     * @example
+     * // Delete a few Budgets
+     * const { count } = await prisma.budget.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BudgetDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Budgets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Budgets
+     * const budget = await prisma.budget.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BudgetUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Budget.
+     * @param {BudgetUpsertArgs} args - Arguments to update or create a Budget.
+     * @example
+     * // Update or create a Budget
+     * const budget = await prisma.budget.upsert({
+     *   create: {
+     *     // ... data to create a Budget
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Budget we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BudgetUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetUpsertArgs<ExtArgs>>
+    ): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Budgets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetCountArgs} args - Arguments to filter Budgets to count.
+     * @example
+     * // Count the number of Budgets
+     * const count = await prisma.budget.count({
+     *   where: {
+     *     // ... the filter for the Budgets we want to count
+     *   }
+     * })
+    **/
+    count<T extends BudgetCountArgs>(
+      args?: Subset<T, BudgetCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BudgetCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Budget.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BudgetAggregateArgs>(args: Subset<T, BudgetAggregateArgs>): Prisma.PrismaPromise<GetBudgetAggregateType<T>>
+
+    /**
+     * Group by Budget.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BudgetGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BudgetGroupByArgs['orderBy'] }
+        : { orderBy?: BudgetGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BudgetGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBudgetGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Budget model
+   */
+  readonly fields: BudgetFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Budget.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BudgetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    entryList<T extends Budget$entryListArgs<ExtArgs> = {}>(args?: Subset<T, Budget$entryListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetEntryPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    report<T extends Budget$reportArgs<ExtArgs> = {}>(args?: Subset<T, Budget$reportArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    userList<T extends Budget$userListArgs<ExtArgs> = {}>(args?: Subset<T, Budget$userListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Budget model
+   */ 
+  interface BudgetFieldRefs {
+    readonly id: FieldRef<"Budget", 'String'>
+    readonly createdAt: FieldRef<"Budget", 'DateTime'>
+    readonly updatedAt: FieldRef<"Budget", 'DateTime'>
+    readonly fiscalYear: FieldRef<"Budget", 'Int'>
+    readonly reportId: FieldRef<"Budget", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Budget findUnique
+   */
+  export type BudgetFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * Filter, which Budget to fetch.
+     */
+    where: BudgetWhereUniqueInput
+  }
+
+  /**
+   * Budget findUniqueOrThrow
+   */
+  export type BudgetFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * Filter, which Budget to fetch.
+     */
+    where: BudgetWhereUniqueInput
+  }
+
+  /**
+   * Budget findFirst
+   */
+  export type BudgetFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * Filter, which Budget to fetch.
+     */
+    where?: BudgetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Budgets to fetch.
+     */
+    orderBy?: BudgetOrderByWithRelationInput | BudgetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Budgets.
+     */
+    cursor?: BudgetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Budgets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Budgets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Budgets.
+     */
+    distinct?: BudgetScalarFieldEnum | BudgetScalarFieldEnum[]
+  }
+
+  /**
+   * Budget findFirstOrThrow
+   */
+  export type BudgetFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * Filter, which Budget to fetch.
+     */
+    where?: BudgetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Budgets to fetch.
+     */
+    orderBy?: BudgetOrderByWithRelationInput | BudgetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Budgets.
+     */
+    cursor?: BudgetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Budgets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Budgets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Budgets.
+     */
+    distinct?: BudgetScalarFieldEnum | BudgetScalarFieldEnum[]
+  }
+
+  /**
+   * Budget findMany
+   */
+  export type BudgetFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * Filter, which Budgets to fetch.
+     */
+    where?: BudgetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Budgets to fetch.
+     */
+    orderBy?: BudgetOrderByWithRelationInput | BudgetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Budgets.
+     */
+    cursor?: BudgetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Budgets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Budgets.
+     */
+    skip?: number
+    distinct?: BudgetScalarFieldEnum | BudgetScalarFieldEnum[]
+  }
+
+  /**
+   * Budget create
+   */
+  export type BudgetCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Budget.
+     */
+    data: XOR<BudgetCreateInput, BudgetUncheckedCreateInput>
+  }
+
+  /**
+   * Budget createMany
+   */
+  export type BudgetCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Budgets.
+     */
+    data: BudgetCreateManyInput | BudgetCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Budget update
+   */
+  export type BudgetUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Budget.
+     */
+    data: XOR<BudgetUpdateInput, BudgetUncheckedUpdateInput>
+    /**
+     * Choose, which Budget to update.
+     */
+    where: BudgetWhereUniqueInput
+  }
+
+  /**
+   * Budget updateMany
+   */
+  export type BudgetUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Budgets.
+     */
+    data: XOR<BudgetUpdateManyMutationInput, BudgetUncheckedUpdateManyInput>
+    /**
+     * Filter which Budgets to update
+     */
+    where?: BudgetWhereInput
+  }
+
+  /**
+   * Budget upsert
+   */
+  export type BudgetUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Budget to update in case it exists.
+     */
+    where: BudgetWhereUniqueInput
+    /**
+     * In case the Budget found by the `where` argument doesn't exist, create a new Budget with this data.
+     */
+    create: XOR<BudgetCreateInput, BudgetUncheckedCreateInput>
+    /**
+     * In case the Budget was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BudgetUpdateInput, BudgetUncheckedUpdateInput>
+  }
+
+  /**
+   * Budget delete
+   */
+  export type BudgetDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+    /**
+     * Filter which Budget to delete.
+     */
+    where: BudgetWhereUniqueInput
+  }
+
+  /**
+   * Budget deleteMany
+   */
+  export type BudgetDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Budgets to delete
+     */
+    where?: BudgetWhereInput
+  }
+
+  /**
+   * Budget.entryList
+   */
+  export type Budget$entryListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetEntry
+     */
+    select?: BudgetEntrySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetEntryInclude<ExtArgs> | null
+    where?: BudgetEntryWhereInput
+    orderBy?: BudgetEntryOrderByWithRelationInput | BudgetEntryOrderByWithRelationInput[]
+    cursor?: BudgetEntryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BudgetEntryScalarFieldEnum | BudgetEntryScalarFieldEnum[]
+  }
+
+  /**
+   * Budget.report
+   */
+  export type Budget$reportArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    where?: ReportWhereInput
+  }
+
+  /**
+   * Budget.userList
+   */
+  export type Budget$userListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    where?: BudgetBudUserWhereInput
+    orderBy?: BudgetBudUserOrderByWithRelationInput | BudgetBudUserOrderByWithRelationInput[]
+    cursor?: BudgetBudUserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BudgetBudUserScalarFieldEnum | BudgetBudUserScalarFieldEnum[]
+  }
+
+  /**
+   * Budget without action
+   */
+  export type BudgetDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Budget
+     */
+    select?: BudgetSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Report
+   */
+
+  export type AggregateReport = {
+    _count: ReportCountAggregateOutputType | null
+    _avg: ReportAvgAggregateOutputType | null
+    _sum: ReportSumAggregateOutputType | null
+    _min: ReportMinAggregateOutputType | null
+    _max: ReportMaxAggregateOutputType | null
+  }
+
+  export type ReportAvgAggregateOutputType = {
+    totalCost: number | null
+    totalDiscount: number | null
+    totalPromotion: number | null
+    totalSubtotal: number | null
+  }
+
+  export type ReportSumAggregateOutputType = {
+    totalCost: number | null
+    totalDiscount: number | null
+    totalPromotion: number | null
+    totalSubtotal: number | null
+  }
+
+  export type ReportMinAggregateOutputType = {
+    id: string | null
+    budgetId: string | null
+    totalCost: number | null
+    totalDiscount: number | null
+    totalPromotion: number | null
+    totalSubtotal: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReportMaxAggregateOutputType = {
+    id: string | null
+    budgetId: string | null
+    totalCost: number | null
+    totalDiscount: number | null
+    totalPromotion: number | null
+    totalSubtotal: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReportCountAggregateOutputType = {
+    id: number
+    budgetId: number
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ReportAvgAggregateInputType = {
+    totalCost?: true
+    totalDiscount?: true
+    totalPromotion?: true
+    totalSubtotal?: true
+  }
+
+  export type ReportSumAggregateInputType = {
+    totalCost?: true
+    totalDiscount?: true
+    totalPromotion?: true
+    totalSubtotal?: true
+  }
+
+  export type ReportMinAggregateInputType = {
+    id?: true
+    budgetId?: true
+    totalCost?: true
+    totalDiscount?: true
+    totalPromotion?: true
+    totalSubtotal?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReportMaxAggregateInputType = {
+    id?: true
+    budgetId?: true
+    totalCost?: true
+    totalDiscount?: true
+    totalPromotion?: true
+    totalSubtotal?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReportCountAggregateInputType = {
+    id?: true
+    budgetId?: true
+    totalCost?: true
+    totalDiscount?: true
+    totalPromotion?: true
+    totalSubtotal?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ReportAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Report to aggregate.
+     */
+    where?: ReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reports to fetch.
+     */
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Reports
+    **/
+    _count?: true | ReportCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReportAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReportSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReportMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReportMaxAggregateInputType
+  }
+
+  export type GetReportAggregateType<T extends ReportAggregateArgs> = {
+        [P in keyof T & keyof AggregateReport]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReport[P]>
+      : GetScalarType<T[P], AggregateReport[P]>
+  }
+
+
+
+
+  export type ReportGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReportWhereInput
+    orderBy?: ReportOrderByWithAggregationInput | ReportOrderByWithAggregationInput[]
+    by: ReportScalarFieldEnum[] | ReportScalarFieldEnum
+    having?: ReportScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReportCountAggregateInputType | true
+    _avg?: ReportAvgAggregateInputType
+    _sum?: ReportSumAggregateInputType
+    _min?: ReportMinAggregateInputType
+    _max?: ReportMaxAggregateInputType
+  }
+
+  export type ReportGroupByOutputType = {
+    id: string
+    budgetId: string
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ReportCountAggregateOutputType | null
+    _avg: ReportAvgAggregateOutputType | null
+    _sum: ReportSumAggregateOutputType | null
+    _min: ReportMinAggregateOutputType | null
+    _max: ReportMaxAggregateOutputType | null
+  }
+
+  type GetReportGroupByPayload<T extends ReportGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReportGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReportGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReportGroupByOutputType[P]>
+            : GetScalarType<T[P], ReportGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    budgetId?: boolean
+    totalCost?: boolean
+    totalDiscount?: boolean
+    totalPromotion?: boolean
+    totalSubtotal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    budget?: boolean | BudgetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["report"]>
+
+  export type ReportSelectScalar = {
+    id?: boolean
+    budgetId?: boolean
+    totalCost?: boolean
+    totalDiscount?: boolean
+    totalPromotion?: boolean
+    totalSubtotal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type ReportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    budget?: boolean | BudgetDefaultArgs<ExtArgs>
+  }
+
+
+  export type $ReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Report"
+    objects: {
+      budget: Prisma.$BudgetPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      budgetId: string
+      totalCost: number
+      totalDiscount: number
+      totalPromotion: number
+      totalSubtotal: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["report"]>
+    composites: {}
+  }
+
+
+  type ReportGetPayload<S extends boolean | null | undefined | ReportDefaultArgs> = $Result.GetResult<Prisma.$ReportPayload, S>
+
+  type ReportCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ReportFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ReportCountAggregateInputType | true
+    }
+
+  export interface ReportDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Report'], meta: { name: 'Report' } }
+    /**
+     * Find zero or one Report that matches the filter.
+     * @param {ReportFindUniqueArgs} args - Arguments to find a Report
+     * @example
+     * // Get one Report
+     * const report = await prisma.report.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends ReportFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ReportFindUniqueArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Report that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {ReportFindUniqueOrThrowArgs} args - Arguments to find a Report
+     * @example
+     * // Get one Report
+     * const report = await prisma.report.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends ReportFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReportFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Report that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportFindFirstArgs} args - Arguments to find a Report
+     * @example
+     * // Get one Report
+     * const report = await prisma.report.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends ReportFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReportFindFirstArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Report that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportFindFirstOrThrowArgs} args - Arguments to find a Report
+     * @example
+     * // Get one Report
+     * const report = await prisma.report.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends ReportFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReportFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Reports that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Reports
+     * const reports = await prisma.report.findMany()
+     * 
+     * // Get first 10 Reports
+     * const reports = await prisma.report.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const reportWithIdOnly = await prisma.report.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends ReportFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReportFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Report.
+     * @param {ReportCreateArgs} args - Arguments to create a Report.
+     * @example
+     * // Create one Report
+     * const Report = await prisma.report.create({
+     *   data: {
+     *     // ... data to create a Report
+     *   }
+     * })
+     * 
+    **/
+    create<T extends ReportCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ReportCreateArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Reports.
+     *     @param {ReportCreateManyArgs} args - Arguments to create many Reports.
+     *     @example
+     *     // Create many Reports
+     *     const report = await prisma.report.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ReportCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReportCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Report.
+     * @param {ReportDeleteArgs} args - Arguments to delete one Report.
+     * @example
+     * // Delete one Report
+     * const Report = await prisma.report.delete({
+     *   where: {
+     *     // ... filter to delete one Report
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends ReportDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ReportDeleteArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Report.
+     * @param {ReportUpdateArgs} args - Arguments to update one Report.
+     * @example
+     * // Update one Report
+     * const report = await prisma.report.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends ReportUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ReportUpdateArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Reports.
+     * @param {ReportDeleteManyArgs} args - Arguments to filter Reports to delete.
+     * @example
+     * // Delete a few Reports
+     * const { count } = await prisma.report.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends ReportDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReportDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Reports
+     * const report = await prisma.report.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends ReportUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ReportUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Report.
+     * @param {ReportUpsertArgs} args - Arguments to update or create a Report.
+     * @example
+     * // Update or create a Report
+     * const report = await prisma.report.upsert({
+     *   create: {
+     *     // ... data to create a Report
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Report we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends ReportUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ReportUpsertArgs<ExtArgs>>
+    ): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Reports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportCountArgs} args - Arguments to filter Reports to count.
+     * @example
+     * // Count the number of Reports
+     * const count = await prisma.report.count({
+     *   where: {
+     *     // ... the filter for the Reports we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReportCountArgs>(
+      args?: Subset<T, ReportCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReportCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Report.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReportAggregateArgs>(args: Subset<T, ReportAggregateArgs>): Prisma.PrismaPromise<GetReportAggregateType<T>>
+
+    /**
+     * Group by Report.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReportGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReportGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReportGroupByArgs['orderBy'] }
+        : { orderBy?: ReportGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReportGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReportGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Report model
+   */
+  readonly fields: ReportFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Report.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    budget<T extends BudgetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BudgetDefaultArgs<ExtArgs>>): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Report model
+   */ 
+  interface ReportFieldRefs {
+    readonly id: FieldRef<"Report", 'String'>
+    readonly budgetId: FieldRef<"Report", 'String'>
+    readonly totalCost: FieldRef<"Report", 'Float'>
+    readonly totalDiscount: FieldRef<"Report", 'Float'>
+    readonly totalPromotion: FieldRef<"Report", 'Float'>
+    readonly totalSubtotal: FieldRef<"Report", 'Float'>
+    readonly createdAt: FieldRef<"Report", 'DateTime'>
+    readonly updatedAt: FieldRef<"Report", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Report findUnique
+   */
+  export type ReportFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * Filter, which Report to fetch.
+     */
+    where: ReportWhereUniqueInput
+  }
+
+  /**
+   * Report findUniqueOrThrow
+   */
+  export type ReportFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * Filter, which Report to fetch.
+     */
+    where: ReportWhereUniqueInput
+  }
+
+  /**
+   * Report findFirst
+   */
+  export type ReportFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * Filter, which Report to fetch.
+     */
+    where?: ReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reports to fetch.
+     */
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reports.
+     */
+    cursor?: ReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reports.
+     */
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
+  }
+
+  /**
+   * Report findFirstOrThrow
+   */
+  export type ReportFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * Filter, which Report to fetch.
+     */
+    where?: ReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reports to fetch.
+     */
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reports.
+     */
+    cursor?: ReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reports.
+     */
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
+  }
+
+  /**
+   * Report findMany
+   */
+  export type ReportFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * Filter, which Reports to fetch.
+     */
+    where?: ReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reports to fetch.
+     */
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Reports.
+     */
+    cursor?: ReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reports.
+     */
+    skip?: number
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
+  }
+
+  /**
+   * Report create
+   */
+  export type ReportCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Report.
+     */
+    data: XOR<ReportCreateInput, ReportUncheckedCreateInput>
+  }
+
+  /**
+   * Report createMany
+   */
+  export type ReportCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Reports.
+     */
+    data: ReportCreateManyInput | ReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Report update
+   */
+  export type ReportUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Report.
+     */
+    data: XOR<ReportUpdateInput, ReportUncheckedUpdateInput>
+    /**
+     * Choose, which Report to update.
+     */
+    where: ReportWhereUniqueInput
+  }
+
+  /**
+   * Report updateMany
+   */
+  export type ReportUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Reports.
+     */
+    data: XOR<ReportUpdateManyMutationInput, ReportUncheckedUpdateManyInput>
+    /**
+     * Filter which Reports to update
+     */
+    where?: ReportWhereInput
+  }
+
+  /**
+   * Report upsert
+   */
+  export type ReportUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Report to update in case it exists.
+     */
+    where: ReportWhereUniqueInput
+    /**
+     * In case the Report found by the `where` argument doesn't exist, create a new Report with this data.
+     */
+    create: XOR<ReportCreateInput, ReportUncheckedCreateInput>
+    /**
+     * In case the Report was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReportUpdateInput, ReportUncheckedUpdateInput>
+  }
+
+  /**
+   * Report delete
+   */
+  export type ReportDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+    /**
+     * Filter which Report to delete.
+     */
+    where: ReportWhereUniqueInput
+  }
+
+  /**
+   * Report deleteMany
+   */
+  export type ReportDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reports to delete
+     */
+    where?: ReportWhereInput
+  }
+
+  /**
+   * Report without action
+   */
+  export type ReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Report
+     */
+    select?: ReportSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReportInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BudUser
+   */
+
+  export type AggregateBudUser = {
+    _count: BudUserCountAggregateOutputType | null
+    _min: BudUserMinAggregateOutputType | null
+    _max: BudUserMaxAggregateOutputType | null
+  }
+
+  export type BudUserMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    password: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BudUserMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    password: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BudUserCountAggregateOutputType = {
+    id: number
+    name: number
+    email: number
+    password: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BudUserMinAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    password?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BudUserMaxAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    password?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BudUserCountAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    password?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BudUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudUser to aggregate.
+     */
+    where?: BudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudUsers to fetch.
+     */
+    orderBy?: BudUserOrderByWithRelationInput | BudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BudUsers
+    **/
+    _count?: true | BudUserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BudUserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BudUserMaxAggregateInputType
+  }
+
+  export type GetBudUserAggregateType<T extends BudUserAggregateArgs> = {
+        [P in keyof T & keyof AggregateBudUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBudUser[P]>
+      : GetScalarType<T[P], AggregateBudUser[P]>
+  }
+
+
+
+
+  export type BudUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudUserWhereInput
+    orderBy?: BudUserOrderByWithAggregationInput | BudUserOrderByWithAggregationInput[]
+    by: BudUserScalarFieldEnum[] | BudUserScalarFieldEnum
+    having?: BudUserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BudUserCountAggregateInputType | true
+    _min?: BudUserMinAggregateInputType
+    _max?: BudUserMaxAggregateInputType
+  }
+
+  export type BudUserGroupByOutputType = {
+    id: string
+    name: string
+    email: string
+    password: string
+    createdAt: Date
+    updatedAt: Date
+    _count: BudUserCountAggregateOutputType | null
+    _min: BudUserMinAggregateOutputType | null
+    _max: BudUserMaxAggregateOutputType | null
+  }
+
+  type GetBudUserGroupByPayload<T extends BudUserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BudUserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BudUserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BudUserGroupByOutputType[P]>
+            : GetScalarType<T[P], BudUserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BudUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    budgetList?: boolean | BudUser$budgetListArgs<ExtArgs>
+    eventList?: boolean | BudUser$eventListArgs<ExtArgs>
+    _count?: boolean | BudUserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["budUser"]>
+
+  export type BudUserSelectScalar = {
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type BudUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    budgetList?: boolean | BudUser$budgetListArgs<ExtArgs>
+    eventList?: boolean | BudUser$eventListArgs<ExtArgs>
+    _count?: boolean | BudUserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $BudUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BudUser"
+    objects: {
+      budgetList: Prisma.$BudgetBudUserPayload<ExtArgs>[]
+      eventList: Prisma.$BudEventPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      email: string
+      password: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["budUser"]>
+    composites: {}
+  }
+
+
+  type BudUserGetPayload<S extends boolean | null | undefined | BudUserDefaultArgs> = $Result.GetResult<Prisma.$BudUserPayload, S>
+
+  type BudUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BudUserFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: BudUserCountAggregateInputType | true
+    }
+
+  export interface BudUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BudUser'], meta: { name: 'BudUser' } }
+    /**
+     * Find zero or one BudUser that matches the filter.
+     * @param {BudUserFindUniqueArgs} args - Arguments to find a BudUser
+     * @example
+     * // Get one BudUser
+     * const budUser = await prisma.budUser.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BudUserFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BudUserFindUniqueArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BudUser that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {BudUserFindUniqueOrThrowArgs} args - Arguments to find a BudUser
+     * @example
+     * // Get one BudUser
+     * const budUser = await prisma.budUser.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BudUserFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudUserFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BudUser that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserFindFirstArgs} args - Arguments to find a BudUser
+     * @example
+     * // Get one BudUser
+     * const budUser = await prisma.budUser.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BudUserFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudUserFindFirstArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BudUser that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserFindFirstOrThrowArgs} args - Arguments to find a BudUser
+     * @example
+     * // Get one BudUser
+     * const budUser = await prisma.budUser.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BudUserFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudUserFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BudUsers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BudUsers
+     * const budUsers = await prisma.budUser.findMany()
+     * 
+     * // Get first 10 BudUsers
+     * const budUsers = await prisma.budUser.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const budUserWithIdOnly = await prisma.budUser.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends BudUserFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudUserFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BudUser.
+     * @param {BudUserCreateArgs} args - Arguments to create a BudUser.
+     * @example
+     * // Create one BudUser
+     * const BudUser = await prisma.budUser.create({
+     *   data: {
+     *     // ... data to create a BudUser
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BudUserCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudUserCreateArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BudUsers.
+     *     @param {BudUserCreateManyArgs} args - Arguments to create many BudUsers.
+     *     @example
+     *     // Create many BudUsers
+     *     const budUser = await prisma.budUser.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends BudUserCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudUserCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BudUser.
+     * @param {BudUserDeleteArgs} args - Arguments to delete one BudUser.
+     * @example
+     * // Delete one BudUser
+     * const BudUser = await prisma.budUser.delete({
+     *   where: {
+     *     // ... filter to delete one BudUser
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BudUserDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BudUserDeleteArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BudUser.
+     * @param {BudUserUpdateArgs} args - Arguments to update one BudUser.
+     * @example
+     * // Update one BudUser
+     * const budUser = await prisma.budUser.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BudUserUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudUserUpdateArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BudUsers.
+     * @param {BudUserDeleteManyArgs} args - Arguments to filter BudUsers to delete.
+     * @example
+     * // Delete a few BudUsers
+     * const { count } = await prisma.budUser.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BudUserDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudUserDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BudUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BudUsers
+     * const budUser = await prisma.budUser.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BudUserUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BudUserUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BudUser.
+     * @param {BudUserUpsertArgs} args - Arguments to update or create a BudUser.
+     * @example
+     * // Update or create a BudUser
+     * const budUser = await prisma.budUser.upsert({
+     *   create: {
+     *     // ... data to create a BudUser
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BudUser we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BudUserUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BudUserUpsertArgs<ExtArgs>>
+    ): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BudUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserCountArgs} args - Arguments to filter BudUsers to count.
+     * @example
+     * // Count the number of BudUsers
+     * const count = await prisma.budUser.count({
+     *   where: {
+     *     // ... the filter for the BudUsers we want to count
+     *   }
+     * })
+    **/
+    count<T extends BudUserCountArgs>(
+      args?: Subset<T, BudUserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BudUserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BudUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BudUserAggregateArgs>(args: Subset<T, BudUserAggregateArgs>): Prisma.PrismaPromise<GetBudUserAggregateType<T>>
+
+    /**
+     * Group by BudUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudUserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BudUserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BudUserGroupByArgs['orderBy'] }
+        : { orderBy?: BudUserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BudUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBudUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BudUser model
+   */
+  readonly fields: BudUserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BudUser.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BudUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    budgetList<T extends BudUser$budgetListArgs<ExtArgs> = {}>(args?: Subset<T, BudUser$budgetListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    eventList<T extends BudUser$eventListArgs<ExtArgs> = {}>(args?: Subset<T, BudUser$eventListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BudUser model
+   */ 
+  interface BudUserFieldRefs {
+    readonly id: FieldRef<"BudUser", 'String'>
+    readonly name: FieldRef<"BudUser", 'String'>
+    readonly email: FieldRef<"BudUser", 'String'>
+    readonly password: FieldRef<"BudUser", 'String'>
+    readonly createdAt: FieldRef<"BudUser", 'DateTime'>
+    readonly updatedAt: FieldRef<"BudUser", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BudUser findUnique
+   */
+  export type BudUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudUser to fetch.
+     */
+    where: BudUserWhereUniqueInput
+  }
+
+  /**
+   * BudUser findUniqueOrThrow
+   */
+  export type BudUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudUser to fetch.
+     */
+    where: BudUserWhereUniqueInput
+  }
+
+  /**
+   * BudUser findFirst
+   */
+  export type BudUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudUser to fetch.
+     */
+    where?: BudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudUsers to fetch.
+     */
+    orderBy?: BudUserOrderByWithRelationInput | BudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudUsers.
+     */
+    cursor?: BudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudUsers.
+     */
+    distinct?: BudUserScalarFieldEnum | BudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudUser findFirstOrThrow
+   */
+  export type BudUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudUser to fetch.
+     */
+    where?: BudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudUsers to fetch.
+     */
+    orderBy?: BudUserOrderByWithRelationInput | BudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudUsers.
+     */
+    cursor?: BudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudUsers.
+     */
+    distinct?: BudUserScalarFieldEnum | BudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudUser findMany
+   */
+  export type BudUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudUsers to fetch.
+     */
+    where?: BudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudUsers to fetch.
+     */
+    orderBy?: BudUserOrderByWithRelationInput | BudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BudUsers.
+     */
+    cursor?: BudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudUsers.
+     */
+    skip?: number
+    distinct?: BudUserScalarFieldEnum | BudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudUser create
+   */
+  export type BudUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BudUser.
+     */
+    data: XOR<BudUserCreateInput, BudUserUncheckedCreateInput>
+  }
+
+  /**
+   * BudUser createMany
+   */
+  export type BudUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BudUsers.
+     */
+    data: BudUserCreateManyInput | BudUserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BudUser update
+   */
+  export type BudUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BudUser.
+     */
+    data: XOR<BudUserUpdateInput, BudUserUncheckedUpdateInput>
+    /**
+     * Choose, which BudUser to update.
+     */
+    where: BudUserWhereUniqueInput
+  }
+
+  /**
+   * BudUser updateMany
+   */
+  export type BudUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BudUsers.
+     */
+    data: XOR<BudUserUpdateManyMutationInput, BudUserUncheckedUpdateManyInput>
+    /**
+     * Filter which BudUsers to update
+     */
+    where?: BudUserWhereInput
+  }
+
+  /**
+   * BudUser upsert
+   */
+  export type BudUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BudUser to update in case it exists.
+     */
+    where: BudUserWhereUniqueInput
+    /**
+     * In case the BudUser found by the `where` argument doesn't exist, create a new BudUser with this data.
+     */
+    create: XOR<BudUserCreateInput, BudUserUncheckedCreateInput>
+    /**
+     * In case the BudUser was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BudUserUpdateInput, BudUserUncheckedUpdateInput>
+  }
+
+  /**
+   * BudUser delete
+   */
+  export type BudUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+    /**
+     * Filter which BudUser to delete.
+     */
+    where: BudUserWhereUniqueInput
+  }
+
+  /**
+   * BudUser deleteMany
+   */
+  export type BudUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudUsers to delete
+     */
+    where?: BudUserWhereInput
+  }
+
+  /**
+   * BudUser.budgetList
+   */
+  export type BudUser$budgetListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    where?: BudgetBudUserWhereInput
+    orderBy?: BudgetBudUserOrderByWithRelationInput | BudgetBudUserOrderByWithRelationInput[]
+    cursor?: BudgetBudUserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BudgetBudUserScalarFieldEnum | BudgetBudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudUser.eventList
+   */
+  export type BudUser$eventListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    where?: BudEventWhereInput
+    orderBy?: BudEventOrderByWithRelationInput | BudEventOrderByWithRelationInput[]
+    cursor?: BudEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BudEventScalarFieldEnum | BudEventScalarFieldEnum[]
+  }
+
+  /**
+   * BudUser without action
+   */
+  export type BudUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudUser
+     */
+    select?: BudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudUserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BudgetBudUser
+   */
+
+  export type AggregateBudgetBudUser = {
+    _count: BudgetBudUserCountAggregateOutputType | null
+    _min: BudgetBudUserMinAggregateOutputType | null
+    _max: BudgetBudUserMaxAggregateOutputType | null
+  }
+
+  export type BudgetBudUserMinAggregateOutputType = {
+    userId: string | null
+    budgetId: string | null
+    role: string | null
+    ability: string | null
+    category: string | null
+  }
+
+  export type BudgetBudUserMaxAggregateOutputType = {
+    userId: string | null
+    budgetId: string | null
+    role: string | null
+    ability: string | null
+    category: string | null
+  }
+
+  export type BudgetBudUserCountAggregateOutputType = {
+    userId: number
+    budgetId: number
+    role: number
+    ability: number
+    category: number
+    _all: number
+  }
+
+
+  export type BudgetBudUserMinAggregateInputType = {
+    userId?: true
+    budgetId?: true
+    role?: true
+    ability?: true
+    category?: true
+  }
+
+  export type BudgetBudUserMaxAggregateInputType = {
+    userId?: true
+    budgetId?: true
+    role?: true
+    ability?: true
+    category?: true
+  }
+
+  export type BudgetBudUserCountAggregateInputType = {
+    userId?: true
+    budgetId?: true
+    role?: true
+    ability?: true
+    category?: true
+    _all?: true
+  }
+
+  export type BudgetBudUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudgetBudUser to aggregate.
+     */
+    where?: BudgetBudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetBudUsers to fetch.
+     */
+    orderBy?: BudgetBudUserOrderByWithRelationInput | BudgetBudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BudgetBudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetBudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetBudUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BudgetBudUsers
+    **/
+    _count?: true | BudgetBudUserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BudgetBudUserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BudgetBudUserMaxAggregateInputType
+  }
+
+  export type GetBudgetBudUserAggregateType<T extends BudgetBudUserAggregateArgs> = {
+        [P in keyof T & keyof AggregateBudgetBudUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBudgetBudUser[P]>
+      : GetScalarType<T[P], AggregateBudgetBudUser[P]>
+  }
+
+
+
+
+  export type BudgetBudUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudgetBudUserWhereInput
+    orderBy?: BudgetBudUserOrderByWithAggregationInput | BudgetBudUserOrderByWithAggregationInput[]
+    by: BudgetBudUserScalarFieldEnum[] | BudgetBudUserScalarFieldEnum
+    having?: BudgetBudUserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BudgetBudUserCountAggregateInputType | true
+    _min?: BudgetBudUserMinAggregateInputType
+    _max?: BudgetBudUserMaxAggregateInputType
+  }
+
+  export type BudgetBudUserGroupByOutputType = {
+    userId: string
+    budgetId: string
+    role: string
+    ability: string
+    category: string
+    _count: BudgetBudUserCountAggregateOutputType | null
+    _min: BudgetBudUserMinAggregateOutputType | null
+    _max: BudgetBudUserMaxAggregateOutputType | null
+  }
+
+  type GetBudgetBudUserGroupByPayload<T extends BudgetBudUserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BudgetBudUserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BudgetBudUserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BudgetBudUserGroupByOutputType[P]>
+            : GetScalarType<T[P], BudgetBudUserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BudgetBudUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    budgetId?: boolean
+    role?: boolean
+    ability?: boolean
+    category?: boolean
+    user?: boolean | BudUserDefaultArgs<ExtArgs>
+    budget?: boolean | BudgetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["budgetBudUser"]>
+
+  export type BudgetBudUserSelectScalar = {
+    userId?: boolean
+    budgetId?: boolean
+    role?: boolean
+    ability?: boolean
+    category?: boolean
+  }
+
+
+  export type BudgetBudUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | BudUserDefaultArgs<ExtArgs>
+    budget?: boolean | BudgetDefaultArgs<ExtArgs>
+  }
+
+
+  export type $BudgetBudUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BudgetBudUser"
+    objects: {
+      user: Prisma.$BudUserPayload<ExtArgs>
+      budget: Prisma.$BudgetPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      userId: string
+      budgetId: string
+      role: string
+      ability: string
+      category: string
+    }, ExtArgs["result"]["budgetBudUser"]>
+    composites: {}
+  }
+
+
+  type BudgetBudUserGetPayload<S extends boolean | null | undefined | BudgetBudUserDefaultArgs> = $Result.GetResult<Prisma.$BudgetBudUserPayload, S>
+
+  type BudgetBudUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BudgetBudUserFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: BudgetBudUserCountAggregateInputType | true
+    }
+
+  export interface BudgetBudUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BudgetBudUser'], meta: { name: 'BudgetBudUser' } }
+    /**
+     * Find zero or one BudgetBudUser that matches the filter.
+     * @param {BudgetBudUserFindUniqueArgs} args - Arguments to find a BudgetBudUser
+     * @example
+     * // Get one BudgetBudUser
+     * const budgetBudUser = await prisma.budgetBudUser.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BudgetBudUserFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetBudUserFindUniqueArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BudgetBudUser that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {BudgetBudUserFindUniqueOrThrowArgs} args - Arguments to find a BudgetBudUser
+     * @example
+     * // Get one BudgetBudUser
+     * const budgetBudUser = await prisma.budgetBudUser.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BudgetBudUserFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetBudUserFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BudgetBudUser that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserFindFirstArgs} args - Arguments to find a BudgetBudUser
+     * @example
+     * // Get one BudgetBudUser
+     * const budgetBudUser = await prisma.budgetBudUser.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BudgetBudUserFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetBudUserFindFirstArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BudgetBudUser that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserFindFirstOrThrowArgs} args - Arguments to find a BudgetBudUser
+     * @example
+     * // Get one BudgetBudUser
+     * const budgetBudUser = await prisma.budgetBudUser.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BudgetBudUserFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetBudUserFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BudgetBudUsers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BudgetBudUsers
+     * const budgetBudUsers = await prisma.budgetBudUser.findMany()
+     * 
+     * // Get first 10 BudgetBudUsers
+     * const budgetBudUsers = await prisma.budgetBudUser.findMany({ take: 10 })
+     * 
+     * // Only select the `userId`
+     * const budgetBudUserWithUserIdOnly = await prisma.budgetBudUser.findMany({ select: { userId: true } })
+     * 
+    **/
+    findMany<T extends BudgetBudUserFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetBudUserFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BudgetBudUser.
+     * @param {BudgetBudUserCreateArgs} args - Arguments to create a BudgetBudUser.
+     * @example
+     * // Create one BudgetBudUser
+     * const BudgetBudUser = await prisma.budgetBudUser.create({
+     *   data: {
+     *     // ... data to create a BudgetBudUser
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BudgetBudUserCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetBudUserCreateArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BudgetBudUsers.
+     *     @param {BudgetBudUserCreateManyArgs} args - Arguments to create many BudgetBudUsers.
+     *     @example
+     *     // Create many BudgetBudUsers
+     *     const budgetBudUser = await prisma.budgetBudUser.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends BudgetBudUserCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetBudUserCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BudgetBudUser.
+     * @param {BudgetBudUserDeleteArgs} args - Arguments to delete one BudgetBudUser.
+     * @example
+     * // Delete one BudgetBudUser
+     * const BudgetBudUser = await prisma.budgetBudUser.delete({
+     *   where: {
+     *     // ... filter to delete one BudgetBudUser
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BudgetBudUserDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetBudUserDeleteArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BudgetBudUser.
+     * @param {BudgetBudUserUpdateArgs} args - Arguments to update one BudgetBudUser.
+     * @example
+     * // Update one BudgetBudUser
+     * const budgetBudUser = await prisma.budgetBudUser.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BudgetBudUserUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetBudUserUpdateArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BudgetBudUsers.
+     * @param {BudgetBudUserDeleteManyArgs} args - Arguments to filter BudgetBudUsers to delete.
+     * @example
+     * // Delete a few BudgetBudUsers
+     * const { count } = await prisma.budgetBudUser.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BudgetBudUserDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudgetBudUserDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BudgetBudUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BudgetBudUsers
+     * const budgetBudUser = await prisma.budgetBudUser.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BudgetBudUserUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetBudUserUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BudgetBudUser.
+     * @param {BudgetBudUserUpsertArgs} args - Arguments to update or create a BudgetBudUser.
+     * @example
+     * // Update or create a BudgetBudUser
+     * const budgetBudUser = await prisma.budgetBudUser.upsert({
+     *   create: {
+     *     // ... data to create a BudgetBudUser
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BudgetBudUser we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BudgetBudUserUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BudgetBudUserUpsertArgs<ExtArgs>>
+    ): Prisma__BudgetBudUserClient<$Result.GetResult<Prisma.$BudgetBudUserPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BudgetBudUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserCountArgs} args - Arguments to filter BudgetBudUsers to count.
+     * @example
+     * // Count the number of BudgetBudUsers
+     * const count = await prisma.budgetBudUser.count({
+     *   where: {
+     *     // ... the filter for the BudgetBudUsers we want to count
+     *   }
+     * })
+    **/
+    count<T extends BudgetBudUserCountArgs>(
+      args?: Subset<T, BudgetBudUserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BudgetBudUserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BudgetBudUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BudgetBudUserAggregateArgs>(args: Subset<T, BudgetBudUserAggregateArgs>): Prisma.PrismaPromise<GetBudgetBudUserAggregateType<T>>
+
+    /**
+     * Group by BudgetBudUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudgetBudUserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BudgetBudUserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BudgetBudUserGroupByArgs['orderBy'] }
+        : { orderBy?: BudgetBudUserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BudgetBudUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBudgetBudUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BudgetBudUser model
+   */
+  readonly fields: BudgetBudUserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BudgetBudUser.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BudgetBudUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    user<T extends BudUserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BudUserDefaultArgs<ExtArgs>>): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    budget<T extends BudgetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BudgetDefaultArgs<ExtArgs>>): Prisma__BudgetClient<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BudgetBudUser model
+   */ 
+  interface BudgetBudUserFieldRefs {
+    readonly userId: FieldRef<"BudgetBudUser", 'String'>
+    readonly budgetId: FieldRef<"BudgetBudUser", 'String'>
+    readonly role: FieldRef<"BudgetBudUser", 'String'>
+    readonly ability: FieldRef<"BudgetBudUser", 'String'>
+    readonly category: FieldRef<"BudgetBudUser", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BudgetBudUser findUnique
+   */
+  export type BudgetBudUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetBudUser to fetch.
+     */
+    where: BudgetBudUserWhereUniqueInput
+  }
+
+  /**
+   * BudgetBudUser findUniqueOrThrow
+   */
+  export type BudgetBudUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetBudUser to fetch.
+     */
+    where: BudgetBudUserWhereUniqueInput
+  }
+
+  /**
+   * BudgetBudUser findFirst
+   */
+  export type BudgetBudUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetBudUser to fetch.
+     */
+    where?: BudgetBudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetBudUsers to fetch.
+     */
+    orderBy?: BudgetBudUserOrderByWithRelationInput | BudgetBudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudgetBudUsers.
+     */
+    cursor?: BudgetBudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetBudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetBudUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudgetBudUsers.
+     */
+    distinct?: BudgetBudUserScalarFieldEnum | BudgetBudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudgetBudUser findFirstOrThrow
+   */
+  export type BudgetBudUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetBudUser to fetch.
+     */
+    where?: BudgetBudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetBudUsers to fetch.
+     */
+    orderBy?: BudgetBudUserOrderByWithRelationInput | BudgetBudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudgetBudUsers.
+     */
+    cursor?: BudgetBudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetBudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetBudUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudgetBudUsers.
+     */
+    distinct?: BudgetBudUserScalarFieldEnum | BudgetBudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudgetBudUser findMany
+   */
+  export type BudgetBudUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * Filter, which BudgetBudUsers to fetch.
+     */
+    where?: BudgetBudUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudgetBudUsers to fetch.
+     */
+    orderBy?: BudgetBudUserOrderByWithRelationInput | BudgetBudUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BudgetBudUsers.
+     */
+    cursor?: BudgetBudUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudgetBudUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudgetBudUsers.
+     */
+    skip?: number
+    distinct?: BudgetBudUserScalarFieldEnum | BudgetBudUserScalarFieldEnum[]
+  }
+
+  /**
+   * BudgetBudUser create
+   */
+  export type BudgetBudUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BudgetBudUser.
+     */
+    data: XOR<BudgetBudUserCreateInput, BudgetBudUserUncheckedCreateInput>
+  }
+
+  /**
+   * BudgetBudUser createMany
+   */
+  export type BudgetBudUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BudgetBudUsers.
+     */
+    data: BudgetBudUserCreateManyInput | BudgetBudUserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BudgetBudUser update
+   */
+  export type BudgetBudUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BudgetBudUser.
+     */
+    data: XOR<BudgetBudUserUpdateInput, BudgetBudUserUncheckedUpdateInput>
+    /**
+     * Choose, which BudgetBudUser to update.
+     */
+    where: BudgetBudUserWhereUniqueInput
+  }
+
+  /**
+   * BudgetBudUser updateMany
+   */
+  export type BudgetBudUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BudgetBudUsers.
+     */
+    data: XOR<BudgetBudUserUpdateManyMutationInput, BudgetBudUserUncheckedUpdateManyInput>
+    /**
+     * Filter which BudgetBudUsers to update
+     */
+    where?: BudgetBudUserWhereInput
+  }
+
+  /**
+   * BudgetBudUser upsert
+   */
+  export type BudgetBudUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BudgetBudUser to update in case it exists.
+     */
+    where: BudgetBudUserWhereUniqueInput
+    /**
+     * In case the BudgetBudUser found by the `where` argument doesn't exist, create a new BudgetBudUser with this data.
+     */
+    create: XOR<BudgetBudUserCreateInput, BudgetBudUserUncheckedCreateInput>
+    /**
+     * In case the BudgetBudUser was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BudgetBudUserUpdateInput, BudgetBudUserUncheckedUpdateInput>
+  }
+
+  /**
+   * BudgetBudUser delete
+   */
+  export type BudgetBudUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+    /**
+     * Filter which BudgetBudUser to delete.
+     */
+    where: BudgetBudUserWhereUniqueInput
+  }
+
+  /**
+   * BudgetBudUser deleteMany
+   */
+  export type BudgetBudUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudgetBudUsers to delete
+     */
+    where?: BudgetBudUserWhereInput
+  }
+
+  /**
+   * BudgetBudUser without action
+   */
+  export type BudgetBudUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudgetBudUser
+     */
+    select?: BudgetBudUserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudgetBudUserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BudEvent
+   */
+
+  export type AggregateBudEvent = {
+    _count: BudEventCountAggregateOutputType | null
+    _min: BudEventMinAggregateOutputType | null
+    _max: BudEventMaxAggregateOutputType | null
+  }
+
+  export type BudEventMinAggregateOutputType = {
+    id: string | null
+    type: string | null
+    description: string | null
+    budUserId: string | null
+    createdAt: Date | null
+  }
+
+  export type BudEventMaxAggregateOutputType = {
+    id: string | null
+    type: string | null
+    description: string | null
+    budUserId: string | null
+    createdAt: Date | null
+  }
+
+  export type BudEventCountAggregateOutputType = {
+    id: number
+    type: number
+    description: number
+    categoryList: number
+    metadata: number
+    budUserId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BudEventMinAggregateInputType = {
+    id?: true
+    type?: true
+    description?: true
+    budUserId?: true
+    createdAt?: true
+  }
+
+  export type BudEventMaxAggregateInputType = {
+    id?: true
+    type?: true
+    description?: true
+    budUserId?: true
+    createdAt?: true
+  }
+
+  export type BudEventCountAggregateInputType = {
+    id?: true
+    type?: true
+    description?: true
+    categoryList?: true
+    metadata?: true
+    budUserId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BudEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudEvent to aggregate.
+     */
+    where?: BudEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudEvents to fetch.
+     */
+    orderBy?: BudEventOrderByWithRelationInput | BudEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BudEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BudEvents
+    **/
+    _count?: true | BudEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BudEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BudEventMaxAggregateInputType
+  }
+
+  export type GetBudEventAggregateType<T extends BudEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateBudEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBudEvent[P]>
+      : GetScalarType<T[P], AggregateBudEvent[P]>
+  }
+
+
+
+
+  export type BudEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BudEventWhereInput
+    orderBy?: BudEventOrderByWithAggregationInput | BudEventOrderByWithAggregationInput[]
+    by: BudEventScalarFieldEnum[] | BudEventScalarFieldEnum
+    having?: BudEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BudEventCountAggregateInputType | true
+    _min?: BudEventMinAggregateInputType
+    _max?: BudEventMaxAggregateInputType
+  }
+
+  export type BudEventGroupByOutputType = {
+    id: string
+    type: string
+    description: string
+    categoryList: string[]
+    metadata: JsonValue
+    budUserId: string
+    createdAt: Date
+    _count: BudEventCountAggregateOutputType | null
+    _min: BudEventMinAggregateOutputType | null
+    _max: BudEventMaxAggregateOutputType | null
+  }
+
+  type GetBudEventGroupByPayload<T extends BudEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BudEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BudEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BudEventGroupByOutputType[P]>
+            : GetScalarType<T[P], BudEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BudEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    description?: boolean
+    categoryList?: boolean
+    metadata?: boolean
+    budUserId?: boolean
+    createdAt?: boolean
+    budUser?: boolean | BudUserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["budEvent"]>
+
+  export type BudEventSelectScalar = {
+    id?: boolean
+    type?: boolean
+    description?: boolean
+    categoryList?: boolean
+    metadata?: boolean
+    budUserId?: boolean
+    createdAt?: boolean
+  }
+
+
+  export type BudEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    budUser?: boolean | BudUserDefaultArgs<ExtArgs>
+  }
+
+
+  export type $BudEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BudEvent"
+    objects: {
+      budUser: Prisma.$BudUserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      type: string
+      description: string
+      categoryList: string[]
+      metadata: Prisma.JsonValue
+      budUserId: string
+      createdAt: Date
+    }, ExtArgs["result"]["budEvent"]>
+    composites: {}
+  }
+
+
+  type BudEventGetPayload<S extends boolean | null | undefined | BudEventDefaultArgs> = $Result.GetResult<Prisma.$BudEventPayload, S>
+
+  type BudEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BudEventFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: BudEventCountAggregateInputType | true
+    }
+
+  export interface BudEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BudEvent'], meta: { name: 'BudEvent' } }
+    /**
+     * Find zero or one BudEvent that matches the filter.
+     * @param {BudEventFindUniqueArgs} args - Arguments to find a BudEvent
+     * @example
+     * // Get one BudEvent
+     * const budEvent = await prisma.budEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BudEventFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BudEventFindUniqueArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BudEvent that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {BudEventFindUniqueOrThrowArgs} args - Arguments to find a BudEvent
+     * @example
+     * // Get one BudEvent
+     * const budEvent = await prisma.budEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BudEventFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudEventFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BudEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventFindFirstArgs} args - Arguments to find a BudEvent
+     * @example
+     * // Get one BudEvent
+     * const budEvent = await prisma.budEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BudEventFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudEventFindFirstArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BudEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventFindFirstOrThrowArgs} args - Arguments to find a BudEvent
+     * @example
+     * // Get one BudEvent
+     * const budEvent = await prisma.budEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BudEventFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudEventFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BudEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BudEvents
+     * const budEvents = await prisma.budEvent.findMany()
+     * 
+     * // Get first 10 BudEvents
+     * const budEvents = await prisma.budEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const budEventWithIdOnly = await prisma.budEvent.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends BudEventFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudEventFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BudEvent.
+     * @param {BudEventCreateArgs} args - Arguments to create a BudEvent.
+     * @example
+     * // Create one BudEvent
+     * const BudEvent = await prisma.budEvent.create({
+     *   data: {
+     *     // ... data to create a BudEvent
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BudEventCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudEventCreateArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BudEvents.
+     *     @param {BudEventCreateManyArgs} args - Arguments to create many BudEvents.
+     *     @example
+     *     // Create many BudEvents
+     *     const budEvent = await prisma.budEvent.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends BudEventCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudEventCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BudEvent.
+     * @param {BudEventDeleteArgs} args - Arguments to delete one BudEvent.
+     * @example
+     * // Delete one BudEvent
+     * const BudEvent = await prisma.budEvent.delete({
+     *   where: {
+     *     // ... filter to delete one BudEvent
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BudEventDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BudEventDeleteArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BudEvent.
+     * @param {BudEventUpdateArgs} args - Arguments to update one BudEvent.
+     * @example
+     * // Update one BudEvent
+     * const budEvent = await prisma.budEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BudEventUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BudEventUpdateArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BudEvents.
+     * @param {BudEventDeleteManyArgs} args - Arguments to filter BudEvents to delete.
+     * @example
+     * // Delete a few BudEvents
+     * const { count } = await prisma.budEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BudEventDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BudEventDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BudEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BudEvents
+     * const budEvent = await prisma.budEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BudEventUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BudEventUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BudEvent.
+     * @param {BudEventUpsertArgs} args - Arguments to update or create a BudEvent.
+     * @example
+     * // Update or create a BudEvent
+     * const budEvent = await prisma.budEvent.upsert({
+     *   create: {
+     *     // ... data to create a BudEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BudEvent we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BudEventUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BudEventUpsertArgs<ExtArgs>>
+    ): Prisma__BudEventClient<$Result.GetResult<Prisma.$BudEventPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BudEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventCountArgs} args - Arguments to filter BudEvents to count.
+     * @example
+     * // Count the number of BudEvents
+     * const count = await prisma.budEvent.count({
+     *   where: {
+     *     // ... the filter for the BudEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends BudEventCountArgs>(
+      args?: Subset<T, BudEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BudEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BudEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BudEventAggregateArgs>(args: Subset<T, BudEventAggregateArgs>): Prisma.PrismaPromise<GetBudEventAggregateType<T>>
+
+    /**
+     * Group by BudEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BudEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BudEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BudEventGroupByArgs['orderBy'] }
+        : { orderBy?: BudEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BudEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBudEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BudEvent model
+   */
+  readonly fields: BudEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BudEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BudEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    budUser<T extends BudUserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BudUserDefaultArgs<ExtArgs>>): Prisma__BudUserClient<$Result.GetResult<Prisma.$BudUserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BudEvent model
+   */ 
+  interface BudEventFieldRefs {
+    readonly id: FieldRef<"BudEvent", 'String'>
+    readonly type: FieldRef<"BudEvent", 'String'>
+    readonly description: FieldRef<"BudEvent", 'String'>
+    readonly categoryList: FieldRef<"BudEvent", 'String[]'>
+    readonly metadata: FieldRef<"BudEvent", 'Json'>
+    readonly budUserId: FieldRef<"BudEvent", 'String'>
+    readonly createdAt: FieldRef<"BudEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BudEvent findUnique
+   */
+  export type BudEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * Filter, which BudEvent to fetch.
+     */
+    where: BudEventWhereUniqueInput
+  }
+
+  /**
+   * BudEvent findUniqueOrThrow
+   */
+  export type BudEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * Filter, which BudEvent to fetch.
+     */
+    where: BudEventWhereUniqueInput
+  }
+
+  /**
+   * BudEvent findFirst
+   */
+  export type BudEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * Filter, which BudEvent to fetch.
+     */
+    where?: BudEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudEvents to fetch.
+     */
+    orderBy?: BudEventOrderByWithRelationInput | BudEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudEvents.
+     */
+    cursor?: BudEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudEvents.
+     */
+    distinct?: BudEventScalarFieldEnum | BudEventScalarFieldEnum[]
+  }
+
+  /**
+   * BudEvent findFirstOrThrow
+   */
+  export type BudEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * Filter, which BudEvent to fetch.
+     */
+    where?: BudEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudEvents to fetch.
+     */
+    orderBy?: BudEventOrderByWithRelationInput | BudEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BudEvents.
+     */
+    cursor?: BudEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BudEvents.
+     */
+    distinct?: BudEventScalarFieldEnum | BudEventScalarFieldEnum[]
+  }
+
+  /**
+   * BudEvent findMany
+   */
+  export type BudEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * Filter, which BudEvents to fetch.
+     */
+    where?: BudEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BudEvents to fetch.
+     */
+    orderBy?: BudEventOrderByWithRelationInput | BudEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BudEvents.
+     */
+    cursor?: BudEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BudEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BudEvents.
+     */
+    skip?: number
+    distinct?: BudEventScalarFieldEnum | BudEventScalarFieldEnum[]
+  }
+
+  /**
+   * BudEvent create
+   */
+  export type BudEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BudEvent.
+     */
+    data: XOR<BudEventCreateInput, BudEventUncheckedCreateInput>
+  }
+
+  /**
+   * BudEvent createMany
+   */
+  export type BudEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BudEvents.
+     */
+    data: BudEventCreateManyInput | BudEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BudEvent update
+   */
+  export type BudEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BudEvent.
+     */
+    data: XOR<BudEventUpdateInput, BudEventUncheckedUpdateInput>
+    /**
+     * Choose, which BudEvent to update.
+     */
+    where: BudEventWhereUniqueInput
+  }
+
+  /**
+   * BudEvent updateMany
+   */
+  export type BudEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BudEvents.
+     */
+    data: XOR<BudEventUpdateManyMutationInput, BudEventUncheckedUpdateManyInput>
+    /**
+     * Filter which BudEvents to update
+     */
+    where?: BudEventWhereInput
+  }
+
+  /**
+   * BudEvent upsert
+   */
+  export type BudEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BudEvent to update in case it exists.
+     */
+    where: BudEventWhereUniqueInput
+    /**
+     * In case the BudEvent found by the `where` argument doesn't exist, create a new BudEvent with this data.
+     */
+    create: XOR<BudEventCreateInput, BudEventUncheckedCreateInput>
+    /**
+     * In case the BudEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BudEventUpdateInput, BudEventUncheckedUpdateInput>
+  }
+
+  /**
+   * BudEvent delete
+   */
+  export type BudEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+    /**
+     * Filter which BudEvent to delete.
+     */
+    where: BudEventWhereUniqueInput
+  }
+
+  /**
+   * BudEvent deleteMany
+   */
+  export type BudEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BudEvents to delete
+     */
+    where?: BudEventWhereInput
+  }
+
+  /**
+   * BudEvent without action
+   */
+  export type BudEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BudEvent
+     */
+    select?: BudEventSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BudEventInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -42284,6 +49700,95 @@ export namespace Prisma {
   };
 
   export type SpaceTimeCoordinatesScalarFieldEnum = (typeof SpaceTimeCoordinatesScalarFieldEnum)[keyof typeof SpaceTimeCoordinatesScalarFieldEnum]
+
+
+  export const BudgetEntryScalarFieldEnum: {
+    id: 'id',
+    serviceId: 'serviceId',
+    cost: 'cost',
+    discount: 'discount',
+    promotion: 'promotion',
+    subtotal: 'subtotal',
+    percentChange: 'percentChange',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    budgetId: 'budgetId'
+  };
+
+  export type BudgetEntryScalarFieldEnum = (typeof BudgetEntryScalarFieldEnum)[keyof typeof BudgetEntryScalarFieldEnum]
+
+
+  export const ServiceScalarFieldEnum: {
+    id: 'id',
+    description: 'description',
+    category: 'category',
+    metadata: 'metadata',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+  export const BudgetScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    fiscalYear: 'fiscalYear',
+    reportId: 'reportId'
+  };
+
+  export type BudgetScalarFieldEnum = (typeof BudgetScalarFieldEnum)[keyof typeof BudgetScalarFieldEnum]
+
+
+  export const ReportScalarFieldEnum: {
+    id: 'id',
+    budgetId: 'budgetId',
+    totalCost: 'totalCost',
+    totalDiscount: 'totalDiscount',
+    totalPromotion: 'totalPromotion',
+    totalSubtotal: 'totalSubtotal',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ReportScalarFieldEnum = (typeof ReportScalarFieldEnum)[keyof typeof ReportScalarFieldEnum]
+
+
+  export const BudUserScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    password: 'password',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BudUserScalarFieldEnum = (typeof BudUserScalarFieldEnum)[keyof typeof BudUserScalarFieldEnum]
+
+
+  export const BudgetBudUserScalarFieldEnum: {
+    userId: 'userId',
+    budgetId: 'budgetId',
+    role: 'role',
+    ability: 'ability',
+    category: 'category'
+  };
+
+  export type BudgetBudUserScalarFieldEnum = (typeof BudgetBudUserScalarFieldEnum)[keyof typeof BudgetBudUserScalarFieldEnum]
+
+
+  export const BudEventScalarFieldEnum: {
+    id: 'id',
+    type: 'type',
+    description: 'description',
+    categoryList: 'categoryList',
+    metadata: 'metadata',
+    budUserId: 'budUserId',
+    createdAt: 'createdAt'
+  };
+
+  export type BudEventScalarFieldEnum = (typeof BudEventScalarFieldEnum)[keyof typeof BudEventScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -45488,6 +52993,473 @@ export namespace Prisma {
     stopTime?: FloatWithAggregatesFilter<"SpaceTimeCoordinates"> | number
     timezone?: StringWithAggregatesFilter<"SpaceTimeCoordinates"> | string
     blogPostId?: UuidWithAggregatesFilter<"SpaceTimeCoordinates"> | string
+  }
+
+  export type BudgetEntryWhereInput = {
+    AND?: BudgetEntryWhereInput | BudgetEntryWhereInput[]
+    OR?: BudgetEntryWhereInput[]
+    NOT?: BudgetEntryWhereInput | BudgetEntryWhereInput[]
+    id?: StringFilter<"BudgetEntry"> | string
+    serviceId?: StringFilter<"BudgetEntry"> | string
+    cost?: FloatFilter<"BudgetEntry"> | number
+    discount?: FloatFilter<"BudgetEntry"> | number
+    promotion?: FloatFilter<"BudgetEntry"> | number
+    subtotal?: FloatFilter<"BudgetEntry"> | number
+    percentChange?: FloatFilter<"BudgetEntry"> | number
+    createdAt?: DateTimeFilter<"BudgetEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"BudgetEntry"> | Date | string
+    budgetId?: StringFilter<"BudgetEntry"> | string
+    service?: XOR<ServiceRelationFilter, ServiceWhereInput>
+    budget?: XOR<BudgetRelationFilter, BudgetWhereInput>
+  }
+
+  export type BudgetEntryOrderByWithRelationInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budgetId?: SortOrder
+    service?: ServiceOrderByWithRelationInput
+    budget?: BudgetOrderByWithRelationInput
+  }
+
+  export type BudgetEntryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BudgetEntryWhereInput | BudgetEntryWhereInput[]
+    OR?: BudgetEntryWhereInput[]
+    NOT?: BudgetEntryWhereInput | BudgetEntryWhereInput[]
+    serviceId?: StringFilter<"BudgetEntry"> | string
+    cost?: FloatFilter<"BudgetEntry"> | number
+    discount?: FloatFilter<"BudgetEntry"> | number
+    promotion?: FloatFilter<"BudgetEntry"> | number
+    subtotal?: FloatFilter<"BudgetEntry"> | number
+    percentChange?: FloatFilter<"BudgetEntry"> | number
+    createdAt?: DateTimeFilter<"BudgetEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"BudgetEntry"> | Date | string
+    budgetId?: StringFilter<"BudgetEntry"> | string
+    service?: XOR<ServiceRelationFilter, ServiceWhereInput>
+    budget?: XOR<BudgetRelationFilter, BudgetWhereInput>
+  }, "id">
+
+  export type BudgetEntryOrderByWithAggregationInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budgetId?: SortOrder
+    _count?: BudgetEntryCountOrderByAggregateInput
+    _avg?: BudgetEntryAvgOrderByAggregateInput
+    _max?: BudgetEntryMaxOrderByAggregateInput
+    _min?: BudgetEntryMinOrderByAggregateInput
+    _sum?: BudgetEntrySumOrderByAggregateInput
+  }
+
+  export type BudgetEntryScalarWhereWithAggregatesInput = {
+    AND?: BudgetEntryScalarWhereWithAggregatesInput | BudgetEntryScalarWhereWithAggregatesInput[]
+    OR?: BudgetEntryScalarWhereWithAggregatesInput[]
+    NOT?: BudgetEntryScalarWhereWithAggregatesInput | BudgetEntryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BudgetEntry"> | string
+    serviceId?: StringWithAggregatesFilter<"BudgetEntry"> | string
+    cost?: FloatWithAggregatesFilter<"BudgetEntry"> | number
+    discount?: FloatWithAggregatesFilter<"BudgetEntry"> | number
+    promotion?: FloatWithAggregatesFilter<"BudgetEntry"> | number
+    subtotal?: FloatWithAggregatesFilter<"BudgetEntry"> | number
+    percentChange?: FloatWithAggregatesFilter<"BudgetEntry"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"BudgetEntry"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BudgetEntry"> | Date | string
+    budgetId?: StringWithAggregatesFilter<"BudgetEntry"> | string
+  }
+
+  export type ServiceWhereInput = {
+    AND?: ServiceWhereInput | ServiceWhereInput[]
+    OR?: ServiceWhereInput[]
+    NOT?: ServiceWhereInput | ServiceWhereInput[]
+    id?: StringFilter<"Service"> | string
+    description?: StringFilter<"Service"> | string
+    category?: StringFilter<"Service"> | string
+    metadata?: JsonFilter<"Service">
+    createdAt?: DateTimeFilter<"Service"> | Date | string
+    updatedAt?: DateTimeFilter<"Service"> | Date | string
+    entryList?: BudgetEntryListRelationFilter
+  }
+
+  export type ServiceOrderByWithRelationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    metadata?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    entryList?: BudgetEntryOrderByRelationAggregateInput
+  }
+
+  export type ServiceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ServiceWhereInput | ServiceWhereInput[]
+    OR?: ServiceWhereInput[]
+    NOT?: ServiceWhereInput | ServiceWhereInput[]
+    description?: StringFilter<"Service"> | string
+    category?: StringFilter<"Service"> | string
+    metadata?: JsonFilter<"Service">
+    createdAt?: DateTimeFilter<"Service"> | Date | string
+    updatedAt?: DateTimeFilter<"Service"> | Date | string
+    entryList?: BudgetEntryListRelationFilter
+  }, "id">
+
+  export type ServiceOrderByWithAggregationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    metadata?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ServiceCountOrderByAggregateInput
+    _max?: ServiceMaxOrderByAggregateInput
+    _min?: ServiceMinOrderByAggregateInput
+  }
+
+  export type ServiceScalarWhereWithAggregatesInput = {
+    AND?: ServiceScalarWhereWithAggregatesInput | ServiceScalarWhereWithAggregatesInput[]
+    OR?: ServiceScalarWhereWithAggregatesInput[]
+    NOT?: ServiceScalarWhereWithAggregatesInput | ServiceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Service"> | string
+    description?: StringWithAggregatesFilter<"Service"> | string
+    category?: StringWithAggregatesFilter<"Service"> | string
+    metadata?: JsonWithAggregatesFilter<"Service">
+    createdAt?: DateTimeWithAggregatesFilter<"Service"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Service"> | Date | string
+  }
+
+  export type BudgetWhereInput = {
+    AND?: BudgetWhereInput | BudgetWhereInput[]
+    OR?: BudgetWhereInput[]
+    NOT?: BudgetWhereInput | BudgetWhereInput[]
+    id?: StringFilter<"Budget"> | string
+    createdAt?: DateTimeFilter<"Budget"> | Date | string
+    updatedAt?: DateTimeFilter<"Budget"> | Date | string
+    fiscalYear?: IntFilter<"Budget"> | number
+    reportId?: StringNullableFilter<"Budget"> | string | null
+    entryList?: BudgetEntryListRelationFilter
+    report?: XOR<ReportNullableRelationFilter, ReportWhereInput> | null
+    userList?: BudgetBudUserListRelationFilter
+  }
+
+  export type BudgetOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fiscalYear?: SortOrder
+    reportId?: SortOrderInput | SortOrder
+    entryList?: BudgetEntryOrderByRelationAggregateInput
+    report?: ReportOrderByWithRelationInput
+    userList?: BudgetBudUserOrderByRelationAggregateInput
+  }
+
+  export type BudgetWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BudgetWhereInput | BudgetWhereInput[]
+    OR?: BudgetWhereInput[]
+    NOT?: BudgetWhereInput | BudgetWhereInput[]
+    createdAt?: DateTimeFilter<"Budget"> | Date | string
+    updatedAt?: DateTimeFilter<"Budget"> | Date | string
+    fiscalYear?: IntFilter<"Budget"> | number
+    reportId?: StringNullableFilter<"Budget"> | string | null
+    entryList?: BudgetEntryListRelationFilter
+    report?: XOR<ReportNullableRelationFilter, ReportWhereInput> | null
+    userList?: BudgetBudUserListRelationFilter
+  }, "id">
+
+  export type BudgetOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fiscalYear?: SortOrder
+    reportId?: SortOrderInput | SortOrder
+    _count?: BudgetCountOrderByAggregateInput
+    _avg?: BudgetAvgOrderByAggregateInput
+    _max?: BudgetMaxOrderByAggregateInput
+    _min?: BudgetMinOrderByAggregateInput
+    _sum?: BudgetSumOrderByAggregateInput
+  }
+
+  export type BudgetScalarWhereWithAggregatesInput = {
+    AND?: BudgetScalarWhereWithAggregatesInput | BudgetScalarWhereWithAggregatesInput[]
+    OR?: BudgetScalarWhereWithAggregatesInput[]
+    NOT?: BudgetScalarWhereWithAggregatesInput | BudgetScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Budget"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Budget"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Budget"> | Date | string
+    fiscalYear?: IntWithAggregatesFilter<"Budget"> | number
+    reportId?: StringNullableWithAggregatesFilter<"Budget"> | string | null
+  }
+
+  export type ReportWhereInput = {
+    AND?: ReportWhereInput | ReportWhereInput[]
+    OR?: ReportWhereInput[]
+    NOT?: ReportWhereInput | ReportWhereInput[]
+    id?: StringFilter<"Report"> | string
+    budgetId?: StringFilter<"Report"> | string
+    totalCost?: FloatFilter<"Report"> | number
+    totalDiscount?: FloatFilter<"Report"> | number
+    totalPromotion?: FloatFilter<"Report"> | number
+    totalSubtotal?: FloatFilter<"Report"> | number
+    createdAt?: DateTimeFilter<"Report"> | Date | string
+    updatedAt?: DateTimeFilter<"Report"> | Date | string
+    budget?: XOR<BudgetRelationFilter, BudgetWhereInput>
+  }
+
+  export type ReportOrderByWithRelationInput = {
+    id?: SortOrder
+    budgetId?: SortOrder
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budget?: BudgetOrderByWithRelationInput
+  }
+
+  export type ReportWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    budgetId?: string
+    AND?: ReportWhereInput | ReportWhereInput[]
+    OR?: ReportWhereInput[]
+    NOT?: ReportWhereInput | ReportWhereInput[]
+    totalCost?: FloatFilter<"Report"> | number
+    totalDiscount?: FloatFilter<"Report"> | number
+    totalPromotion?: FloatFilter<"Report"> | number
+    totalSubtotal?: FloatFilter<"Report"> | number
+    createdAt?: DateTimeFilter<"Report"> | Date | string
+    updatedAt?: DateTimeFilter<"Report"> | Date | string
+    budget?: XOR<BudgetRelationFilter, BudgetWhereInput>
+  }, "id" | "budgetId">
+
+  export type ReportOrderByWithAggregationInput = {
+    id?: SortOrder
+    budgetId?: SortOrder
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ReportCountOrderByAggregateInput
+    _avg?: ReportAvgOrderByAggregateInput
+    _max?: ReportMaxOrderByAggregateInput
+    _min?: ReportMinOrderByAggregateInput
+    _sum?: ReportSumOrderByAggregateInput
+  }
+
+  export type ReportScalarWhereWithAggregatesInput = {
+    AND?: ReportScalarWhereWithAggregatesInput | ReportScalarWhereWithAggregatesInput[]
+    OR?: ReportScalarWhereWithAggregatesInput[]
+    NOT?: ReportScalarWhereWithAggregatesInput | ReportScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Report"> | string
+    budgetId?: StringWithAggregatesFilter<"Report"> | string
+    totalCost?: FloatWithAggregatesFilter<"Report"> | number
+    totalDiscount?: FloatWithAggregatesFilter<"Report"> | number
+    totalPromotion?: FloatWithAggregatesFilter<"Report"> | number
+    totalSubtotal?: FloatWithAggregatesFilter<"Report"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Report"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Report"> | Date | string
+  }
+
+  export type BudUserWhereInput = {
+    AND?: BudUserWhereInput | BudUserWhereInput[]
+    OR?: BudUserWhereInput[]
+    NOT?: BudUserWhereInput | BudUserWhereInput[]
+    id?: StringFilter<"BudUser"> | string
+    name?: StringFilter<"BudUser"> | string
+    email?: StringFilter<"BudUser"> | string
+    password?: StringFilter<"BudUser"> | string
+    createdAt?: DateTimeFilter<"BudUser"> | Date | string
+    updatedAt?: DateTimeFilter<"BudUser"> | Date | string
+    budgetList?: BudgetBudUserListRelationFilter
+    eventList?: BudEventListRelationFilter
+  }
+
+  export type BudUserOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budgetList?: BudgetBudUserOrderByRelationAggregateInput
+    eventList?: BudEventOrderByRelationAggregateInput
+  }
+
+  export type BudUserWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    email?: string
+    AND?: BudUserWhereInput | BudUserWhereInput[]
+    OR?: BudUserWhereInput[]
+    NOT?: BudUserWhereInput | BudUserWhereInput[]
+    name?: StringFilter<"BudUser"> | string
+    password?: StringFilter<"BudUser"> | string
+    createdAt?: DateTimeFilter<"BudUser"> | Date | string
+    updatedAt?: DateTimeFilter<"BudUser"> | Date | string
+    budgetList?: BudgetBudUserListRelationFilter
+    eventList?: BudEventListRelationFilter
+  }, "id" | "email">
+
+  export type BudUserOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BudUserCountOrderByAggregateInput
+    _max?: BudUserMaxOrderByAggregateInput
+    _min?: BudUserMinOrderByAggregateInput
+  }
+
+  export type BudUserScalarWhereWithAggregatesInput = {
+    AND?: BudUserScalarWhereWithAggregatesInput | BudUserScalarWhereWithAggregatesInput[]
+    OR?: BudUserScalarWhereWithAggregatesInput[]
+    NOT?: BudUserScalarWhereWithAggregatesInput | BudUserScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BudUser"> | string
+    name?: StringWithAggregatesFilter<"BudUser"> | string
+    email?: StringWithAggregatesFilter<"BudUser"> | string
+    password?: StringWithAggregatesFilter<"BudUser"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"BudUser"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BudUser"> | Date | string
+  }
+
+  export type BudgetBudUserWhereInput = {
+    AND?: BudgetBudUserWhereInput | BudgetBudUserWhereInput[]
+    OR?: BudgetBudUserWhereInput[]
+    NOT?: BudgetBudUserWhereInput | BudgetBudUserWhereInput[]
+    userId?: StringFilter<"BudgetBudUser"> | string
+    budgetId?: StringFilter<"BudgetBudUser"> | string
+    role?: StringFilter<"BudgetBudUser"> | string
+    ability?: StringFilter<"BudgetBudUser"> | string
+    category?: StringFilter<"BudgetBudUser"> | string
+    user?: XOR<BudUserRelationFilter, BudUserWhereInput>
+    budget?: XOR<BudgetRelationFilter, BudgetWhereInput>
+  }
+
+  export type BudgetBudUserOrderByWithRelationInput = {
+    userId?: SortOrder
+    budgetId?: SortOrder
+    role?: SortOrder
+    ability?: SortOrder
+    category?: SortOrder
+    user?: BudUserOrderByWithRelationInput
+    budget?: BudgetOrderByWithRelationInput
+  }
+
+  export type BudgetBudUserWhereUniqueInput = Prisma.AtLeast<{
+    userId_budgetId?: BudgetBudUserUserIdBudgetIdCompoundUniqueInput
+    AND?: BudgetBudUserWhereInput | BudgetBudUserWhereInput[]
+    OR?: BudgetBudUserWhereInput[]
+    NOT?: BudgetBudUserWhereInput | BudgetBudUserWhereInput[]
+    userId?: StringFilter<"BudgetBudUser"> | string
+    budgetId?: StringFilter<"BudgetBudUser"> | string
+    role?: StringFilter<"BudgetBudUser"> | string
+    ability?: StringFilter<"BudgetBudUser"> | string
+    category?: StringFilter<"BudgetBudUser"> | string
+    user?: XOR<BudUserRelationFilter, BudUserWhereInput>
+    budget?: XOR<BudgetRelationFilter, BudgetWhereInput>
+  }, "userId_budgetId">
+
+  export type BudgetBudUserOrderByWithAggregationInput = {
+    userId?: SortOrder
+    budgetId?: SortOrder
+    role?: SortOrder
+    ability?: SortOrder
+    category?: SortOrder
+    _count?: BudgetBudUserCountOrderByAggregateInput
+    _max?: BudgetBudUserMaxOrderByAggregateInput
+    _min?: BudgetBudUserMinOrderByAggregateInput
+  }
+
+  export type BudgetBudUserScalarWhereWithAggregatesInput = {
+    AND?: BudgetBudUserScalarWhereWithAggregatesInput | BudgetBudUserScalarWhereWithAggregatesInput[]
+    OR?: BudgetBudUserScalarWhereWithAggregatesInput[]
+    NOT?: BudgetBudUserScalarWhereWithAggregatesInput | BudgetBudUserScalarWhereWithAggregatesInput[]
+    userId?: StringWithAggregatesFilter<"BudgetBudUser"> | string
+    budgetId?: StringWithAggregatesFilter<"BudgetBudUser"> | string
+    role?: StringWithAggregatesFilter<"BudgetBudUser"> | string
+    ability?: StringWithAggregatesFilter<"BudgetBudUser"> | string
+    category?: StringWithAggregatesFilter<"BudgetBudUser"> | string
+  }
+
+  export type BudEventWhereInput = {
+    AND?: BudEventWhereInput | BudEventWhereInput[]
+    OR?: BudEventWhereInput[]
+    NOT?: BudEventWhereInput | BudEventWhereInput[]
+    id?: StringFilter<"BudEvent"> | string
+    type?: StringFilter<"BudEvent"> | string
+    description?: StringFilter<"BudEvent"> | string
+    categoryList?: StringNullableListFilter<"BudEvent">
+    metadata?: JsonFilter<"BudEvent">
+    budUserId?: StringFilter<"BudEvent"> | string
+    createdAt?: DateTimeFilter<"BudEvent"> | Date | string
+    budUser?: XOR<BudUserRelationFilter, BudUserWhereInput>
+  }
+
+  export type BudEventOrderByWithRelationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    description?: SortOrder
+    categoryList?: SortOrder
+    metadata?: SortOrder
+    budUserId?: SortOrder
+    createdAt?: SortOrder
+    budUser?: BudUserOrderByWithRelationInput
+  }
+
+  export type BudEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BudEventWhereInput | BudEventWhereInput[]
+    OR?: BudEventWhereInput[]
+    NOT?: BudEventWhereInput | BudEventWhereInput[]
+    type?: StringFilter<"BudEvent"> | string
+    description?: StringFilter<"BudEvent"> | string
+    categoryList?: StringNullableListFilter<"BudEvent">
+    metadata?: JsonFilter<"BudEvent">
+    budUserId?: StringFilter<"BudEvent"> | string
+    createdAt?: DateTimeFilter<"BudEvent"> | Date | string
+    budUser?: XOR<BudUserRelationFilter, BudUserWhereInput>
+  }, "id">
+
+  export type BudEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    description?: SortOrder
+    categoryList?: SortOrder
+    metadata?: SortOrder
+    budUserId?: SortOrder
+    createdAt?: SortOrder
+    _count?: BudEventCountOrderByAggregateInput
+    _max?: BudEventMaxOrderByAggregateInput
+    _min?: BudEventMinOrderByAggregateInput
+  }
+
+  export type BudEventScalarWhereWithAggregatesInput = {
+    AND?: BudEventScalarWhereWithAggregatesInput | BudEventScalarWhereWithAggregatesInput[]
+    OR?: BudEventScalarWhereWithAggregatesInput[]
+    NOT?: BudEventScalarWhereWithAggregatesInput | BudEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BudEvent"> | string
+    type?: StringWithAggregatesFilter<"BudEvent"> | string
+    description?: StringWithAggregatesFilter<"BudEvent"> | string
+    categoryList?: StringNullableListFilter<"BudEvent">
+    metadata?: JsonWithAggregatesFilter<"BudEvent">
+    budUserId?: StringWithAggregatesFilter<"BudEvent"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"BudEvent"> | Date | string
   }
 
   export type AppointmentCreateInput = {
@@ -48937,6 +56909,500 @@ export namespace Prisma {
     blogPostId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type BudgetEntryCreateInput = {
+    id?: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    service: ServiceCreateNestedOneWithoutEntryListInput
+    budget: BudgetCreateNestedOneWithoutEntryListInput
+  }
+
+  export type BudgetEntryUncheckedCreateInput = {
+    id?: string
+    serviceId: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetId: string
+  }
+
+  export type BudgetEntryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    service?: ServiceUpdateOneRequiredWithoutEntryListNestedInput
+    budget?: BudgetUpdateOneRequiredWithoutEntryListNestedInput
+  }
+
+  export type BudgetEntryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    serviceId?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetEntryCreateManyInput = {
+    id?: string
+    serviceId: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetId: string
+  }
+
+  export type BudgetEntryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetEntryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    serviceId?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ServiceCreateInput = {
+    id?: string
+    description: string
+    category: string
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    entryList?: BudgetEntryCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUncheckedCreateInput = {
+    id?: string
+    description: string
+    category: string
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    entryList?: BudgetEntryUncheckedCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    entryList?: BudgetEntryUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    entryList?: BudgetEntryUncheckedUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceCreateManyInput = {
+    id?: string
+    description: string
+    category: string
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ServiceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    entryList?: BudgetEntryCreateNestedManyWithoutBudgetInput
+    report?: ReportCreateNestedOneWithoutBudgetInput
+    userList?: BudgetBudUserCreateNestedManyWithoutBudgetInput
+  }
+
+  export type BudgetUncheckedCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    entryList?: BudgetEntryUncheckedCreateNestedManyWithoutBudgetInput
+    report?: ReportUncheckedCreateNestedOneWithoutBudgetInput
+    userList?: BudgetBudUserUncheckedCreateNestedManyWithoutBudgetInput
+  }
+
+  export type BudgetUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryList?: BudgetEntryUpdateManyWithoutBudgetNestedInput
+    report?: ReportUpdateOneWithoutBudgetNestedInput
+    userList?: BudgetBudUserUpdateManyWithoutBudgetNestedInput
+  }
+
+  export type BudgetUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryList?: BudgetEntryUncheckedUpdateManyWithoutBudgetNestedInput
+    report?: ReportUncheckedUpdateOneWithoutBudgetNestedInput
+    userList?: BudgetBudUserUncheckedUpdateManyWithoutBudgetNestedInput
+  }
+
+  export type BudgetCreateManyInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+  }
+
+  export type BudgetUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BudgetUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReportCreateInput = {
+    id?: string
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budget: BudgetCreateNestedOneWithoutReportInput
+  }
+
+  export type ReportUncheckedCreateInput = {
+    id?: string
+    budgetId: string
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReportUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalCost?: FloatFieldUpdateOperationsInput | number
+    totalDiscount?: FloatFieldUpdateOperationsInput | number
+    totalPromotion?: FloatFieldUpdateOperationsInput | number
+    totalSubtotal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budget?: BudgetUpdateOneRequiredWithoutReportNestedInput
+  }
+
+  export type ReportUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+    totalCost?: FloatFieldUpdateOperationsInput | number
+    totalDiscount?: FloatFieldUpdateOperationsInput | number
+    totalPromotion?: FloatFieldUpdateOperationsInput | number
+    totalSubtotal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReportCreateManyInput = {
+    id?: string
+    budgetId: string
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReportUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalCost?: FloatFieldUpdateOperationsInput | number
+    totalDiscount?: FloatFieldUpdateOperationsInput | number
+    totalPromotion?: FloatFieldUpdateOperationsInput | number
+    totalSubtotal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReportUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+    totalCost?: FloatFieldUpdateOperationsInput | number
+    totalDiscount?: FloatFieldUpdateOperationsInput | number
+    totalPromotion?: FloatFieldUpdateOperationsInput | number
+    totalSubtotal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudUserCreateInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetList?: BudgetBudUserCreateNestedManyWithoutUserInput
+    eventList?: BudEventCreateNestedManyWithoutBudUserInput
+  }
+
+  export type BudUserUncheckedCreateInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetList?: BudgetBudUserUncheckedCreateNestedManyWithoutUserInput
+    eventList?: BudEventUncheckedCreateNestedManyWithoutBudUserInput
+  }
+
+  export type BudUserUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetList?: BudgetBudUserUpdateManyWithoutUserNestedInput
+    eventList?: BudEventUpdateManyWithoutBudUserNestedInput
+  }
+
+  export type BudUserUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetList?: BudgetBudUserUncheckedUpdateManyWithoutUserNestedInput
+    eventList?: BudEventUncheckedUpdateManyWithoutBudUserNestedInput
+  }
+
+  export type BudUserCreateManyInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BudUserUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudUserUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetBudUserCreateInput = {
+    role: string
+    ability: string
+    category: string
+    user: BudUserCreateNestedOneWithoutBudgetListInput
+    budget: BudgetCreateNestedOneWithoutUserListInput
+  }
+
+  export type BudgetBudUserUncheckedCreateInput = {
+    userId: string
+    budgetId: string
+    role: string
+    ability: string
+    category: string
+  }
+
+  export type BudgetBudUserUpdateInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    user?: BudUserUpdateOneRequiredWithoutBudgetListNestedInput
+    budget?: BudgetUpdateOneRequiredWithoutUserListNestedInput
+  }
+
+  export type BudgetBudUserUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetBudUserCreateManyInput = {
+    userId: string
+    budgetId: string
+    role: string
+    ability: string
+    category: string
+  }
+
+  export type BudgetBudUserUpdateManyMutationInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetBudUserUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudEventCreateInput = {
+    id?: string
+    type: string
+    description: string
+    categoryList?: BudEventCreatecategoryListInput | string[]
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    budUser: BudUserCreateNestedOneWithoutEventListInput
+  }
+
+  export type BudEventUncheckedCreateInput = {
+    id?: string
+    type: string
+    description: string
+    categoryList?: BudEventCreatecategoryListInput | string[]
+    metadata: JsonNullValueInput | InputJsonValue
+    budUserId: string
+    createdAt?: Date | string
+  }
+
+  export type BudEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budUser?: BudUserUpdateOneRequiredWithoutEventListNestedInput
+  }
+
+  export type BudEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    budUserId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudEventCreateManyInput = {
+    id?: string
+    type: string
+    description: string
+    categoryList?: BudEventCreatecategoryListInput | string[]
+    metadata: JsonNullValueInput | InputJsonValue
+    budUserId: string
+    createdAt?: Date | string
+  }
+
+  export type BudEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    budUserId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -51018,6 +59484,305 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type ServiceRelationFilter = {
+    is?: ServiceWhereInput
+    isNot?: ServiceWhereInput
+  }
+
+  export type BudgetRelationFilter = {
+    is?: BudgetWhereInput
+    isNot?: BudgetWhereInput
+  }
+
+  export type BudgetEntryCountOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budgetId?: SortOrder
+  }
+
+  export type BudgetEntryAvgOrderByAggregateInput = {
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+  }
+
+  export type BudgetEntryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budgetId?: SortOrder
+  }
+
+  export type BudgetEntryMinOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    budgetId?: SortOrder
+  }
+
+  export type BudgetEntrySumOrderByAggregateInput = {
+    cost?: SortOrder
+    discount?: SortOrder
+    promotion?: SortOrder
+    subtotal?: SortOrder
+    percentChange?: SortOrder
+  }
+
+  export type BudgetEntryListRelationFilter = {
+    every?: BudgetEntryWhereInput
+    some?: BudgetEntryWhereInput
+    none?: BudgetEntryWhereInput
+  }
+
+  export type BudgetEntryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ServiceCountOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    metadata?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ServiceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ServiceMinOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReportNullableRelationFilter = {
+    is?: ReportWhereInput | null
+    isNot?: ReportWhereInput | null
+  }
+
+  export type BudgetBudUserListRelationFilter = {
+    every?: BudgetBudUserWhereInput
+    some?: BudgetBudUserWhereInput
+    none?: BudgetBudUserWhereInput
+  }
+
+  export type BudgetBudUserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BudgetCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fiscalYear?: SortOrder
+    reportId?: SortOrder
+  }
+
+  export type BudgetAvgOrderByAggregateInput = {
+    fiscalYear?: SortOrder
+  }
+
+  export type BudgetMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fiscalYear?: SortOrder
+    reportId?: SortOrder
+  }
+
+  export type BudgetMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fiscalYear?: SortOrder
+    reportId?: SortOrder
+  }
+
+  export type BudgetSumOrderByAggregateInput = {
+    fiscalYear?: SortOrder
+  }
+
+  export type ReportCountOrderByAggregateInput = {
+    id?: SortOrder
+    budgetId?: SortOrder
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReportAvgOrderByAggregateInput = {
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+  }
+
+  export type ReportMaxOrderByAggregateInput = {
+    id?: SortOrder
+    budgetId?: SortOrder
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReportMinOrderByAggregateInput = {
+    id?: SortOrder
+    budgetId?: SortOrder
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReportSumOrderByAggregateInput = {
+    totalCost?: SortOrder
+    totalDiscount?: SortOrder
+    totalPromotion?: SortOrder
+    totalSubtotal?: SortOrder
+  }
+
+  export type BudEventListRelationFilter = {
+    every?: BudEventWhereInput
+    some?: BudEventWhereInput
+    none?: BudEventWhereInput
+  }
+
+  export type BudEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BudUserCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BudUserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BudUserMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BudUserRelationFilter = {
+    is?: BudUserWhereInput
+    isNot?: BudUserWhereInput
+  }
+
+  export type BudgetBudUserUserIdBudgetIdCompoundUniqueInput = {
+    userId: string
+    budgetId: string
+  }
+
+  export type BudgetBudUserCountOrderByAggregateInput = {
+    userId?: SortOrder
+    budgetId?: SortOrder
+    role?: SortOrder
+    ability?: SortOrder
+    category?: SortOrder
+  }
+
+  export type BudgetBudUserMaxOrderByAggregateInput = {
+    userId?: SortOrder
+    budgetId?: SortOrder
+    role?: SortOrder
+    ability?: SortOrder
+    category?: SortOrder
+  }
+
+  export type BudgetBudUserMinOrderByAggregateInput = {
+    userId?: SortOrder
+    budgetId?: SortOrder
+    role?: SortOrder
+    ability?: SortOrder
+    category?: SortOrder
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type BudEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    description?: SortOrder
+    categoryList?: SortOrder
+    metadata?: SortOrder
+    budUserId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BudEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    description?: SortOrder
+    budUserId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BudEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    description?: SortOrder
+    budUserId?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AppointmentTypeCreateNestedOneWithoutAppointmentListInput = {
@@ -53476,6 +62241,341 @@ export namespace Prisma {
     delete?: BlogPostWhereInput | boolean
     connect?: BlogPostWhereUniqueInput
     update?: XOR<XOR<BlogPostUpdateToOneWithWhereWithoutSpaceTimeCoordinatesInput, BlogPostUpdateWithoutSpaceTimeCoordinatesInput>, BlogPostUncheckedUpdateWithoutSpaceTimeCoordinatesInput>
+  }
+
+  export type ServiceCreateNestedOneWithoutEntryListInput = {
+    create?: XOR<ServiceCreateWithoutEntryListInput, ServiceUncheckedCreateWithoutEntryListInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutEntryListInput
+    connect?: ServiceWhereUniqueInput
+  }
+
+  export type BudgetCreateNestedOneWithoutEntryListInput = {
+    create?: XOR<BudgetCreateWithoutEntryListInput, BudgetUncheckedCreateWithoutEntryListInput>
+    connectOrCreate?: BudgetCreateOrConnectWithoutEntryListInput
+    connect?: BudgetWhereUniqueInput
+  }
+
+  export type ServiceUpdateOneRequiredWithoutEntryListNestedInput = {
+    create?: XOR<ServiceCreateWithoutEntryListInput, ServiceUncheckedCreateWithoutEntryListInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutEntryListInput
+    upsert?: ServiceUpsertWithoutEntryListInput
+    connect?: ServiceWhereUniqueInput
+    update?: XOR<XOR<ServiceUpdateToOneWithWhereWithoutEntryListInput, ServiceUpdateWithoutEntryListInput>, ServiceUncheckedUpdateWithoutEntryListInput>
+  }
+
+  export type BudgetUpdateOneRequiredWithoutEntryListNestedInput = {
+    create?: XOR<BudgetCreateWithoutEntryListInput, BudgetUncheckedCreateWithoutEntryListInput>
+    connectOrCreate?: BudgetCreateOrConnectWithoutEntryListInput
+    upsert?: BudgetUpsertWithoutEntryListInput
+    connect?: BudgetWhereUniqueInput
+    update?: XOR<XOR<BudgetUpdateToOneWithWhereWithoutEntryListInput, BudgetUpdateWithoutEntryListInput>, BudgetUncheckedUpdateWithoutEntryListInput>
+  }
+
+  export type BudgetEntryCreateNestedManyWithoutServiceInput = {
+    create?: XOR<BudgetEntryCreateWithoutServiceInput, BudgetEntryUncheckedCreateWithoutServiceInput> | BudgetEntryCreateWithoutServiceInput[] | BudgetEntryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutServiceInput | BudgetEntryCreateOrConnectWithoutServiceInput[]
+    createMany?: BudgetEntryCreateManyServiceInputEnvelope
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+  }
+
+  export type BudgetEntryUncheckedCreateNestedManyWithoutServiceInput = {
+    create?: XOR<BudgetEntryCreateWithoutServiceInput, BudgetEntryUncheckedCreateWithoutServiceInput> | BudgetEntryCreateWithoutServiceInput[] | BudgetEntryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutServiceInput | BudgetEntryCreateOrConnectWithoutServiceInput[]
+    createMany?: BudgetEntryCreateManyServiceInputEnvelope
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+  }
+
+  export type BudgetEntryUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<BudgetEntryCreateWithoutServiceInput, BudgetEntryUncheckedCreateWithoutServiceInput> | BudgetEntryCreateWithoutServiceInput[] | BudgetEntryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutServiceInput | BudgetEntryCreateOrConnectWithoutServiceInput[]
+    upsert?: BudgetEntryUpsertWithWhereUniqueWithoutServiceInput | BudgetEntryUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: BudgetEntryCreateManyServiceInputEnvelope
+    set?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    disconnect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    delete?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    update?: BudgetEntryUpdateWithWhereUniqueWithoutServiceInput | BudgetEntryUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: BudgetEntryUpdateManyWithWhereWithoutServiceInput | BudgetEntryUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: BudgetEntryScalarWhereInput | BudgetEntryScalarWhereInput[]
+  }
+
+  export type BudgetEntryUncheckedUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<BudgetEntryCreateWithoutServiceInput, BudgetEntryUncheckedCreateWithoutServiceInput> | BudgetEntryCreateWithoutServiceInput[] | BudgetEntryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutServiceInput | BudgetEntryCreateOrConnectWithoutServiceInput[]
+    upsert?: BudgetEntryUpsertWithWhereUniqueWithoutServiceInput | BudgetEntryUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: BudgetEntryCreateManyServiceInputEnvelope
+    set?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    disconnect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    delete?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    update?: BudgetEntryUpdateWithWhereUniqueWithoutServiceInput | BudgetEntryUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: BudgetEntryUpdateManyWithWhereWithoutServiceInput | BudgetEntryUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: BudgetEntryScalarWhereInput | BudgetEntryScalarWhereInput[]
+  }
+
+  export type BudgetEntryCreateNestedManyWithoutBudgetInput = {
+    create?: XOR<BudgetEntryCreateWithoutBudgetInput, BudgetEntryUncheckedCreateWithoutBudgetInput> | BudgetEntryCreateWithoutBudgetInput[] | BudgetEntryUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutBudgetInput | BudgetEntryCreateOrConnectWithoutBudgetInput[]
+    createMany?: BudgetEntryCreateManyBudgetInputEnvelope
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+  }
+
+  export type ReportCreateNestedOneWithoutBudgetInput = {
+    create?: XOR<ReportCreateWithoutBudgetInput, ReportUncheckedCreateWithoutBudgetInput>
+    connectOrCreate?: ReportCreateOrConnectWithoutBudgetInput
+    connect?: ReportWhereUniqueInput
+  }
+
+  export type BudgetBudUserCreateNestedManyWithoutBudgetInput = {
+    create?: XOR<BudgetBudUserCreateWithoutBudgetInput, BudgetBudUserUncheckedCreateWithoutBudgetInput> | BudgetBudUserCreateWithoutBudgetInput[] | BudgetBudUserUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutBudgetInput | BudgetBudUserCreateOrConnectWithoutBudgetInput[]
+    createMany?: BudgetBudUserCreateManyBudgetInputEnvelope
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+  }
+
+  export type BudgetEntryUncheckedCreateNestedManyWithoutBudgetInput = {
+    create?: XOR<BudgetEntryCreateWithoutBudgetInput, BudgetEntryUncheckedCreateWithoutBudgetInput> | BudgetEntryCreateWithoutBudgetInput[] | BudgetEntryUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutBudgetInput | BudgetEntryCreateOrConnectWithoutBudgetInput[]
+    createMany?: BudgetEntryCreateManyBudgetInputEnvelope
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+  }
+
+  export type ReportUncheckedCreateNestedOneWithoutBudgetInput = {
+    create?: XOR<ReportCreateWithoutBudgetInput, ReportUncheckedCreateWithoutBudgetInput>
+    connectOrCreate?: ReportCreateOrConnectWithoutBudgetInput
+    connect?: ReportWhereUniqueInput
+  }
+
+  export type BudgetBudUserUncheckedCreateNestedManyWithoutBudgetInput = {
+    create?: XOR<BudgetBudUserCreateWithoutBudgetInput, BudgetBudUserUncheckedCreateWithoutBudgetInput> | BudgetBudUserCreateWithoutBudgetInput[] | BudgetBudUserUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutBudgetInput | BudgetBudUserCreateOrConnectWithoutBudgetInput[]
+    createMany?: BudgetBudUserCreateManyBudgetInputEnvelope
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+  }
+
+  export type BudgetEntryUpdateManyWithoutBudgetNestedInput = {
+    create?: XOR<BudgetEntryCreateWithoutBudgetInput, BudgetEntryUncheckedCreateWithoutBudgetInput> | BudgetEntryCreateWithoutBudgetInput[] | BudgetEntryUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutBudgetInput | BudgetEntryCreateOrConnectWithoutBudgetInput[]
+    upsert?: BudgetEntryUpsertWithWhereUniqueWithoutBudgetInput | BudgetEntryUpsertWithWhereUniqueWithoutBudgetInput[]
+    createMany?: BudgetEntryCreateManyBudgetInputEnvelope
+    set?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    disconnect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    delete?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    update?: BudgetEntryUpdateWithWhereUniqueWithoutBudgetInput | BudgetEntryUpdateWithWhereUniqueWithoutBudgetInput[]
+    updateMany?: BudgetEntryUpdateManyWithWhereWithoutBudgetInput | BudgetEntryUpdateManyWithWhereWithoutBudgetInput[]
+    deleteMany?: BudgetEntryScalarWhereInput | BudgetEntryScalarWhereInput[]
+  }
+
+  export type ReportUpdateOneWithoutBudgetNestedInput = {
+    create?: XOR<ReportCreateWithoutBudgetInput, ReportUncheckedCreateWithoutBudgetInput>
+    connectOrCreate?: ReportCreateOrConnectWithoutBudgetInput
+    upsert?: ReportUpsertWithoutBudgetInput
+    disconnect?: ReportWhereInput | boolean
+    delete?: ReportWhereInput | boolean
+    connect?: ReportWhereUniqueInput
+    update?: XOR<XOR<ReportUpdateToOneWithWhereWithoutBudgetInput, ReportUpdateWithoutBudgetInput>, ReportUncheckedUpdateWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserUpdateManyWithoutBudgetNestedInput = {
+    create?: XOR<BudgetBudUserCreateWithoutBudgetInput, BudgetBudUserUncheckedCreateWithoutBudgetInput> | BudgetBudUserCreateWithoutBudgetInput[] | BudgetBudUserUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutBudgetInput | BudgetBudUserCreateOrConnectWithoutBudgetInput[]
+    upsert?: BudgetBudUserUpsertWithWhereUniqueWithoutBudgetInput | BudgetBudUserUpsertWithWhereUniqueWithoutBudgetInput[]
+    createMany?: BudgetBudUserCreateManyBudgetInputEnvelope
+    set?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    disconnect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    delete?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    update?: BudgetBudUserUpdateWithWhereUniqueWithoutBudgetInput | BudgetBudUserUpdateWithWhereUniqueWithoutBudgetInput[]
+    updateMany?: BudgetBudUserUpdateManyWithWhereWithoutBudgetInput | BudgetBudUserUpdateManyWithWhereWithoutBudgetInput[]
+    deleteMany?: BudgetBudUserScalarWhereInput | BudgetBudUserScalarWhereInput[]
+  }
+
+  export type BudgetEntryUncheckedUpdateManyWithoutBudgetNestedInput = {
+    create?: XOR<BudgetEntryCreateWithoutBudgetInput, BudgetEntryUncheckedCreateWithoutBudgetInput> | BudgetEntryCreateWithoutBudgetInput[] | BudgetEntryUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetEntryCreateOrConnectWithoutBudgetInput | BudgetEntryCreateOrConnectWithoutBudgetInput[]
+    upsert?: BudgetEntryUpsertWithWhereUniqueWithoutBudgetInput | BudgetEntryUpsertWithWhereUniqueWithoutBudgetInput[]
+    createMany?: BudgetEntryCreateManyBudgetInputEnvelope
+    set?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    disconnect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    delete?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    connect?: BudgetEntryWhereUniqueInput | BudgetEntryWhereUniqueInput[]
+    update?: BudgetEntryUpdateWithWhereUniqueWithoutBudgetInput | BudgetEntryUpdateWithWhereUniqueWithoutBudgetInput[]
+    updateMany?: BudgetEntryUpdateManyWithWhereWithoutBudgetInput | BudgetEntryUpdateManyWithWhereWithoutBudgetInput[]
+    deleteMany?: BudgetEntryScalarWhereInput | BudgetEntryScalarWhereInput[]
+  }
+
+  export type ReportUncheckedUpdateOneWithoutBudgetNestedInput = {
+    create?: XOR<ReportCreateWithoutBudgetInput, ReportUncheckedCreateWithoutBudgetInput>
+    connectOrCreate?: ReportCreateOrConnectWithoutBudgetInput
+    upsert?: ReportUpsertWithoutBudgetInput
+    disconnect?: ReportWhereInput | boolean
+    delete?: ReportWhereInput | boolean
+    connect?: ReportWhereUniqueInput
+    update?: XOR<XOR<ReportUpdateToOneWithWhereWithoutBudgetInput, ReportUpdateWithoutBudgetInput>, ReportUncheckedUpdateWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserUncheckedUpdateManyWithoutBudgetNestedInput = {
+    create?: XOR<BudgetBudUserCreateWithoutBudgetInput, BudgetBudUserUncheckedCreateWithoutBudgetInput> | BudgetBudUserCreateWithoutBudgetInput[] | BudgetBudUserUncheckedCreateWithoutBudgetInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutBudgetInput | BudgetBudUserCreateOrConnectWithoutBudgetInput[]
+    upsert?: BudgetBudUserUpsertWithWhereUniqueWithoutBudgetInput | BudgetBudUserUpsertWithWhereUniqueWithoutBudgetInput[]
+    createMany?: BudgetBudUserCreateManyBudgetInputEnvelope
+    set?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    disconnect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    delete?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    update?: BudgetBudUserUpdateWithWhereUniqueWithoutBudgetInput | BudgetBudUserUpdateWithWhereUniqueWithoutBudgetInput[]
+    updateMany?: BudgetBudUserUpdateManyWithWhereWithoutBudgetInput | BudgetBudUserUpdateManyWithWhereWithoutBudgetInput[]
+    deleteMany?: BudgetBudUserScalarWhereInput | BudgetBudUserScalarWhereInput[]
+  }
+
+  export type BudgetCreateNestedOneWithoutReportInput = {
+    create?: XOR<BudgetCreateWithoutReportInput, BudgetUncheckedCreateWithoutReportInput>
+    connectOrCreate?: BudgetCreateOrConnectWithoutReportInput
+    connect?: BudgetWhereUniqueInput
+  }
+
+  export type BudgetUpdateOneRequiredWithoutReportNestedInput = {
+    create?: XOR<BudgetCreateWithoutReportInput, BudgetUncheckedCreateWithoutReportInput>
+    connectOrCreate?: BudgetCreateOrConnectWithoutReportInput
+    upsert?: BudgetUpsertWithoutReportInput
+    connect?: BudgetWhereUniqueInput
+    update?: XOR<XOR<BudgetUpdateToOneWithWhereWithoutReportInput, BudgetUpdateWithoutReportInput>, BudgetUncheckedUpdateWithoutReportInput>
+  }
+
+  export type BudgetBudUserCreateNestedManyWithoutUserInput = {
+    create?: XOR<BudgetBudUserCreateWithoutUserInput, BudgetBudUserUncheckedCreateWithoutUserInput> | BudgetBudUserCreateWithoutUserInput[] | BudgetBudUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutUserInput | BudgetBudUserCreateOrConnectWithoutUserInput[]
+    createMany?: BudgetBudUserCreateManyUserInputEnvelope
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+  }
+
+  export type BudEventCreateNestedManyWithoutBudUserInput = {
+    create?: XOR<BudEventCreateWithoutBudUserInput, BudEventUncheckedCreateWithoutBudUserInput> | BudEventCreateWithoutBudUserInput[] | BudEventUncheckedCreateWithoutBudUserInput[]
+    connectOrCreate?: BudEventCreateOrConnectWithoutBudUserInput | BudEventCreateOrConnectWithoutBudUserInput[]
+    createMany?: BudEventCreateManyBudUserInputEnvelope
+    connect?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+  }
+
+  export type BudgetBudUserUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<BudgetBudUserCreateWithoutUserInput, BudgetBudUserUncheckedCreateWithoutUserInput> | BudgetBudUserCreateWithoutUserInput[] | BudgetBudUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutUserInput | BudgetBudUserCreateOrConnectWithoutUserInput[]
+    createMany?: BudgetBudUserCreateManyUserInputEnvelope
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+  }
+
+  export type BudEventUncheckedCreateNestedManyWithoutBudUserInput = {
+    create?: XOR<BudEventCreateWithoutBudUserInput, BudEventUncheckedCreateWithoutBudUserInput> | BudEventCreateWithoutBudUserInput[] | BudEventUncheckedCreateWithoutBudUserInput[]
+    connectOrCreate?: BudEventCreateOrConnectWithoutBudUserInput | BudEventCreateOrConnectWithoutBudUserInput[]
+    createMany?: BudEventCreateManyBudUserInputEnvelope
+    connect?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+  }
+
+  export type BudgetBudUserUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BudgetBudUserCreateWithoutUserInput, BudgetBudUserUncheckedCreateWithoutUserInput> | BudgetBudUserCreateWithoutUserInput[] | BudgetBudUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutUserInput | BudgetBudUserCreateOrConnectWithoutUserInput[]
+    upsert?: BudgetBudUserUpsertWithWhereUniqueWithoutUserInput | BudgetBudUserUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BudgetBudUserCreateManyUserInputEnvelope
+    set?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    disconnect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    delete?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    update?: BudgetBudUserUpdateWithWhereUniqueWithoutUserInput | BudgetBudUserUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BudgetBudUserUpdateManyWithWhereWithoutUserInput | BudgetBudUserUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BudgetBudUserScalarWhereInput | BudgetBudUserScalarWhereInput[]
+  }
+
+  export type BudEventUpdateManyWithoutBudUserNestedInput = {
+    create?: XOR<BudEventCreateWithoutBudUserInput, BudEventUncheckedCreateWithoutBudUserInput> | BudEventCreateWithoutBudUserInput[] | BudEventUncheckedCreateWithoutBudUserInput[]
+    connectOrCreate?: BudEventCreateOrConnectWithoutBudUserInput | BudEventCreateOrConnectWithoutBudUserInput[]
+    upsert?: BudEventUpsertWithWhereUniqueWithoutBudUserInput | BudEventUpsertWithWhereUniqueWithoutBudUserInput[]
+    createMany?: BudEventCreateManyBudUserInputEnvelope
+    set?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    disconnect?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    delete?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    connect?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    update?: BudEventUpdateWithWhereUniqueWithoutBudUserInput | BudEventUpdateWithWhereUniqueWithoutBudUserInput[]
+    updateMany?: BudEventUpdateManyWithWhereWithoutBudUserInput | BudEventUpdateManyWithWhereWithoutBudUserInput[]
+    deleteMany?: BudEventScalarWhereInput | BudEventScalarWhereInput[]
+  }
+
+  export type BudgetBudUserUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BudgetBudUserCreateWithoutUserInput, BudgetBudUserUncheckedCreateWithoutUserInput> | BudgetBudUserCreateWithoutUserInput[] | BudgetBudUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BudgetBudUserCreateOrConnectWithoutUserInput | BudgetBudUserCreateOrConnectWithoutUserInput[]
+    upsert?: BudgetBudUserUpsertWithWhereUniqueWithoutUserInput | BudgetBudUserUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BudgetBudUserCreateManyUserInputEnvelope
+    set?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    disconnect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    delete?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    connect?: BudgetBudUserWhereUniqueInput | BudgetBudUserWhereUniqueInput[]
+    update?: BudgetBudUserUpdateWithWhereUniqueWithoutUserInput | BudgetBudUserUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BudgetBudUserUpdateManyWithWhereWithoutUserInput | BudgetBudUserUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BudgetBudUserScalarWhereInput | BudgetBudUserScalarWhereInput[]
+  }
+
+  export type BudEventUncheckedUpdateManyWithoutBudUserNestedInput = {
+    create?: XOR<BudEventCreateWithoutBudUserInput, BudEventUncheckedCreateWithoutBudUserInput> | BudEventCreateWithoutBudUserInput[] | BudEventUncheckedCreateWithoutBudUserInput[]
+    connectOrCreate?: BudEventCreateOrConnectWithoutBudUserInput | BudEventCreateOrConnectWithoutBudUserInput[]
+    upsert?: BudEventUpsertWithWhereUniqueWithoutBudUserInput | BudEventUpsertWithWhereUniqueWithoutBudUserInput[]
+    createMany?: BudEventCreateManyBudUserInputEnvelope
+    set?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    disconnect?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    delete?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    connect?: BudEventWhereUniqueInput | BudEventWhereUniqueInput[]
+    update?: BudEventUpdateWithWhereUniqueWithoutBudUserInput | BudEventUpdateWithWhereUniqueWithoutBudUserInput[]
+    updateMany?: BudEventUpdateManyWithWhereWithoutBudUserInput | BudEventUpdateManyWithWhereWithoutBudUserInput[]
+    deleteMany?: BudEventScalarWhereInput | BudEventScalarWhereInput[]
+  }
+
+  export type BudUserCreateNestedOneWithoutBudgetListInput = {
+    create?: XOR<BudUserCreateWithoutBudgetListInput, BudUserUncheckedCreateWithoutBudgetListInput>
+    connectOrCreate?: BudUserCreateOrConnectWithoutBudgetListInput
+    connect?: BudUserWhereUniqueInput
+  }
+
+  export type BudgetCreateNestedOneWithoutUserListInput = {
+    create?: XOR<BudgetCreateWithoutUserListInput, BudgetUncheckedCreateWithoutUserListInput>
+    connectOrCreate?: BudgetCreateOrConnectWithoutUserListInput
+    connect?: BudgetWhereUniqueInput
+  }
+
+  export type BudUserUpdateOneRequiredWithoutBudgetListNestedInput = {
+    create?: XOR<BudUserCreateWithoutBudgetListInput, BudUserUncheckedCreateWithoutBudgetListInput>
+    connectOrCreate?: BudUserCreateOrConnectWithoutBudgetListInput
+    upsert?: BudUserUpsertWithoutBudgetListInput
+    connect?: BudUserWhereUniqueInput
+    update?: XOR<XOR<BudUserUpdateToOneWithWhereWithoutBudgetListInput, BudUserUpdateWithoutBudgetListInput>, BudUserUncheckedUpdateWithoutBudgetListInput>
+  }
+
+  export type BudgetUpdateOneRequiredWithoutUserListNestedInput = {
+    create?: XOR<BudgetCreateWithoutUserListInput, BudgetUncheckedCreateWithoutUserListInput>
+    connectOrCreate?: BudgetCreateOrConnectWithoutUserListInput
+    upsert?: BudgetUpsertWithoutUserListInput
+    connect?: BudgetWhereUniqueInput
+    update?: XOR<XOR<BudgetUpdateToOneWithWhereWithoutUserListInput, BudgetUpdateWithoutUserListInput>, BudgetUncheckedUpdateWithoutUserListInput>
+  }
+
+  export type BudEventCreatecategoryListInput = {
+    set: string[]
+  }
+
+  export type BudUserCreateNestedOneWithoutEventListInput = {
+    create?: XOR<BudUserCreateWithoutEventListInput, BudUserUncheckedCreateWithoutEventListInput>
+    connectOrCreate?: BudUserCreateOrConnectWithoutEventListInput
+    connect?: BudUserWhereUniqueInput
+  }
+
+  export type BudEventUpdatecategoryListInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type BudUserUpdateOneRequiredWithoutEventListNestedInput = {
+    create?: XOR<BudUserCreateWithoutEventListInput, BudUserUncheckedCreateWithoutEventListInput>
+    connectOrCreate?: BudUserCreateOrConnectWithoutEventListInput
+    upsert?: BudUserUpsertWithoutEventListInput
+    connect?: BudUserWhereUniqueInput
+    update?: XOR<XOR<BudUserUpdateToOneWithWhereWithoutEventListInput, BudUserUpdateWithoutEventListInput>, BudUserUncheckedUpdateWithoutEventListInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -60411,6 +69511,658 @@ export namespace Prisma {
     tagArrowList?: BlogPostTagArrowUncheckedUpdateManyWithoutPostNestedInput
   }
 
+  export type ServiceCreateWithoutEntryListInput = {
+    id?: string
+    description: string
+    category: string
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ServiceUncheckedCreateWithoutEntryListInput = {
+    id?: string
+    description: string
+    category: string
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ServiceCreateOrConnectWithoutEntryListInput = {
+    where: ServiceWhereUniqueInput
+    create: XOR<ServiceCreateWithoutEntryListInput, ServiceUncheckedCreateWithoutEntryListInput>
+  }
+
+  export type BudgetCreateWithoutEntryListInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    report?: ReportCreateNestedOneWithoutBudgetInput
+    userList?: BudgetBudUserCreateNestedManyWithoutBudgetInput
+  }
+
+  export type BudgetUncheckedCreateWithoutEntryListInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    report?: ReportUncheckedCreateNestedOneWithoutBudgetInput
+    userList?: BudgetBudUserUncheckedCreateNestedManyWithoutBudgetInput
+  }
+
+  export type BudgetCreateOrConnectWithoutEntryListInput = {
+    where: BudgetWhereUniqueInput
+    create: XOR<BudgetCreateWithoutEntryListInput, BudgetUncheckedCreateWithoutEntryListInput>
+  }
+
+  export type ServiceUpsertWithoutEntryListInput = {
+    update: XOR<ServiceUpdateWithoutEntryListInput, ServiceUncheckedUpdateWithoutEntryListInput>
+    create: XOR<ServiceCreateWithoutEntryListInput, ServiceUncheckedCreateWithoutEntryListInput>
+    where?: ServiceWhereInput
+  }
+
+  export type ServiceUpdateToOneWithWhereWithoutEntryListInput = {
+    where?: ServiceWhereInput
+    data: XOR<ServiceUpdateWithoutEntryListInput, ServiceUncheckedUpdateWithoutEntryListInput>
+  }
+
+  export type ServiceUpdateWithoutEntryListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceUncheckedUpdateWithoutEntryListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetUpsertWithoutEntryListInput = {
+    update: XOR<BudgetUpdateWithoutEntryListInput, BudgetUncheckedUpdateWithoutEntryListInput>
+    create: XOR<BudgetCreateWithoutEntryListInput, BudgetUncheckedCreateWithoutEntryListInput>
+    where?: BudgetWhereInput
+  }
+
+  export type BudgetUpdateToOneWithWhereWithoutEntryListInput = {
+    where?: BudgetWhereInput
+    data: XOR<BudgetUpdateWithoutEntryListInput, BudgetUncheckedUpdateWithoutEntryListInput>
+  }
+
+  export type BudgetUpdateWithoutEntryListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    report?: ReportUpdateOneWithoutBudgetNestedInput
+    userList?: BudgetBudUserUpdateManyWithoutBudgetNestedInput
+  }
+
+  export type BudgetUncheckedUpdateWithoutEntryListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    report?: ReportUncheckedUpdateOneWithoutBudgetNestedInput
+    userList?: BudgetBudUserUncheckedUpdateManyWithoutBudgetNestedInput
+  }
+
+  export type BudgetEntryCreateWithoutServiceInput = {
+    id?: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budget: BudgetCreateNestedOneWithoutEntryListInput
+  }
+
+  export type BudgetEntryUncheckedCreateWithoutServiceInput = {
+    id?: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetId: string
+  }
+
+  export type BudgetEntryCreateOrConnectWithoutServiceInput = {
+    where: BudgetEntryWhereUniqueInput
+    create: XOR<BudgetEntryCreateWithoutServiceInput, BudgetEntryUncheckedCreateWithoutServiceInput>
+  }
+
+  export type BudgetEntryCreateManyServiceInputEnvelope = {
+    data: BudgetEntryCreateManyServiceInput | BudgetEntryCreateManyServiceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BudgetEntryUpsertWithWhereUniqueWithoutServiceInput = {
+    where: BudgetEntryWhereUniqueInput
+    update: XOR<BudgetEntryUpdateWithoutServiceInput, BudgetEntryUncheckedUpdateWithoutServiceInput>
+    create: XOR<BudgetEntryCreateWithoutServiceInput, BudgetEntryUncheckedCreateWithoutServiceInput>
+  }
+
+  export type BudgetEntryUpdateWithWhereUniqueWithoutServiceInput = {
+    where: BudgetEntryWhereUniqueInput
+    data: XOR<BudgetEntryUpdateWithoutServiceInput, BudgetEntryUncheckedUpdateWithoutServiceInput>
+  }
+
+  export type BudgetEntryUpdateManyWithWhereWithoutServiceInput = {
+    where: BudgetEntryScalarWhereInput
+    data: XOR<BudgetEntryUpdateManyMutationInput, BudgetEntryUncheckedUpdateManyWithoutServiceInput>
+  }
+
+  export type BudgetEntryScalarWhereInput = {
+    AND?: BudgetEntryScalarWhereInput | BudgetEntryScalarWhereInput[]
+    OR?: BudgetEntryScalarWhereInput[]
+    NOT?: BudgetEntryScalarWhereInput | BudgetEntryScalarWhereInput[]
+    id?: StringFilter<"BudgetEntry"> | string
+    serviceId?: StringFilter<"BudgetEntry"> | string
+    cost?: FloatFilter<"BudgetEntry"> | number
+    discount?: FloatFilter<"BudgetEntry"> | number
+    promotion?: FloatFilter<"BudgetEntry"> | number
+    subtotal?: FloatFilter<"BudgetEntry"> | number
+    percentChange?: FloatFilter<"BudgetEntry"> | number
+    createdAt?: DateTimeFilter<"BudgetEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"BudgetEntry"> | Date | string
+    budgetId?: StringFilter<"BudgetEntry"> | string
+  }
+
+  export type BudgetEntryCreateWithoutBudgetInput = {
+    id?: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    service: ServiceCreateNestedOneWithoutEntryListInput
+  }
+
+  export type BudgetEntryUncheckedCreateWithoutBudgetInput = {
+    id?: string
+    serviceId: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BudgetEntryCreateOrConnectWithoutBudgetInput = {
+    where: BudgetEntryWhereUniqueInput
+    create: XOR<BudgetEntryCreateWithoutBudgetInput, BudgetEntryUncheckedCreateWithoutBudgetInput>
+  }
+
+  export type BudgetEntryCreateManyBudgetInputEnvelope = {
+    data: BudgetEntryCreateManyBudgetInput | BudgetEntryCreateManyBudgetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ReportCreateWithoutBudgetInput = {
+    id?: string
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReportUncheckedCreateWithoutBudgetInput = {
+    id?: string
+    totalCost: number
+    totalDiscount: number
+    totalPromotion: number
+    totalSubtotal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReportCreateOrConnectWithoutBudgetInput = {
+    where: ReportWhereUniqueInput
+    create: XOR<ReportCreateWithoutBudgetInput, ReportUncheckedCreateWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserCreateWithoutBudgetInput = {
+    role: string
+    ability: string
+    category: string
+    user: BudUserCreateNestedOneWithoutBudgetListInput
+  }
+
+  export type BudgetBudUserUncheckedCreateWithoutBudgetInput = {
+    userId: string
+    role: string
+    ability: string
+    category: string
+  }
+
+  export type BudgetBudUserCreateOrConnectWithoutBudgetInput = {
+    where: BudgetBudUserWhereUniqueInput
+    create: XOR<BudgetBudUserCreateWithoutBudgetInput, BudgetBudUserUncheckedCreateWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserCreateManyBudgetInputEnvelope = {
+    data: BudgetBudUserCreateManyBudgetInput | BudgetBudUserCreateManyBudgetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BudgetEntryUpsertWithWhereUniqueWithoutBudgetInput = {
+    where: BudgetEntryWhereUniqueInput
+    update: XOR<BudgetEntryUpdateWithoutBudgetInput, BudgetEntryUncheckedUpdateWithoutBudgetInput>
+    create: XOR<BudgetEntryCreateWithoutBudgetInput, BudgetEntryUncheckedCreateWithoutBudgetInput>
+  }
+
+  export type BudgetEntryUpdateWithWhereUniqueWithoutBudgetInput = {
+    where: BudgetEntryWhereUniqueInput
+    data: XOR<BudgetEntryUpdateWithoutBudgetInput, BudgetEntryUncheckedUpdateWithoutBudgetInput>
+  }
+
+  export type BudgetEntryUpdateManyWithWhereWithoutBudgetInput = {
+    where: BudgetEntryScalarWhereInput
+    data: XOR<BudgetEntryUpdateManyMutationInput, BudgetEntryUncheckedUpdateManyWithoutBudgetInput>
+  }
+
+  export type ReportUpsertWithoutBudgetInput = {
+    update: XOR<ReportUpdateWithoutBudgetInput, ReportUncheckedUpdateWithoutBudgetInput>
+    create: XOR<ReportCreateWithoutBudgetInput, ReportUncheckedCreateWithoutBudgetInput>
+    where?: ReportWhereInput
+  }
+
+  export type ReportUpdateToOneWithWhereWithoutBudgetInput = {
+    where?: ReportWhereInput
+    data: XOR<ReportUpdateWithoutBudgetInput, ReportUncheckedUpdateWithoutBudgetInput>
+  }
+
+  export type ReportUpdateWithoutBudgetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalCost?: FloatFieldUpdateOperationsInput | number
+    totalDiscount?: FloatFieldUpdateOperationsInput | number
+    totalPromotion?: FloatFieldUpdateOperationsInput | number
+    totalSubtotal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReportUncheckedUpdateWithoutBudgetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalCost?: FloatFieldUpdateOperationsInput | number
+    totalDiscount?: FloatFieldUpdateOperationsInput | number
+    totalPromotion?: FloatFieldUpdateOperationsInput | number
+    totalSubtotal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetBudUserUpsertWithWhereUniqueWithoutBudgetInput = {
+    where: BudgetBudUserWhereUniqueInput
+    update: XOR<BudgetBudUserUpdateWithoutBudgetInput, BudgetBudUserUncheckedUpdateWithoutBudgetInput>
+    create: XOR<BudgetBudUserCreateWithoutBudgetInput, BudgetBudUserUncheckedCreateWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserUpdateWithWhereUniqueWithoutBudgetInput = {
+    where: BudgetBudUserWhereUniqueInput
+    data: XOR<BudgetBudUserUpdateWithoutBudgetInput, BudgetBudUserUncheckedUpdateWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserUpdateManyWithWhereWithoutBudgetInput = {
+    where: BudgetBudUserScalarWhereInput
+    data: XOR<BudgetBudUserUpdateManyMutationInput, BudgetBudUserUncheckedUpdateManyWithoutBudgetInput>
+  }
+
+  export type BudgetBudUserScalarWhereInput = {
+    AND?: BudgetBudUserScalarWhereInput | BudgetBudUserScalarWhereInput[]
+    OR?: BudgetBudUserScalarWhereInput[]
+    NOT?: BudgetBudUserScalarWhereInput | BudgetBudUserScalarWhereInput[]
+    userId?: StringFilter<"BudgetBudUser"> | string
+    budgetId?: StringFilter<"BudgetBudUser"> | string
+    role?: StringFilter<"BudgetBudUser"> | string
+    ability?: StringFilter<"BudgetBudUser"> | string
+    category?: StringFilter<"BudgetBudUser"> | string
+  }
+
+  export type BudgetCreateWithoutReportInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    entryList?: BudgetEntryCreateNestedManyWithoutBudgetInput
+    userList?: BudgetBudUserCreateNestedManyWithoutBudgetInput
+  }
+
+  export type BudgetUncheckedCreateWithoutReportInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    entryList?: BudgetEntryUncheckedCreateNestedManyWithoutBudgetInput
+    userList?: BudgetBudUserUncheckedCreateNestedManyWithoutBudgetInput
+  }
+
+  export type BudgetCreateOrConnectWithoutReportInput = {
+    where: BudgetWhereUniqueInput
+    create: XOR<BudgetCreateWithoutReportInput, BudgetUncheckedCreateWithoutReportInput>
+  }
+
+  export type BudgetUpsertWithoutReportInput = {
+    update: XOR<BudgetUpdateWithoutReportInput, BudgetUncheckedUpdateWithoutReportInput>
+    create: XOR<BudgetCreateWithoutReportInput, BudgetUncheckedCreateWithoutReportInput>
+    where?: BudgetWhereInput
+  }
+
+  export type BudgetUpdateToOneWithWhereWithoutReportInput = {
+    where?: BudgetWhereInput
+    data: XOR<BudgetUpdateWithoutReportInput, BudgetUncheckedUpdateWithoutReportInput>
+  }
+
+  export type BudgetUpdateWithoutReportInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryList?: BudgetEntryUpdateManyWithoutBudgetNestedInput
+    userList?: BudgetBudUserUpdateManyWithoutBudgetNestedInput
+  }
+
+  export type BudgetUncheckedUpdateWithoutReportInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryList?: BudgetEntryUncheckedUpdateManyWithoutBudgetNestedInput
+    userList?: BudgetBudUserUncheckedUpdateManyWithoutBudgetNestedInput
+  }
+
+  export type BudgetBudUserCreateWithoutUserInput = {
+    role: string
+    ability: string
+    category: string
+    budget: BudgetCreateNestedOneWithoutUserListInput
+  }
+
+  export type BudgetBudUserUncheckedCreateWithoutUserInput = {
+    budgetId: string
+    role: string
+    ability: string
+    category: string
+  }
+
+  export type BudgetBudUserCreateOrConnectWithoutUserInput = {
+    where: BudgetBudUserWhereUniqueInput
+    create: XOR<BudgetBudUserCreateWithoutUserInput, BudgetBudUserUncheckedCreateWithoutUserInput>
+  }
+
+  export type BudgetBudUserCreateManyUserInputEnvelope = {
+    data: BudgetBudUserCreateManyUserInput | BudgetBudUserCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BudEventCreateWithoutBudUserInput = {
+    id?: string
+    type: string
+    description: string
+    categoryList?: BudEventCreatecategoryListInput | string[]
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BudEventUncheckedCreateWithoutBudUserInput = {
+    id?: string
+    type: string
+    description: string
+    categoryList?: BudEventCreatecategoryListInput | string[]
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BudEventCreateOrConnectWithoutBudUserInput = {
+    where: BudEventWhereUniqueInput
+    create: XOR<BudEventCreateWithoutBudUserInput, BudEventUncheckedCreateWithoutBudUserInput>
+  }
+
+  export type BudEventCreateManyBudUserInputEnvelope = {
+    data: BudEventCreateManyBudUserInput | BudEventCreateManyBudUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BudgetBudUserUpsertWithWhereUniqueWithoutUserInput = {
+    where: BudgetBudUserWhereUniqueInput
+    update: XOR<BudgetBudUserUpdateWithoutUserInput, BudgetBudUserUncheckedUpdateWithoutUserInput>
+    create: XOR<BudgetBudUserCreateWithoutUserInput, BudgetBudUserUncheckedCreateWithoutUserInput>
+  }
+
+  export type BudgetBudUserUpdateWithWhereUniqueWithoutUserInput = {
+    where: BudgetBudUserWhereUniqueInput
+    data: XOR<BudgetBudUserUpdateWithoutUserInput, BudgetBudUserUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BudgetBudUserUpdateManyWithWhereWithoutUserInput = {
+    where: BudgetBudUserScalarWhereInput
+    data: XOR<BudgetBudUserUpdateManyMutationInput, BudgetBudUserUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type BudEventUpsertWithWhereUniqueWithoutBudUserInput = {
+    where: BudEventWhereUniqueInput
+    update: XOR<BudEventUpdateWithoutBudUserInput, BudEventUncheckedUpdateWithoutBudUserInput>
+    create: XOR<BudEventCreateWithoutBudUserInput, BudEventUncheckedCreateWithoutBudUserInput>
+  }
+
+  export type BudEventUpdateWithWhereUniqueWithoutBudUserInput = {
+    where: BudEventWhereUniqueInput
+    data: XOR<BudEventUpdateWithoutBudUserInput, BudEventUncheckedUpdateWithoutBudUserInput>
+  }
+
+  export type BudEventUpdateManyWithWhereWithoutBudUserInput = {
+    where: BudEventScalarWhereInput
+    data: XOR<BudEventUpdateManyMutationInput, BudEventUncheckedUpdateManyWithoutBudUserInput>
+  }
+
+  export type BudEventScalarWhereInput = {
+    AND?: BudEventScalarWhereInput | BudEventScalarWhereInput[]
+    OR?: BudEventScalarWhereInput[]
+    NOT?: BudEventScalarWhereInput | BudEventScalarWhereInput[]
+    id?: StringFilter<"BudEvent"> | string
+    type?: StringFilter<"BudEvent"> | string
+    description?: StringFilter<"BudEvent"> | string
+    categoryList?: StringNullableListFilter<"BudEvent">
+    metadata?: JsonFilter<"BudEvent">
+    budUserId?: StringFilter<"BudEvent"> | string
+    createdAt?: DateTimeFilter<"BudEvent"> | Date | string
+  }
+
+  export type BudUserCreateWithoutBudgetListInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    eventList?: BudEventCreateNestedManyWithoutBudUserInput
+  }
+
+  export type BudUserUncheckedCreateWithoutBudgetListInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    eventList?: BudEventUncheckedCreateNestedManyWithoutBudUserInput
+  }
+
+  export type BudUserCreateOrConnectWithoutBudgetListInput = {
+    where: BudUserWhereUniqueInput
+    create: XOR<BudUserCreateWithoutBudgetListInput, BudUserUncheckedCreateWithoutBudgetListInput>
+  }
+
+  export type BudgetCreateWithoutUserListInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    entryList?: BudgetEntryCreateNestedManyWithoutBudgetInput
+    report?: ReportCreateNestedOneWithoutBudgetInput
+  }
+
+  export type BudgetUncheckedCreateWithoutUserListInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fiscalYear: number
+    reportId?: string | null
+    entryList?: BudgetEntryUncheckedCreateNestedManyWithoutBudgetInput
+    report?: ReportUncheckedCreateNestedOneWithoutBudgetInput
+  }
+
+  export type BudgetCreateOrConnectWithoutUserListInput = {
+    where: BudgetWhereUniqueInput
+    create: XOR<BudgetCreateWithoutUserListInput, BudgetUncheckedCreateWithoutUserListInput>
+  }
+
+  export type BudUserUpsertWithoutBudgetListInput = {
+    update: XOR<BudUserUpdateWithoutBudgetListInput, BudUserUncheckedUpdateWithoutBudgetListInput>
+    create: XOR<BudUserCreateWithoutBudgetListInput, BudUserUncheckedCreateWithoutBudgetListInput>
+    where?: BudUserWhereInput
+  }
+
+  export type BudUserUpdateToOneWithWhereWithoutBudgetListInput = {
+    where?: BudUserWhereInput
+    data: XOR<BudUserUpdateWithoutBudgetListInput, BudUserUncheckedUpdateWithoutBudgetListInput>
+  }
+
+  export type BudUserUpdateWithoutBudgetListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventList?: BudEventUpdateManyWithoutBudUserNestedInput
+  }
+
+  export type BudUserUncheckedUpdateWithoutBudgetListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventList?: BudEventUncheckedUpdateManyWithoutBudUserNestedInput
+  }
+
+  export type BudgetUpsertWithoutUserListInput = {
+    update: XOR<BudgetUpdateWithoutUserListInput, BudgetUncheckedUpdateWithoutUserListInput>
+    create: XOR<BudgetCreateWithoutUserListInput, BudgetUncheckedCreateWithoutUserListInput>
+    where?: BudgetWhereInput
+  }
+
+  export type BudgetUpdateToOneWithWhereWithoutUserListInput = {
+    where?: BudgetWhereInput
+    data: XOR<BudgetUpdateWithoutUserListInput, BudgetUncheckedUpdateWithoutUserListInput>
+  }
+
+  export type BudgetUpdateWithoutUserListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryList?: BudgetEntryUpdateManyWithoutBudgetNestedInput
+    report?: ReportUpdateOneWithoutBudgetNestedInput
+  }
+
+  export type BudgetUncheckedUpdateWithoutUserListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fiscalYear?: IntFieldUpdateOperationsInput | number
+    reportId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryList?: BudgetEntryUncheckedUpdateManyWithoutBudgetNestedInput
+    report?: ReportUncheckedUpdateOneWithoutBudgetNestedInput
+  }
+
+  export type BudUserCreateWithoutEventListInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetList?: BudgetBudUserCreateNestedManyWithoutUserInput
+  }
+
+  export type BudUserUncheckedCreateWithoutEventListInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetList?: BudgetBudUserUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type BudUserCreateOrConnectWithoutEventListInput = {
+    where: BudUserWhereUniqueInput
+    create: XOR<BudUserCreateWithoutEventListInput, BudUserUncheckedCreateWithoutEventListInput>
+  }
+
+  export type BudUserUpsertWithoutEventListInput = {
+    update: XOR<BudUserUpdateWithoutEventListInput, BudUserUncheckedUpdateWithoutEventListInput>
+    create: XOR<BudUserCreateWithoutEventListInput, BudUserUncheckedCreateWithoutEventListInput>
+    where?: BudUserWhereInput
+  }
+
+  export type BudUserUpdateToOneWithWhereWithoutEventListInput = {
+    where?: BudUserWhereInput
+    data: XOR<BudUserUpdateWithoutEventListInput, BudUserUncheckedUpdateWithoutEventListInput>
+  }
+
+  export type BudUserUpdateWithoutEventListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetList?: BudgetBudUserUpdateManyWithoutUserNestedInput
+  }
+
+  export type BudUserUncheckedUpdateWithoutEventListInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetList?: BudgetBudUserUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type AppointmentCreateManyAppointmentTypeInput = {
     id?: string
     uuid: string
@@ -63153,6 +72905,194 @@ export namespace Prisma {
     spaceTimeCoordinatesId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type BudgetEntryCreateManyServiceInput = {
+    id?: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    budgetId: string
+  }
+
+  export type BudgetEntryUpdateWithoutServiceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budget?: BudgetUpdateOneRequiredWithoutEntryListNestedInput
+  }
+
+  export type BudgetEntryUncheckedUpdateWithoutServiceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetEntryUncheckedUpdateManyWithoutServiceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    budgetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetEntryCreateManyBudgetInput = {
+    id?: string
+    serviceId: string
+    cost: number
+    discount: number
+    promotion: number
+    subtotal: number
+    percentChange: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BudgetBudUserCreateManyBudgetInput = {
+    userId: string
+    role: string
+    ability: string
+    category: string
+  }
+
+  export type BudgetEntryUpdateWithoutBudgetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    service?: ServiceUpdateOneRequiredWithoutEntryListNestedInput
+  }
+
+  export type BudgetEntryUncheckedUpdateWithoutBudgetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    serviceId?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetEntryUncheckedUpdateManyWithoutBudgetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    serviceId?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    promotion?: FloatFieldUpdateOperationsInput | number
+    subtotal?: FloatFieldUpdateOperationsInput | number
+    percentChange?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudgetBudUserUpdateWithoutBudgetInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    user?: BudUserUpdateOneRequiredWithoutBudgetListNestedInput
+  }
+
+  export type BudgetBudUserUncheckedUpdateWithoutBudgetInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetBudUserUncheckedUpdateManyWithoutBudgetInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetBudUserCreateManyUserInput = {
+    budgetId: string
+    role: string
+    ability: string
+    category: string
+  }
+
+  export type BudEventCreateManyBudUserInput = {
+    id?: string
+    type: string
+    description: string
+    categoryList?: BudEventCreatecategoryListInput | string[]
+    metadata: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BudgetBudUserUpdateWithoutUserInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    budget?: BudgetUpdateOneRequiredWithoutUserListNestedInput
+  }
+
+  export type BudgetBudUserUncheckedUpdateWithoutUserInput = {
+    budgetId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudgetBudUserUncheckedUpdateManyWithoutUserInput = {
+    budgetId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    ability?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BudEventUpdateWithoutBudUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudEventUncheckedUpdateWithoutBudUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BudEventUncheckedUpdateManyWithoutBudUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    categoryList?: BudEventUpdatecategoryListInput | string[]
+    metadata?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
 
 
   /**
@@ -63250,6 +73190,18 @@ export namespace Prisma {
      * @deprecated Use BlogPostAuthorCountOutputTypeDefaultArgs instead
      */
     export type BlogPostAuthorCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BlogPostAuthorCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ServiceCountOutputTypeDefaultArgs instead
+     */
+    export type ServiceCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ServiceCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudgetCountOutputTypeDefaultArgs instead
+     */
+    export type BudgetCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudgetCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudUserCountOutputTypeDefaultArgs instead
+     */
+    export type BudUserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudUserCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use AppointmentDefaultArgs instead
      */
@@ -63398,6 +73350,34 @@ export namespace Prisma {
      * @deprecated Use SpaceTimeCoordinatesDefaultArgs instead
      */
     export type SpaceTimeCoordinatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SpaceTimeCoordinatesDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudgetEntryDefaultArgs instead
+     */
+    export type BudgetEntryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudgetEntryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ServiceDefaultArgs instead
+     */
+    export type ServiceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ServiceDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudgetDefaultArgs instead
+     */
+    export type BudgetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudgetDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ReportDefaultArgs instead
+     */
+    export type ReportArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ReportDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudUserDefaultArgs instead
+     */
+    export type BudUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudUserDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudgetBudUserDefaultArgs instead
+     */
+    export type BudgetBudUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudgetBudUserDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BudEventDefaultArgs instead
+     */
+    export type BudEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BudEventDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
